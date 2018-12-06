@@ -1,7 +1,11 @@
 /home/user/Projects/lowell-dashboard
+
 ├── lowell-dashboard/
+
 │   ├── __init__.py
+
 │   ├── db.py
+
 │   ├── schema.sql
 
 │   ├── auth.py
