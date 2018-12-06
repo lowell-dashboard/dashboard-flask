@@ -1,8 +1,8 @@
 ## Table of Contents
   * [App Design](#app-design)
     * [Objective](#objective)
-    * [Gameplay Mechanics](#gameplay-mechanics)
-    * [Level Design](#level-design)
+    * [Gameplay Mechanics](#app-features)
+    * [Level Design](#ui-design)
   * [Technical](#technical)
     * [Scenes](#scenes)
     * [Controls/Input](#controlsinput)
