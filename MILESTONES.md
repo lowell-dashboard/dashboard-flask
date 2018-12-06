@@ -24,6 +24,12 @@
 
 #### App features
 [detail the app features, do not include anything about UI]
+- Post homework
+- Rate my teacher
+- Lowell news
+- Lowell announcements
+- Schedule
+- TheLowell.org
 
 #### UI Design
 [describe what a typical oage would look like]
