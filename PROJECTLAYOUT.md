@@ -24,15 +24,15 @@
 
 │   │   └── announcements/
 
-│   │       ├── create.html
+│   │   |   ├── create.html
 
-│   │       ├── index.html
+│   │   |   ├── index.html
 
-│   │       └── update.html	
+│   │   |   └── update.html	
 
 │   └── static/
 
-│       └── style.css
+│   |   └── style.css
 
 ├── tests/
 
