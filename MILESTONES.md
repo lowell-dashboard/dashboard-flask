@@ -1,8 +1,8 @@
 ## Table of Contents
   * [App Design](#app-design)
     * [Objective](#objective)
-    * [Gameplay Mechanics](#gameplay-mechanics)
-    * [Level Design](#level-design)
+    * [Gameplay Mechanics](#app-features)
+    * [Level Design](#ui-design)
   * [Technical](#technical)
     * [Scenes](#scenes)
     * [Controls/Input](#controlsinput)
@@ -24,6 +24,12 @@
 
 #### App features
 [detail the app features, do not include anything about UI]
+- Post homework
+- Rate my teacher
+- Lowell news
+- Lowell announcements
+- Schedule
+- TheLowell.org
 
 #### UI Design
 [describe what a typical oage would look like]
