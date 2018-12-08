@@ -32,6 +32,7 @@ An easy place for Lowell students to get up to date resources, easy to find info
 - Schedule
 - TheLowell.org
 - Online Resources (Textbooks etc.)
+- Class descriptions
 
 #### UI Design
 [describe what a typical oage would look like]
