@@ -23,19 +23,26 @@
 A site built by students for students.
 An easy place for Lowell students to get up to date resources, easy to find information about Lowell, and more help for Lowell students. This site can help to reduce stress with easy access to enything a Lowell student would need.
 
-#### App features
-
-- Post homework
-- Rate my teacher
-- Lowell news
+#### App features (Ordered in most important to last)
+- Homework assignments
+- Rate my Teacher
+- Scheldule
+- Textbooks
 - Lowell announcements
-- Schedule
-- TheLowell.org
-- Online Resources (Textbooks etc.)
-- Class descriptions
+- Lowell Articles
+
+### Completed Features
+- [ ] Post homework
+- [ ] Rate my teacher
+- [ ] Lowell news
+- [ ] Lowell announcements
+- [ ] Schedule
+- [ ] TheLowell.org
+- [ ] Online Resources (Textbooks etc.)
+- [ ] Class descriptions
 
 #### UI Design
-[describe what a typical oage would look like]
+[describe what a typical page would look like]
 
 [Back to top ^](#)
 
