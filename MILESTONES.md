@@ -1,10 +1,10 @@
 ## Table of Contents
   * [App Design](#app-design)
     * [Objective](#objective)
-    * [Gameplay Mechanics](#app-features)
-    * [Level Design](#ui-design)
+    * [App Features](#app-features)
+    * [User Interface Design](#ui-design)
   * [Technical](#technical)
-    * [Scenes](#scenes)
+    * [Login](#login)
     * [Controls/Input](#controlsinput)
     * [Classes](#classessks)
   * [MVP Milestones](#mvp-milestones)
@@ -21,7 +21,7 @@
 
 #### Objective
 A site built by students for students.
-An easy place for Lowell students to get up to date resources, easy to find information about Lowell, and more help for Lowell students.
+An easy place for Lowell students to get up to date resources, easy to find information about Lowell, and more help for Lowell students. This site can help to reduce stress with easy access to enything a Lowell student would need.
 
 #### App features
 
@@ -42,8 +42,8 @@ An easy place for Lowell students to get up to date resources, easy to find info
 
 ### Technical
 
-#### Scenes
-* [list the different scenes/screens used in the game]
+#### Login
+* We will use an easy system to login to access needed data and resources
 
 #### Controls/Input
 [describe the control scheme used in the game]
@@ -59,28 +59,28 @@ An easy place for Lowell students to get up to date resources, easy to find info
 ---
 
 ### MVP Milestones
-[The overall milestones of first playable build, core gameplay, and polish are just suggestions, plan to finish earlier if possible. The last 20% of work tends to take about as much time as the first 80% so do not slack off on your milestones!]
+Milestones we hope to achieve in the coming weeks
 
 #### Week 1
-_planing your game_
-* [goals for the week]
+* Get survey completed and sent to students of Lowell
+* Get base site made
+* Start login system
 
 #### Week 2
-_finishing a playable build_
-* [goals for the week, should be finishing a playable game]
+* Get certain tabs and resources completed
+* Start testing of added features
+* Hope to complete some of the classes features
 
 #### Week 3
-* [goals for the week]
+* Correct bugs and test features
 
 #### Week 4
-* [goals for the week, should be finishing all core gameplay]
+* Start testing on a cloud/hosting system
 
 #### Week 5
-_starting the polish_
-* [goals for the week]
+* Potentially release first version
 
 #### Week 6
-_submitting to the App Store_
-* [goals for the week, should be finishing the polish -- demo day on Saturday!]
+* Add more features and fix any bugs
 
 [Back to top ^](#)
