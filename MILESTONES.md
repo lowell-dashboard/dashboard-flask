@@ -34,7 +34,7 @@ An easy place for Lowell students to get up to date resources, easy to find info
 - Lowell Articles
 
 #### Completed Features
-##### (Ordered in most important to last)
+##### (Ordered in most important to least important)
 - [ ] Post homework
 - [ ] Rate my teacher
 - [ ] Lowell news
