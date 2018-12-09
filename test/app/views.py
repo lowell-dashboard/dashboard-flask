@@ -90,10 +90,58 @@ class MyView(BaseView):
 Adds a view: MyView
 	Creates a tab on the menu bar called My View
 		Adds Method1 under My View
-		Adds Medthod2 as a link under MyView
+		Adds Method2 as a link under MyView
 			href - john
+		Adds Method3 as a link under MyView
 """
 appbuilder.add_view(MyView, "Method1", category='My View')
 appbuilder.add_link("Method2", href='/myview/method2/john', category='My View')
 appbuilder.add_link("Method3", href='/myview/method3/john', category='My View')
 
+from flask import render_template, flash
+from flask_appbuilder import SimpleFormView
+from flask_babel import lazy_gettext as _
+from .forms import MyForm
+
+"""
+SimpleFormView: MyFormView
+	# NOTE: must inculde the following vars
+	WTForm: form
+	String: form_title
+	String: Message 
+	
+	form_get:
+		params : [
+				form
+				]
+	form_post:
+		params : [
+				form
+				]
+"""
+class MyFormView(SimpleFormView):
+    form = MyForm
+    form_title = 'This is my first form view'
+    message = 'My form submitted'
+
+    """
+    form_get:
+    	use to prefill the form data
+    	preprocess something on the application
+    """
+    def form_get(self, form):
+        form.field1.data = 'This was prefilled'
+
+    """
+    for_post
+    	post process the form after the user submits it
+    	you can save it to the database
+    	send an email
+    	or any other action
+    """
+    def form_post(self, form):
+        # post process form
+        flash(self.message, 'info')
+
+appbuilder.add_view(MyFormView, "My form View", icon="fa-group", label=_('My form View'),
+                     category="My Forms", category_icon="fa-cogs")
