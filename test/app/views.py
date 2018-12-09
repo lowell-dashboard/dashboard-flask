@@ -46,7 +46,7 @@ class MyView(BaseView):
     def method3(self):
         return self.render_template('method3.html')
 
-appbuilder.add_view(MyView, "News", category='Lowell Information')
-appbuilder.add_link("Method1", href='/method1', category='Lowell Information')
+db.create_all()
+appbuilder.add_view(MyView, "Method1", category='Lowell Information')
 appbuilder.add_link("Method2", href='/method2/john', category='Lowell Information')
-appbuilder.add_link("Method3", href='/news', category='Lowell Information')
+appbuilder.add_link("News", href='/news', category='Lowell Information')
