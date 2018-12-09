@@ -17,7 +17,7 @@ CSRF_ENABLED = True
 # GLOBALS FOR APP Builder
 #------------------------------
 # Uncomment to setup Your App name
-#APP_NAME = "My App Name"
+APP_NAME = "Lowell Help Forum"
 
 # Uncomment to setup Setup an App icon
 #APP_ICON = "static/img/logo.jpg"
@@ -62,7 +62,7 @@ BABEL_DEFAULT_LOCALE = 'en'
 BABEL_DEFAULT_FOLDER = 'translations'
 # The allowed translation for you app
 LANGUAGES = {
-    'en': {'flag':'gb', 'name':'English'},
+    'en': {'flag':'us', 'name':'English'},
     'zh': {'flag':'cn', 'name':'Chinese'},
     'es': {'flag':'es', 'name':'Spanish'},
     'pt': {'flag':'pt', 'name':'Portuguese'},
