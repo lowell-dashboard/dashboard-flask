@@ -109,7 +109,7 @@ SimpleFormView: MyFormView
 	WTForm: form
 	String: form_title
 	String: Message 
-	
+
 	form_get:
 		params : [
 				form
@@ -145,3 +145,73 @@ class MyFormView(SimpleFormView):
 
 appbuilder.add_view(MyFormView, "My form View", icon="fa-group", label=_('My form View'),
                      category="My Forms", category_icon="fa-cogs")
+
+from flask_appbuilder import ModelView
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from .models import ContactGroup, Contact
+
+class ContactModelView(ModelView):
+    datamodel = SQLAInterface(Contact)
+
+    """
+    label_columns - defines the labels for your columns. The framework will define the missing ones for you, with a pretty version of your column names.
+    show_fieldsets - A fieldset (Django style). You can use show_fieldsets, add_fieldsets, edit_fieldsets customize the show, add and edit views independently.
+    """
+    label_columns = {'contact_group':'Contacts Group'}
+    list_columns = ['name','personal_cellphone','birthday','contact_group']
+
+    show_fieldsets = [
+                        (
+                            'Summary',
+                            {'fields':['name','address','contact_group']}
+                        ),
+                        (
+                            'Personal Info',
+                            {'fields':['birthday','personal_phone','personal_cellphone'],'expanded':False}
+                        ),
+                     ]
+
+"""
+ModelView: GroupModelView
+	SQLAInterface: datamodel
+	[ContactModelView]: related_view
+"""
+class GroupModelView(ModelView):
+    """
+    datamodel:
+    	the db abstraction layer.
+    	initialize it with your view's model
+    """
+    datamodel = SQLAInterface(ContactGroup)
+    """
+    related_views:
+        if you want a master/detail view on the show and edit. 
+        FAB will relate 1/N relations automatically, it will display a show or edit view with tab(or accordion) with a list related record. 
+        you can relate charts also
+    """
+    related_views = [ContactModelView]
+
+db.create_all()
+appbuilder.add_view(GroupModelView,
+                    "List Groups",
+                    icon = "fa-folder-open-o",
+                    category = "Contacts",
+                    category_icon = "fa-envelope")
+appbuilder.add_view(ContactModelView,
+                    "List Contacts",
+                    icon = "fa-envelope",
+                    category = "Contacts")	
+
+from flask_appbuilder import MultipleView
+
+"""
+MultipleView: MultipleViewsExp
+	[GroupModelView, ContactModelView]: views
+"""
+class MultipleViewsExp(MultipleView):
+    views = [GroupModelView, ContactModelView]
+
+appbuilder.add_view(MultipleViewsExp,
+                    "Multiple Views",
+                    icon="fa-envelope",
+                    category="Contacts")	
