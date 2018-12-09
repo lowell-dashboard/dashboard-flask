@@ -43,8 +43,9 @@ class MyView(BaseView):
         return param1
 
     @expose('/news')
+    @expose('/news/')
     def method3(self):
-        return self.render_template('method3.html')
+        return self.render_template('news.html')
 
 db.create_all()
 appbuilder.add_view(MyView, "Method1", category='Lowell Information')
