@@ -1,6 +1,6 @@
 from flask import render_template
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder import ModelView
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
 from app import appbuilder, db
 
 """
@@ -24,6 +24,29 @@ from app import appbuilder, db
 def page_not_found(e):
     return render_template('404.html', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
 
-db.create_all()
+class MyView(BaseView):
 
+    #default_view = 'method1'
+    route_base = "/"
 
+    @expose('/method1')
+    def method1(self):
+        # do something with param1
+        # and return to previous page or index
+        return 'Hello'
+
+    @expose('/method2/<string:param1>')
+    def method2(self, param1):
+        # do something with param1
+        # and render template with param
+        param1 = 'Goodbye %s' % (param1)
+        return param1
+
+    @expose('/news')
+    def method3(self):
+        return self.render_template('method3.html')
+
+appbuilder.add_view(MyView, "News", category='Lowell Information')
+appbuilder.add_link("Method1", href='/method1', category='Lowell Information')
+appbuilder.add_link("Method2", href='/method2/john', category='Lowell Information')
+appbuilder.add_link("Method3", href='/news', category='Lowell Information')
