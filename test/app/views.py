@@ -26,28 +26,30 @@ def page_not_found(e):
 
 class MyView(BaseView):
 
-    #default_view = 'method1'
-    route_base = "/"
+    default_view = 'method1'
+    route_base = "/myview"
 
-    @expose('/method1')
+    @expose('/method1/')
+    @has_access
     def method1(self):
         # do something with param1
         # and return to previous page or index
         return 'Hello'
 
     @expose('/method2/<string:param1>')
+    @has_access
     def method2(self, param1):
         # do something with param1
         # and render template with param
         param1 = 'Goodbye %s' % (param1)
         return param1
 
-    @expose('/news')
     @expose('/news/')
+    @has_access
     def method3(self):
         return self.render_template('news.html')
 
 db.create_all()
-appbuilder.add_view(MyView, "Method1", category='Lowell Information')
-appbuilder.add_link("Method2", href='/method2/john', category='Lowell Information')
-appbuilder.add_link("News", href='/news', category='Lowell Information')
+appbuilder.add_view(MyView, "Lowell Information", category='lowellinfo')
+appbuilder.add_link("Method2", href='/myview/method2/john', category='lowellinfo')
+appbuilder.add_link("News", href='/myview/news/', category='lowellinfo')
