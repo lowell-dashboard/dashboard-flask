@@ -2,6 +2,7 @@
   * [App Design](#app-design)
     * [Objective](#objective)
     * [App Features](#app-features)
+    * [Completed Features](#completed-features)
     * [User Interface Design](#ui-design)
   * [Technical](#technical)
     * [Login](#login)
@@ -23,7 +24,8 @@
 A site built by students for students.
 An easy place for Lowell students to get up to date resources, easy to find information about Lowell, and more help for Lowell students. This site can help to reduce stress with easy access to enything a Lowell student would need.
 
-#### App features (Ordered in most important to last)
+#### App features
+
 - Homework assignments
 - Rate my Teacher
 - Scheldule
@@ -31,7 +33,8 @@ An easy place for Lowell students to get up to date resources, easy to find info
 - Lowell announcements
 - Lowell Articles
 
-### Completed Features
+#### Completed Features
+##### (Ordered in most important to least important)
 - [ ] Post homework
 - [ ] Rate my teacher
 - [ ] Lowell news
