@@ -1,7 +1,16 @@
 {% block content %}
     <footer>
       <h4>{{_("Lowell Help Forum")}}</h4>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 center-block">
+            <a href="/login" target=""><p>{{_("Login")}}</p></a>
+          </div>
+          <div class="col-xs-6 center-block">
+            <a href="/bugreport" target=""><p>{{_("Report Bugs")}}</p></a>
+          </div>
+        </div>
+      </div>
       <p>{{_("© Lowell-Dashboard Github Organization")}}</p>
-      <a href="/bugreport" target=""><p>{{_("Report Bugs")}}</p></a>
     </footer>
 {% endblock %}
