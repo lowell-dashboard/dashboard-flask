@@ -45,6 +45,6 @@ class LowellResources(BaseView):
         return self.render_template('schedules.html')
 
 db.create_all()
-appbuilder.add_view(LowellResources, "News", category='Lowell Resources')
-appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
-appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
+appbuilder.add_view(LowellResources, "News", category='resources', label=_('Lowell Resources'))
+appbuilder.add_link("Textbooks", href='/textbooks', category='resources', label=_('Lowell Resources'))
+appbuilder.add_link("Schedules", href='/schedules', category='resources', label=_('Lowell Resources'))
