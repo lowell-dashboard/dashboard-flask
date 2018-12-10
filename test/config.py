@@ -66,7 +66,6 @@ LANGUAGES = {
     'zh': {'flag':'cn', 'name':'Chinese'},
     'es': {'flag':'es', 'name':'Spanish'},
     'pt': {'flag':'pt', 'name':'Portuguese'},
-    'pt_BR': {'flag':'br', 'name': 'Pt Brazil'},
     'de': {'flag':'de', 'name':'German'},
     'ru': {'flag':'ru', 'name':'Russian'},
     'pl': {'flag':'pl', 'name':'Polish'}
