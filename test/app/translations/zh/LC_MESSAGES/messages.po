@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-08 20:26-0800\n"
+"POT-Creation-Date: 2018-12-10 09:20-0800\n"
 "PO-Revision-Date: 2018-12-10 09:19-0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -18,8 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/templates/404.html:4
+#: app/templates/404.html:5
 msgid "Page not found"
+msgstr ""
+
+#: app/templates/404.html:6
+msgid "Go to the Home Page"
 msgstr ""
 
 #: app/templates/my_index.html:5
@@ -32,5 +36,33 @@ msgstr ""
 
 #: app/templates/news.html:3
 msgid "Lowell News"
+msgstr ""
+
+#: app/templates/schedules.html:3
+msgid "Lowell Scedules"
+msgstr ""
+
+#: app/templates/textbooks.html:3
+msgid "Lowell Textbooks"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:3
+msgid "Lowell Help Forum"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:7
+msgid "Login"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:10
+msgid "Report Bugs"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:18
+msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:21
+msgid "View License"
 msgstr ""
 
