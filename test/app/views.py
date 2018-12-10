@@ -24,7 +24,7 @@ from app import appbuilder, db
 def page_not_found(e):
     return render_template('404.html', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
 
-class MyView(BaseView):
+class LowellResources(BaseView):
 
     default_view = 'news'
     route_base = "/"
@@ -34,7 +34,17 @@ class MyView(BaseView):
     def news(self):
         return self.render_template('news.html')
 
+    @expose('/textbooks')
+    @has_access
+    def textbooks(self):
+        return self.render_template('textbooks.html')
+
+    @expose('/schedules')
+    @has_access
+    def schedules(self):
+        return self.render_template('schedules.html')
+
 db.create_all()
-appbuilder.add_view(MyView, "News", category='Lowell Information')
-#appbuilder.add_link("Method2", href='/method2/john', category='Lowell Information')
-#appbuilder.add_link("News", href='/news', category='Lowell Information')
+appbuilder.add_view(LowellResources, "News", category='Lowell Resources')
+appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
+appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
