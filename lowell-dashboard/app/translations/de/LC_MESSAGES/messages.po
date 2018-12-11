@@ -20,11 +20,11 @@ msgstr ""
 
 #: app/templates/404.html:5
 msgid "Page not found"
-msgstr ""
+msgstr "Seite nicht gefunden"
 
 #: app/templates/404.html:6
 msgid "Go to the Home Page"
-msgstr ""
+msgstr "Gehen Sie zur Startseite"
 
 #: app/templates/my_index.html:5
 msgid "My App on F.A.B."
@@ -36,33 +36,32 @@ msgstr ""
 
 #: app/templates/news.html:3
 msgid "Lowell News"
-msgstr ""
+msgstr "Lowell-Nachrichten"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Scedules"
-msgstr ""
+msgid "Lowell Schedules"
+msgstr "Lowell Fahrpläne"
 
 #: app/templates/textbooks.html:3
 msgid "Lowell Textbooks"
-msgstr ""
+msgstr "Lowell-Lehrbücher"
 
 #: app/templates/appbuilder/footer.html:3
 msgid "Lowell Help Forum"
-msgstr ""
+msgstr "Lowell-Hilfeforum"
 
 #: app/templates/appbuilder/footer.html:7
 msgid "Login"
-msgstr ""
+msgstr "Anmeldung"
 
 #: app/templates/appbuilder/footer.html:10
 msgid "Report Bugs"
-msgstr ""
+msgstr "Fehler melden"
 
 #: app/templates/appbuilder/footer.html:18
 msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
-msgstr ""
+msgstr "© Lowell-Dashboard Github-Organisation. Alle Rechte vorbehalten."
 
 #: app/templates/appbuilder/footer.html:21
 msgid "View License"
-msgstr ""
-
+msgstr "Lizenz anzeigen"
