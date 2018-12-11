@@ -1,5 +1,6 @@
 import os
 from flask_appbuilder.security.manager import AUTH_OID, AUTH_REMOTE_USER, AUTH_DB, AUTH_LDAP, AUTH_OAUTH
+import secret
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Your App secret key
@@ -18,7 +19,7 @@ CSRF_ENABLED = True
 # GLOBALS FOR APP Builder
 #------------------------------
 # Uncomment to setup Your App name
-APP_NAME = "Lowell Help Forum"
+APP_NAME = 'Lowell Help Forum'
 
 # Uncomment to setup Setup an App icon
 #APP_ICON = "static/img/logo.jpg"
@@ -43,7 +44,7 @@ AUTH_ROLE_PUBLIC = 'Public'
 AUTH_USER_REGISTRATION = True
 
 # The default user self registration role
-AUTH_USER_REGISTRATION_ROLE = "Public"
+AUTH_USER_REGISTRATION_ROLE = 'Public'
 
 # When using LDAP Auth, setup the ldap server
 #AUTH_LDAP_SERVER = "ldap://ldapserver.new"
@@ -103,3 +104,19 @@ IMG_UPLOAD_URL = '/static/uploads/'
 #APP_THEME = "spacelab.css"
 #APP_THEME = "united.css"
 #APP_THEME = "yeti.css"
+
+# Registration global variables
+AUTH_TYPE = 1 # Database Authentication
+AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION_ROLE = 'Public'
+
+# Config for Flask-WTF Recaptcha necessary for user registration
+RECAPTCHA_PUBLIC_KEY = secret.PUBLIC_RECAPTCHA
+RECAPTCHA_PRIVATE_KEY = secret.SECRET_RECAPTCHA
+
+# Config for Flask-Mail necessary for user registration
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_USE_TLS = True
+MAIL_USERNAME = 'LowellHelpForum@gmail.com'
+MAIL_PASSWORD = secret.EMAIL_PASS
+MAIL_DEFAULT_SENDER = 'LowellHelpForum@gmail.com'
