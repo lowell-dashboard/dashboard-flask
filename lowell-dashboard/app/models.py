@@ -10,5 +10,3 @@ AuditMixin will add automatic timestamp of created and modified by who
 
 
 """
-
-#db.create_all()

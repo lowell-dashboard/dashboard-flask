@@ -34,19 +34,25 @@ APP_NAME = "Lowell Help Forum"
 AUTH_TYPE = AUTH_DB
 
 # Uncomment to setup Full admin role name
-#AUTH_ROLE_ADMIN = 'Admin'
+AUTH_ROLE_ADMIN = 'Admin'
 
 # Uncomment to setup Public role name, no authentication needed
-#AUTH_ROLE_PUBLIC = 'Public'
+AUTH_ROLE_PUBLIC = 'Public'
 
 # Will allow user self registration
-#AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION = True
 
 # The default user self registration role
-#AUTH_USER_REGISTRATION_ROLE = "Public"
+AUTH_USER_REGISTRATION_ROLE = "Public"
 
 # When using LDAP Auth, setup the ldap server
 #AUTH_LDAP_SERVER = "ldap://ldapserver.new"
+
+# RECAPTCHA values
+RECAPTCHA_USE_SSL = False
+RECAPTCHA_PUBLIC_KEY = '6LdXBoAUAAAAAO7b-Q2MKUDBWhyWiv7dQZIcT4PL'
+RECAPTCHA_PRIVATE_KEY = '6LdXBoAUAAAAAArmzR70GKyMG6EQOX7hYFDQIiiQ'
+RECAPTCHA_OPTIONS = {'theme': 'white'}
 
 # Uncomment to setup OpenID providers example for OpenID authentication
 #OPENID_PROVIDERS = [
