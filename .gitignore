@@ -95,3 +95,4 @@ venv.bak/
 .mypy_cache/
 
 lowell-dashboard/app.db
+lowell-dashboard/secret.py
