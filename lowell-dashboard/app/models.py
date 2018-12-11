@@ -22,3 +22,7 @@ class MyRegisterUserDBView(RegisterUserDBView):
     form_title = lazy_gettext('Fill out the registration form')
     error_message = lazy_gettext('Not possible to register you at the moment, try again later')
     message = lazy_gettext('Registration sent to your email')
+
+# Change roles
+class MySecurityManager(SecurityManager):
+    registeruserdbview = MyRegisterUserDBView
