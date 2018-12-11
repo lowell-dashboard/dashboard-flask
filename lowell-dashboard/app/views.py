@@ -69,10 +69,10 @@ class LowellResources(BaseView):
 db.create_all()
 
 # Create appbuilder dropdown menu
-appbuilder.add_view(LowellResources, "News", category='resources', label=_('Lowell Resources'))
+appbuilder.add_view(LowellResources, "News", category='resources', label=('Lowell Resources'))
 
 # Create textbook link in drop down menu
-appbuilder.add_link("Textbooks", href='/textbooks', category='resources', label=_('Lowell Resources'))
+appbuilder.add_link("Textbooks", href='/textbooks', category='resources', label=('Lowell Resources'))
 
 # Create schedules link in drop down menu
-appbuilder.add_link("Schedules", href='/schedules', category='resources', label=_('Lowell Resources'))
+appbuilder.add_link("Schedules", href='/schedules', category='resources', label=('Lowell Resources'))
