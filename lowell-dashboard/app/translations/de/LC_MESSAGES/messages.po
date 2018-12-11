@@ -1,7 +1,7 @@
-# German translations for PROJECT.
-# Copyright (C) 2018 ORGANIZATION
+# German translations for Lowell Help Forum.
+# Copyright (C) 2018 Lowell Help Forum
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# Lowell-Dashboard Github Organization, 2018.
 #
 msgid ""
 msgstr ""
@@ -9,9 +9,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-10 09:20-0800\n"
 "PO-Revision-Date: 2018-12-10 09:19-0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: de\n"
-"Language-Team: de <LL@li.org>\n"
+"Last-Translator: Rafael Cenzano\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: app/templates/404.html:5
 msgid "Page not found"
-msgstr ""
+msgstr "Seite nicht gefunden"
 
 #: app/templates/404.html:6
 msgid "Go to the Home Page"
-msgstr ""
+msgstr "Gehen Sie zur Startseite"
 
 #: app/templates/my_index.html:5
 msgid "My App on F.A.B."
@@ -36,33 +36,32 @@ msgstr ""
 
 #: app/templates/news.html:3
 msgid "Lowell News"
-msgstr ""
+msgstr "Lowell-Nachrichten"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Scedules"
-msgstr ""
+msgid "Lowell Schedules"
+msgstr "Lowell Fahrpläne"
 
 #: app/templates/textbooks.html:3
 msgid "Lowell Textbooks"
-msgstr ""
+msgstr "Lowell-Lehrbücher"
 
 #: app/templates/appbuilder/footer.html:3
 msgid "Lowell Help Forum"
-msgstr ""
+msgstr "Lowell-Hilfeforum"
 
 #: app/templates/appbuilder/footer.html:7
 msgid "Login"
-msgstr ""
+msgstr "Anmeldung"
 
 #: app/templates/appbuilder/footer.html:10
 msgid "Report Bugs"
-msgstr ""
+msgstr "Fehler melden"
 
 #: app/templates/appbuilder/footer.html:18
 msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
-msgstr ""
+msgstr "© Lowell-Dashboard Github-Organisation. Alle Rechte vorbehalten."
 
 #: app/templates/appbuilder/footer.html:21
 msgid "View License"
-msgstr ""
-
+msgstr "Lizenz anzeigen"

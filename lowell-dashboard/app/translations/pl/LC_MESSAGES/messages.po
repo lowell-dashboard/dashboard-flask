@@ -1,7 +1,7 @@
-# Polish translations for PROJECT.
-# Copyright (C) 2018 ORGANIZATION
+# Polish translations for Lowell Help Forum.
+# Copyright (C) 2018 Lowell Help Forum
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# Lowell-Dashboard Github Organization, 2018.
 #
 msgid ""
 msgstr ""
@@ -9,11 +9,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-10 09:20-0800\n"
 "PO-Revision-Date: 2018-12-10 09:19-0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: pl\n"
-"Language-Team: pl <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
-"(n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Last-Translator: Rafael Cenzano\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,11 +20,11 @@ msgstr ""
 
 #: app/templates/404.html:5
 msgid "Page not found"
-msgstr ""
+msgstr "Strona nie znaleziona"
 
 #: app/templates/404.html:6
 msgid "Go to the Home Page"
-msgstr ""
+msgstr "Wróć do strony głównej"
 
 #: app/templates/my_index.html:5
 msgid "My App on F.A.B."
@@ -37,33 +36,32 @@ msgstr ""
 
 #: app/templates/news.html:3
 msgid "Lowell News"
-msgstr ""
+msgstr "Aktualności Lowell"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Scedules"
-msgstr ""
+msgid "Lowell Schedules"
+msgstr "harmonogramy Lowell"
 
 #: app/templates/textbooks.html:3
 msgid "Lowell Textbooks"
-msgstr ""
+msgstr "Podręczniki Lowell"
 
 #: app/templates/appbuilder/footer.html:3
 msgid "Lowell Help Forum"
-msgstr ""
+msgstr "Forum pomocy Lowell"
 
 #: app/templates/appbuilder/footer.html:7
 msgid "Login"
-msgstr ""
+msgstr "Zaloguj Się"
 
 #: app/templates/appbuilder/footer.html:10
 msgid "Report Bugs"
-msgstr ""
+msgstr "Zgłoś błędy"
 
 #: app/templates/appbuilder/footer.html:18
 msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
-msgstr ""
+msgstr "© Lowell-Dashboard Github Organization. Wszelkie prawa zastrzeżone."
 
 #: app/templates/appbuilder/footer.html:21
-msgid "View License"
+msgid "Wyświetl licencję"
 msgstr ""
-

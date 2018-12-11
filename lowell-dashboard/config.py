@@ -9,6 +9,7 @@ SECRET_KEY = str(os.urandom(64))
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 #SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
 #SQLALCHEMY_DATABASE_URI = 'postgresql://root:password@localhost/myapp'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Flask-WTF flag for CSRF
 CSRF_ENABLED = True
@@ -53,6 +54,7 @@ AUTH_TYPE = AUTH_DB
 #    { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
 #    { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
 #    { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
+
 #---------------------------------------------------
 # Babel config for translations
 #---------------------------------------------------
@@ -60,7 +62,7 @@ AUTH_TYPE = AUTH_DB
 BABEL_DEFAULT_LOCALE = 'en'
 # Your application default translation path
 BABEL_DEFAULT_FOLDER = 'translations'
-# The allowed translation for you app
+# The allowed translation for your app
 LANGUAGES = {
     'en': {'flag':'us', 'name':'English'},
     'zh': {'flag':'cn', 'name':'Chinese'},
@@ -70,6 +72,7 @@ LANGUAGES = {
     'ru': {'flag':'ru', 'name':'Russian'},
     'pl': {'flag':'pl', 'name':'Polish'}
 }
+
 #---------------------------------------------------
 # Image and file configuration
 #---------------------------------------------------

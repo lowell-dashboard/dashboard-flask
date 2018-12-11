@@ -1,17 +1,17 @@
-# Portuguese translations for PROJECT.
-# Copyright (C) 2018 ORGANIZATION
+# Portuguese translations for Lowell Help Forum.
+# Copyright (C) 2018 Lowell Help Forum
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# Lowell-Dashboard Github Organization, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-10 09:20-0800\n"
-"PO-Revision-Date: 2018-12-10 09:18-0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: pt\n"
-"Language-Team: pt <LL@li.org>\n"
+"PO-Revision-Date: 2018-12-10 09:19-0800\n"
+"Last-Translator: Rafael Cenzano\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -65,4 +65,3 @@ msgstr ""
 #: app/templates/appbuilder/footer.html:21
 msgid "View License"
 msgstr ""
-
