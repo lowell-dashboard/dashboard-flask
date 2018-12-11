@@ -1,6 +1,7 @@
 from flask import render_template
-from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.security.registerviews import RegisterUserDBView
 from app import appbuilder, db
 
 """
@@ -76,3 +77,12 @@ appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
 
 # Create schedules link in drop down menu
 appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
+
+
+class MyRegisterUserDBView(RegisterUserDBView):
+    email_template = 'register_mail.html'
+    email_subject = lazy_gettext('Your Account activation')
+    activation_template = 'activation.html'
+    form_title = lazy_gettext('Fill out the registration form')
+    error_message = lazy_gettext('Not possible to register you at the moment, try again later')
+    message = lazy_gettext('Registration sent to your email')
