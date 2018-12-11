@@ -61,7 +61,7 @@ AUTH_TYPE = AUTH_DB
 BABEL_DEFAULT_LOCALE = 'en'
 # Your application default translation path
 BABEL_DEFAULT_FOLDER = 'translations'
-# The allowed translation for you app
+# The allowed translation for your app
 LANGUAGES = {
     'en': {'flag':'us', 'name':'English'},
     'zh': {'flag':'cn', 'name':'Chinese'},
