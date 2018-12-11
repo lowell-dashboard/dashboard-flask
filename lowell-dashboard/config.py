@@ -53,6 +53,7 @@ AUTH_TYPE = AUTH_DB
 #    { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
 #    { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
 #    { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
+
 #---------------------------------------------------
 # Babel config for translations
 #---------------------------------------------------
@@ -70,6 +71,7 @@ LANGUAGES = {
     'ru': {'flag':'ru', 'name':'Russian'},
     'pl': {'flag':'pl', 'name':'Polish'}
 }
+
 #---------------------------------------------------
 # Image and file configuration
 #---------------------------------------------------
