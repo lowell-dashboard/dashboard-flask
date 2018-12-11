@@ -1,7 +1,7 @@
-# Spanish translations for PROJECT.
-# Copyright (C) 2018 ORGANIZATION
+# Spanish translations for Lowell Help Forum.
+# Copyright (C) 2018 Lowell Help Forum
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# Lowell-Dashboard Github Organization, 2018.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-12-10 09:20-0800\n"
 "PO-Revision-Date: 2018-12-10 09:19-0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Rafael Cenzano\n"
 "Language: es\n"
 "Language-Team: es <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: app/templates/404.html:5
 msgid "Page not found"
-msgstr ""
+msgstr "Página no encontrada"
 
 #: app/templates/404.html:6
 msgid "Go to the Home Page"
-msgstr ""
+msgstr "Ir a la página de inicio"
 
 #: app/templates/my_index.html:5
 msgid "My App on F.A.B."
@@ -36,33 +36,32 @@ msgstr ""
 
 #: app/templates/news.html:3
 msgid "Lowell News"
-msgstr ""
+msgstr "Lowell Noticias"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Scedules"
-msgstr ""
+msgid "Lowell Schedules"
+msgstr "Horarios Lowell"
 
 #: app/templates/textbooks.html:3
 msgid "Lowell Textbooks"
-msgstr ""
+msgstr "Libros de texto de lowell"
 
 #: app/templates/appbuilder/footer.html:3
 msgid "Lowell Help Forum"
-msgstr ""
+msgstr "Foro de ayuda de Lowell"
 
 #: app/templates/appbuilder/footer.html:7
 msgid "Login"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: app/templates/appbuilder/footer.html:10
 msgid "Report Bugs"
-msgstr ""
+msgstr "Informar de errores"
 
 #: app/templates/appbuilder/footer.html:18
 msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
-msgstr ""
+msgstr "© Lowell-Dashboard Organización Github. Todos los derechos reservados."
 
 #: app/templates/appbuilder/footer.html:21
 msgid "View License"
-msgstr ""
-
+msgstr "Ver licencia"
