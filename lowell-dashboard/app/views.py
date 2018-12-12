@@ -1,7 +1,12 @@
 from flask import render_template
-from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.security.registerviews import RegisterUserDBView
 from app import appbuilder, db
+from flask_babel import lazy_gettext as _
+from flask_appbuilder.security.registerviews import RegisterUserDBView
+from flask_appbuilder.security.sqla.manager import SecurityManager
+
 
 """
     Create your Views::
@@ -15,10 +20,6 @@ from app import appbuilder, db
 
 
     appbuilder.add_view(MyModelView, "My View", icon="fa-folder-open-o", category="My Category", category_icon='fa-envelope')
-"""
-
-"""
-    Application wide 404 error handler
 """
 
 # 404 error handeler to render 404.html jijna2 template
@@ -65,9 +66,6 @@ class LowellResources(BaseView):
     def schedules(self):
         return self.render_template('schedules.html')
 
-# Create any db objects
-db.create_all()
-
 # Create appbuilder dropdown menu
 appbuilder.add_view(LowellResources, "News", category='Lowell Resources')
 
@@ -76,3 +74,19 @@ appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
 
 # Create schedules link in drop down menu
 appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
+
+# Create any db objects
+db.create_all()
+
+# Create Registration system
+class MyRegisterUserDBView(RegisterUserDBView):
+    email_template = 'register_mail.html'
+    email_subject = _('Your Account activation for Lowell Help Forum')
+    activation_template = 'activation.html'
+    form_title = _('Fill out the registration form')
+    error_message = _('Not possible to register you at the moment, try again later')
+    message = _('Registration sent to your email')
+
+# Change roles
+class MySecurityManager(SecurityManager):
+    registeruserdbview = MyRegisterUserDBView
