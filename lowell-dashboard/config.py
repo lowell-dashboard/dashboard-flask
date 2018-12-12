@@ -1,6 +1,9 @@
 import os
 from flask_appbuilder.security.manager import AUTH_OID, AUTH_REMOTE_USER, AUTH_DB, AUTH_LDAP, AUTH_OAUTH
 import secret
+from flask_babel import lazy_gettext as _
+from flask_appbuilder.security.registerviews import RegisterUserDBView
+from flask_appbuilder.security.sqla.manager import SecurityManager
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Your App secret key
@@ -107,16 +110,27 @@ IMG_UPLOAD_URL = '/static/uploads/'
 #APP_THEME = "united.css"
 #APP_THEME = "yeti.css"
 
-# Registration global variables
-AUTH_TYPE = 1 # Database Authentication
-
 # Config for Flask-WTF Recaptcha necessary for user registration
 RECAPTCHA_PUBLIC_KEY = secret.PUBLIC_RECAPTCHA
 RECAPTCHA_PRIVATE_KEY = secret.SECRET_RECAPTCHA
 
 # Config for Flask-Mail necessary for user registration
 MAIL_SERVER = 'smtp.gmail.com'
-MAIL_USE_TLS = True
+MAIL_PORT = 465
+MAIL_USE_SSL = True
 MAIL_USERNAME = 'LowellHelpForum@gmail.com'
 MAIL_PASSWORD = secret.EMAIL_PASS
-MAIL_DEFAULT_SENDER = 'LowellHelpForum@gmail.com'
+MAIL_DEFAULT_SENDER = 'LowellHelpForum <LowellHelpForum@gmail.com>'
+
+# Create Registration system
+class MyRegisterUserDBView(RegisterUserDBView):
+    email_template = 'register_mail.html'
+    email_subject = _('Your Account activation for Lowell Help Forum')
+    activation_template = 'activation.html'
+    form_title = _('Fill out the registration form')
+    error_message = _('Not possible to register you at the moment, try again later')
+    message = _('Registration sent to your email')
+
+# Change roles
+class MySecurityManager(SecurityManager):
+    registeruserdbview = MyRegisterUserDBView

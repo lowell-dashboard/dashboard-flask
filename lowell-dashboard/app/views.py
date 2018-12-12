@@ -3,9 +3,6 @@ from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.registerviews import RegisterUserDBView
 from app import appbuilder, db
-from flask_babel import lazy_gettext as _
-from flask_appbuilder.security.registerviews import RegisterUserDBView
-from flask_appbuilder.security.sqla.manager import SecurityManager
 
 
 """
@@ -77,16 +74,3 @@ appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
 
 # Create any db objects
 db.create_all()
-
-# Create Registration system
-class MyRegisterUserDBView(RegisterUserDBView):
-    email_template = 'register_mail.html'
-    email_subject = _('Your Account activation for Lowell Help Forum')
-    activation_template = 'activation.html'
-    form_title = _('Fill out the registration form')
-    error_message = _('Not possible to register you at the moment, try again later')
-    message = _('Registration sent to your email')
-
-# Change roles
-class MySecurityManager(SecurityManager):
-    registeruserdbview = MyRegisterUserDBView
