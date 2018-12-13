@@ -51,7 +51,7 @@ def main():
             # Print columns A and E, which correspond to indices 0 and 4.
             # print('%s' % (g_row,))
         print(schedule)
-        with open('../result.json', 'w') as f:
+        with open(f'{path}/../result.json', 'w') as f:
             json.dump(schedule, f, indent=4, sort_keys=True)
 
 # if __name__ == '__main__':

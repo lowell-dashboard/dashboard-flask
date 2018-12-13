@@ -4,7 +4,7 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.registerviews import RegisterUserDBView
 from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
-
+from .tools import retrieve_schedule
 """
     Create your Views::
 
@@ -61,6 +61,8 @@ class LowellResources(BaseView):
     @expose('/schedules')
     @has_access
     def schedules(self):
+        schedule = retrieve_schedule.retrieve_schedule()
+        print(schedule)
         return self.render_template('schedules.html')
 
 # Create appbuilder dropdown menu
