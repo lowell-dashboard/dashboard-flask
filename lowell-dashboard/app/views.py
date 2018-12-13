@@ -2,8 +2,8 @@ from flask import render_template
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.registerviews import RegisterUserDBView
+from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
-
 
 """
     Create your Views::

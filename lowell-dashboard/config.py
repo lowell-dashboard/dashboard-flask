@@ -121,16 +121,3 @@ MAIL_USE_SSL = True
 MAIL_USERNAME = 'LowellHelpForum@gmail.com'
 MAIL_PASSWORD = secret.EMAIL_PASS
 MAIL_DEFAULT_SENDER = 'LowellHelpForum <LowellHelpForum@gmail.com>'
-
-# Create Registration system
-class MyRegisterUserDBView(RegisterUserDBView):
-    email_template = 'register_mail.html'
-    email_subject = _('Your Account activation for Lowell Help Forum')
-    activation_template = 'activation.html'
-    form_title = _('Fill out the registration form')
-    error_message = _('Not possible to register you at the moment, try again later')
-    message = _('Registration sent to your email')
-
-# Change roles
-class MySecurityManager(SecurityManager):
-    registeruserdbview = MyRegisterUserDBView
