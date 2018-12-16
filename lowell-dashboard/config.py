@@ -1,9 +1,6 @@
 import os
 from flask_appbuilder.security.manager import AUTH_OID, AUTH_REMOTE_USER, AUTH_DB, AUTH_LDAP, AUTH_OAUTH
 import secret
-from flask_babel import lazy_gettext as _
-from flask_appbuilder.security.registerviews import RegisterUserDBView
-from flask_appbuilder.security.sqla.manager import SecurityManager
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Your App secret key
