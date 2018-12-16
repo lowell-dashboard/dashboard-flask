@@ -25,13 +25,20 @@ A site built by students for students.
 An easy place for Lowell students to get up to date resources, easy to find information about Lowell, and more help for Lowell students. This site can help to reduce stress with easy access to enything a Lowell student would need.
 
 #### App features
-
 - Homework assignments
 - Rate my Teacher
 - Scheldule
 - Textbooks
 - Lowell announcements
 - Lowell Articles
+- Study Sessions
+ - Library Meetups
+- Tutor Connector
+- School resources
+ - SAT resources
+ - College resources
+- Pathways (career pathways)
+- SAT Discussions
 
 #### Completed Features
 ##### (Ordered in most important to least important)
