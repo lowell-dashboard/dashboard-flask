@@ -74,5 +74,57 @@ appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
 # Create schedules link in drop down menu
 appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
 
+# Views for Site files
+class LowellFiles(BaseView):
+
+    # Top choice for drop down menu
+    default_view = 'disclaimer'
+
+    # Add route base as root "/"
+    route_base = "/"
+
+    '''
+    Create path news that renders news.html jijna2 template
+    that contains any added news might be moved to models to
+    work with database and can only be seen by logged in users
+    '''
+    @expose('/disclaimer')
+    @has_access
+    def disclaimer(self):
+        return self.render_template('disclaimer.html')
+
+    '''
+    Create path textbooks that renders textbooks.html jijna2 template
+    that contains any online textbooks availble will probably stay hard coded to add text books
+    because not expecting alot of online textbooks to come at a time and can only be seen by logged in users
+    '''
+    @expose('/license')
+    @has_access
+    def license(self):
+        return self.render_template('license.html')
+
+    '''
+    Create path schedules that renders schedules.html jijna2 template
+    that contains any added special schedules. Will contain main schedule and year long schedule
+    as well as a schedule of the day and can only be seen by logged in users
+    '''
+    '''
+    @expose('/schedules')
+    @has_access
+    def schedules(self):
+        schedule = retrieve_schedule.retrieve_schedule()
+        print(schedule)
+        return self.render_template('schedules.html')
+    '''
+
+# Create appbuilder dropdown menu
+appbuilder.add_view(LowellFiles, "Disclaimer", category='Important Files')
+
+# Create textbook link in drop down menu
+appbuilder.add_link("License", href='/license', category='Important Files')
+
+# Create schedules link in drop down menu
+#appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
+
 # Create any db objects
 db.create_all()
