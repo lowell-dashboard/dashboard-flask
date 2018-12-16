@@ -26,7 +26,7 @@ An easy place for Lowell students to get up to date resources, easy to find info
 
 #### App features
 - Homework assignments
-- Rate my Teacher
+- ~~Rate my Teacher~~
 - Scheldule
 - Textbooks
 - Lowell announcements
@@ -43,7 +43,7 @@ An easy place for Lowell students to get up to date resources, easy to find info
 #### Completed Features
 ##### (Ordered in most important to least important)
 - [ ] Post homework
-- [ ] Rate my teacher
+- ~~[ ] Rate my teacher~~
 - [ ] Lowell news
 - [ ] Lowell announcements
 - [ ] Schedule
