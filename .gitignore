@@ -94,7 +94,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# .gitignore extension
 lowell-dashboard/app.db
 lowell-dashboard/secret.py
 
 .DS_Store
+
+lowell-dashboard/app/static
