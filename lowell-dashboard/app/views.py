@@ -102,14 +102,17 @@ db.create_all()
 
 # Views for any home paths
 class HomeView(BaseView):
-
-    # Base path /home
     route_base = "/home"
 
-    # index path
-    @expose('/index')
-    @has_access
-    def user(self):
-        return self.render_template('my_index.html')
+    # @expose('/user/')
+    # def user(self):
+    #     greeting = "Hello John"
+    #     return self.render_template('logged_user.html', greeting=greeting)
+
+
+    @ expose('/general/')
+    def general(self):
+        greeting = "Hello ordinary user"
+        return self.render_template('my_index.html', greeting=greeting)
 
 appbuilder.add_view_no_menu(HomeView())

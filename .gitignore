@@ -96,5 +96,5 @@ venv.bak/
 
 lowell-dashboard/app.db
 lowell-dashboard/secret.py
-
+lowell-dashboard/app/static/
 .DS_Store
