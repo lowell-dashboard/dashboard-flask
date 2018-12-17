@@ -39,7 +39,6 @@ class LowellResources(BaseView):
     work with database and can only be seen by logged in users
     '''
     @expose('/news')
-    @has_access
     def news(self):
         return self.render_template('news.html')
 
@@ -49,7 +48,6 @@ class LowellResources(BaseView):
     because not expecting alot of online textbooks to come at a time and can only be seen by logged in users
     '''
     @expose('/textbooks')
-    @has_access
     def textbooks(self):
         return self.render_template('textbooks.html')
 
@@ -59,7 +57,6 @@ class LowellResources(BaseView):
     as well as a schedule of the day and can only be seen by logged in users
     '''
     @expose('/schedules')
-    @has_access
     def schedules(self):
         schedule = retrieve_schedule.retrieve_schedule()
         print(schedule)
@@ -77,54 +74,42 @@ appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
 # Views for Site files
 class LowellFiles(BaseView):
 
-    # Top choice for drop down menu
-    default_view = 'disclaimer'
-
     # Add route base as root "/"
-    route_base = "/"
+    route_base = "/files"
 
     '''
-    Create path news that renders news.html jijna2 template
-    that contains any added news might be moved to models to
-    work with database and can only be seen by logged in users
+    Create path disclaimer that renders disclaimer.html jijna2 template
+    that contains project disclaimer
     '''
     @expose('/disclaimer')
-    @has_access
     def disclaimer(self):
         return self.render_template('disclaimer.html')
 
     '''
-    Create path textbooks that renders textbooks.html jijna2 template
-    that contains any online textbooks availble will probably stay hard coded to add text books
-    because not expecting alot of online textbooks to come at a time and can only be seen by logged in users
+    Create path license that renders license.html jijna2 template
+    that contains the project license
     '''
     @expose('/license')
-    @has_access
     def license(self):
         return self.render_template('license.html')
 
-    '''
-    Create path schedules that renders schedules.html jijna2 template
-    that contains any added special schedules. Will contain main schedule and year long schedule
-    as well as a schedule of the day and can only be seen by logged in users
-    '''
-    '''
-    @expose('/schedules')
-    @has_access
-    def schedules(self):
-        schedule = retrieve_schedule.retrieve_schedule()
-        print(schedule)
-        return self.render_template('schedules.html')
-    '''
+# Create paths
+appbuilder.add_view_no_menu(LowellFiles())
 
-# Create appbuilder dropdown menu
-appbuilder.add_view(LowellFiles, "Disclaimer", category='Important Files')
-
-# Create textbook link in drop down menu
-appbuilder.add_link("License", href='/license', category='Important Files')
-
-# Create schedules link in drop down menu
-#appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
 
 # Create any db objects
 db.create_all()
+
+# Views for any home paths
+class HomeView(BaseView):
+
+    # Base path /home
+    route_base = "/home"
+
+    # index path
+    @expose('/index')
+    @has_access
+    def user(self):
+        return self.render_template('my_index.html')
+
+appbuilder.add_view_no_menu(HomeView())
