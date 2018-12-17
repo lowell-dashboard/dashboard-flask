@@ -1,4 +1,41 @@
 {% extends "appbuilder/base.html" %}
+
 {% block content %}
     <h1>{{_("Lowell Schedules")}}</h1>
+    <div class="cd-schedule">
+   <div class="timeline">
+      <ul>
+         <li><span>09:00</span></li>
+         <li><span>09:30</span></li>
+         <!-- additional elements here -->
+      </ul>
+   </div>
+
+   <div class="events">
+      <ul>
+         <li class="events-group">
+            <div class="top-info"><span>Monday</span></div>
+
+            <ul>
+               <li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
+                  <a href="#0">
+                     <em class="event-name">Abs Circuit</em>
+                  </a>
+               </li>
+
+               <!-- other events here -->
+            </ul>
+         </li>
+
+         <li class="events-group">
+            <div class="top-info"><span>Tuesday</span></div>
+
+            <ul>
+               <!-- events here -->
+            </ul>
+         </li>
+
+         <!-- additional li.events-group here -->
+      </ul>
+   </div>
 {% endblock %}
