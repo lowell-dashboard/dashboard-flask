@@ -104,15 +104,12 @@ db.create_all()
 class HomeView(BaseView):
     route_base = "/home"
 
-    # @expose('/user/')
-    # def user(self):
-    #     greeting = "Hello John"
-    #     return self.render_template('logged_user.html', greeting=greeting)
-
+    @expose('/new/')
+    def new(self):
+        return self.render_template('new_user.html')
 
     @ expose('/general/')
     def general(self):
-        greeting = "Hello ordinary user"
-        return self.render_template('my_index.html', greeting=greeting)
+        return self.render_template('my_index.html')
 
 appbuilder.add_view_no_menu(HomeView())
