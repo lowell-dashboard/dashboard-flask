@@ -9,8 +9,7 @@ class MyIndexView(IndexView):
 	def index(self):
 		user = g.user
 		if user.is_anonymous:
-			return redirect(url_for('AuthDBView.login'))
+			return redirect(url_for('HomeView.new'))
 		else:
 			# user is authenticated and has an account
 			return redirect(url_for('HomeView.general'))
-
