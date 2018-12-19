@@ -62,8 +62,8 @@ class LowellResources(BaseView):
     @has_access
     def schedules(self):
         schedule = retrieve_schedule.retrieve_schedule()
-        print(schedule)
-        return self.render_template('schedules.html')
+        print(schedule['APRIL'])
+        return self.render_template('schedules.html', table=schedule['APRIL'])
 
 # Create appbuilder dropdown menu
 appbuilder.add_view(LowellResources, "News", category='Lowell Resources')
