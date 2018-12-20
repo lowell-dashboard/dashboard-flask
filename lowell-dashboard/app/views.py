@@ -1,14 +1,15 @@
-from flask import render_template, flash
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
-from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder.security.registerviews import RegisterUserDBView
-from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
+from flask import render_template, flash
+from .forms import MyForm
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import SimpleFormView
-from .forms import MyForm
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.security.sqla.manager import SecurityManager
+from flask_appbuilder.security.registerviews import RegisterUserDBView
+
 
 
 """
