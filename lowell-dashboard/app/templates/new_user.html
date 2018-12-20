@@ -1,9 +1,5 @@
 {% extends "appbuilder/base.html" %}
 
-{% block head_meta %}
-  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
-{% endblock %}
-
 {% block content %}
 
 <div class="jumbotron">
@@ -16,7 +12,7 @@
 
       <br>
 
-      <h4>Create an account to post and talk with fellow students</h4>
+      <h3 class="text-info">{{_("Create an account to post and communicate with fellow students")}}</h3>
 
     </center>
 
@@ -31,7 +27,23 @@
     <div class="col-xs-6">
 
       <div class="jumbotron">
-        <center><h2>{{_("Register")}}</h2></center>
+
+        <center>
+
+          <h2>{{_("Register")}}</h2>
+
+          <br>
+
+          <p>{{_("Don't have an account but want to get all our resources and post? Click this Button.")}}</p>
+
+          <br>
+
+          <a class="btn btn-success btn-block btn-lg" href="/register/form" role="button">{{_("Register Here!")}}</a>
+
+          <br>
+
+        </center>
+
       </div>
 
     </div>
@@ -43,6 +55,16 @@
         <center>
 
           <h2>{{_("Login")}}</h2>
+
+          <br>
+
+          <p>{{_("Already have an account with us? Click this Button.")}}</p>
+
+          <br>
+
+          <a class="btn btn-success btn-block btn-lg" href="/login/" role="button">{{_("Login Here!")}}</a>
+
+          <br>
 
         </center>
 
