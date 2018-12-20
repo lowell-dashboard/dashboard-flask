@@ -1,27 +1,63 @@
+{% block head_css %}
+
+  <style>
+    .nounderline {
+      text-decoration: none !important
+    }
+  </style>
+
+{% endblock %}
+
 {% block content %}
-    <footer>
+
+    <footer class="text-secondary">
+
       <h3>{{_("Lowell Help Forum")}}</h3>
+
       <div class="container">
+
         <div class="row">
-          <div class="col-xs-6">
-            <center><a class="nounderline" href="/login" target=""><p>{{_("Login")}}</p></a></center>
+
+          <div class="col-xs-3">
+            <a href="/register/form" class="nounderline"><center><p>{{_("Register")}}</p></center></a>
           </div>
-          <div class="col-xs-6">
-            <center><a class="nounderline" href="/bugreport" target=""><p>{{_("Report Bugs")}}</p></a></center>
+
+          <div class="col-xs-3">
+            <a href="/login/" class="nounderline"><center><p>{{_("Login")}}</p></center></a>
           </div>
+
+          <div class="col-xs-3">
+            <a href="/files/disclaimer" class="nounderline"><center><p>{{_("Disclaimer")}}</p></center></a>
+          </div>
+
+          <div class="col-xs-3">
+            <a href="/bugreport/" class="nounderline"><center><p>{{_("Report Bugs")}}</p></center></a>
+          </div>
+
         </div>
+
       </div>
+
       <div class="container">
+
         <div class="row">
-          <a href="https://github.com/lowell-dashboard/dashboard-flask/blob/master/LICENSE" target="" class="nounderline">
+
+          <a href="/files/license" class="nounderline">
+
             <div class="col-xs-6">
               <center><h4>{{_("© Lowell-Dashboard Github Organization. All Rights Reserved.")}}</h4></center>
             </div>
+
             <div class="col-xs-6">
               <center><h4>{{_("View License")}}</h4></center>
             </div>
+
           </a>
+
         </div>
+
       </div>
+
     </footer>
+
 {% endblock %}

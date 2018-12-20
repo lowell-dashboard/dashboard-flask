@@ -97,7 +97,7 @@ venv.bak/
 # .gitignore extension
 lowell-dashboard/app.db
 lowell-dashboard/secret.py
-
+lowell-dashboard/app/static/
 .DS_Store
 
 lowell-dashboard/app/static

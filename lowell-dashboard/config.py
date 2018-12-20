@@ -1,9 +1,6 @@
 import os
 from flask_appbuilder.security.manager import AUTH_OID, AUTH_REMOTE_USER, AUTH_DB, AUTH_LDAP, AUTH_OAUTH
 import secret
-from flask_babel import lazy_gettext as _
-from flask_appbuilder.security.registerviews import RegisterUserDBView
-from flask_appbuilder.security.sqla.manager import SecurityManager
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Your App secret key
@@ -53,11 +50,11 @@ AUTH_USER_REGISTRATION_ROLE = 'Public'
 #AUTH_LDAP_SERVER = "ldap://ldapserver.new"
 
 # Uncomment to setup OpenID providers example for OpenID authentication
-OPENID_PROVIDERS = [
-    { 'name': 'Yahoo', 'url': 'https://me.yahoo.com' },
-    { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
-    { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
-    { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
+#OPENID_PROVIDERS = [
+#    { 'name': 'Yahoo', 'url': 'https://me.yahoo.com' },
+#    { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
+#    { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
+#    { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
 
 #---------------------------------------------------
 # Babel config for translations
@@ -69,13 +66,13 @@ BABEL_DEFAULT_FOLDER = 'translations'
 # The allowed translation for your app
 
 LANGUAGES = {
-    'en': {'flag':'us', 'name':'English'}#,
-    #'zh': {'flag':'cn', 'name':'Chinese'},
-    #'es': {'flag':'es', 'name':'Spanish'},
-    #'pt': {'flag':'pt', 'name':'Portuguese'},
-    #'de': {'flag':'de', 'name':'German'},
-    #'ru': {'flag':'ru', 'name':'Russian'},
-    #'pl': {'flag':'pl', 'name':'Polish'}
+    'en': {'flag':'us', 'name':'English'},
+    'zh': {'flag':'cn', 'name':'Chinese'},
+    'es': {'flag':'es', 'name':'Spanish'},
+    'pt': {'flag':'pt', 'name':'Portuguese'},
+    'de': {'flag':'de', 'name':'German'},
+    'ru': {'flag':'ru', 'name':'Russian'},
+    'pl': {'flag':'pl', 'name':'Polish'}
 }
 
 
