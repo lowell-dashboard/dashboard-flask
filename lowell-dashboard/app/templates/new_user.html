@@ -1,5 +1,10 @@
 {% extends "appbuilder/base.html" %}
 
+{% block head_meta %}
+  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
+  <meta charset='utf-8'>
+{% endblock %}
+
 {% block content %}
 
 <div class="jumbotron">
@@ -31,7 +36,7 @@
           <h2>{{_("Register")}}</h2>
           <br>
 
-          <h4>{{_("Don't have an account but want an account?")}}</h4>
+          <h4>{{_("Don't have an account but want one?")}}</h4>
           <br>
 
           <a class="btn btn-success btn-block btn-lg" href="/register/form" role="button">{{_("Register Here!")}}</a>
