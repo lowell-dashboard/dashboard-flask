@@ -129,23 +129,6 @@ class HomeView(BaseView):
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
 
-'''
-# Views for any home paths
-class Reports(BaseView):
-
-    # add route base for views as /home
-    route_base = "/report"
-
-    # Route for new or logged out users
-    @expose('/bug/')
-    def new(self):
-        return self.render_template('new_user.html')
-
-    # Route for signed in users or users who want to just view data
-    @expose('/conduct/')
-    def general(self):
-        return self.render_template('my_index.html')
-'''
 class MyFormView(SimpleFormView):
     form = bugreport
     form_title = 'This is my first form view'
