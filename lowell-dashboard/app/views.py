@@ -147,7 +147,7 @@ class Reports(BaseView):
         return self.render_template('my_index.html')
 '''
 class MyFormView(SimpleFormView):
-    form = MyForm
+    form = bugreport
     form_title = 'This is my first form view'
     message = 'My form was submitted'
 

@@ -4,7 +4,7 @@ from flask_appbuilder.fieldwidgets import BS3TextFieldWidget
 from flask_appbuilder.forms import DynamicForm
 
 
-class MyForm(DynamicForm):
+class bugreport(DynamicForm):
 
     field1 = StringField(('Field1'),
                           description=('Your field number one!'),
