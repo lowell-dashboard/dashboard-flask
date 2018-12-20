@@ -4,7 +4,8 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.registerviews import RegisterUserDBView
 from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
-from .tools import retrieve_schedule
+from app.tools import retrieve_schedule
+from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 
 """
@@ -61,8 +62,8 @@ class LowellResources(BaseView):
     @expose('/schedules')
     def schedules(self):
         schedule = retrieve_schedule.retrieve_schedule()
-        print(schedule)
-        return self.render_template('schedules.html')
+        print(wkmonth.week_of_month(schedule))
+        return self.render_template('schedules.html', table=schedule['APRIL'])
 
 # Create appbuilder dropdown menu
 appbuilder.add_view(LowellResources, "News", category='Lowell Resources', label=_('Lowell Resources'))
