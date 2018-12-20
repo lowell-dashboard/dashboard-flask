@@ -1,9 +1,14 @@
 {% extends "appbuilder/base.html" %}
+
+{% block head_meta %}
+  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
+  <meta charset='utf-8'>
+{% endblock %}
+
 {% block content %}
 <div class="jumbotron">
   <div class="container">
-    <h1>{{_("My App on F.A.B.")}}</h1>
-    <p>{{_("My first app using F.A.B, bla, bla, bla")}}</p>
+    <center><h1>{{_("Lowell Help Forum")}}</h1></center>
   </div>
 </div>
 {% endblock %}
