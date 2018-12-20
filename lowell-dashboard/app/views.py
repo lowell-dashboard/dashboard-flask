@@ -79,7 +79,7 @@ class LowellFiles(BaseView):
 
     '''
     Create path disclaimer that renders disclaimer.html jijna2 template
-    that contains project disclaimer
+    that contains project's disclaimer
     '''
     @expose('/disclaimer')
     def disclaimer(self):
@@ -87,29 +87,40 @@ class LowellFiles(BaseView):
 
     '''
     Create path license that renders license.html jijna2 template
-    that contains the project license
+    that contains the project's license
     '''
     @expose('/license')
     def license(self):
         return self.render_template('license.html')
 
+    '''
+    Create path privacy that renders privacy.html jijna2 template
+    that contains the project's privacy policy
+    '''
+    @expose('/privacy')
+    def license(self):
+        return self.render_template('privacy.html')
+
 # Create paths
 appbuilder.add_view_no_menu(LowellFiles())
 
-
-# Create any db objects
-db.create_all()
-
 # Views for any home paths
 class HomeView(BaseView):
+
+    # add route base for views as /home
     route_base = "/home"
 
+    # Route for new or logged out users
     @expose('/new/')
     def new(self):
         return self.render_template('new_user.html')
 
-    @ expose('/general/')
+    # Route for signed in users or users who want to just view data
+    @expose('/general/')
     def general(self):
         return self.render_template('my_index.html')
 
 appbuilder.add_view_no_menu(HomeView())
+
+# Create any db objects
+db.create_all()
