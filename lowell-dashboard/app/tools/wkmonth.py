@@ -1,5 +1,7 @@
 from math import ceil
 import datetime
+import os
+import json
 
 def week_of_month(data):
     """ Returns the week of the month for the specified date.
@@ -34,3 +36,9 @@ def week_of_month(data):
     print(month_data)
 
     return 0
+def get_schedule_times(codes):
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(f"{path}/schedules.json") as f:
+        data = json.load(f)
+    print(data['M'][0])
+get_schedule_times('M')
