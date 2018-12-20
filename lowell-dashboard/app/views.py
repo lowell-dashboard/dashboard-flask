@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.registerviews import RegisterUserDBView
@@ -7,6 +7,9 @@ from app import appbuilder, db
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
+from flask_appbuilder import SimpleFormView
+from .forms import MyForm
+
 
 """
     Create your Views::
@@ -66,13 +69,13 @@ class LowellResources(BaseView):
         return self.render_template('schedules.html', table=schedule['APRIL'])
 
 # Create appbuilder dropdown menu
-appbuilder.add_view(LowellResources, "News", category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_view(LowellResources, "News", category=_('Lowell Resources'), label=_('News'))
 
 # Create textbook link in drop down menu
-appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_link("Textbooks", href='/textbooks', category=_('Lowell Resources'), label=_('Textbooks'))
 
 # Create schedules link in drop down menu
-appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_link("Schedules", href='/schedules', category=_('Lowell Resources'), label=_('Schedules'))
 
 # Views for Site files
 class LowellFiles(BaseView):
@@ -125,6 +128,39 @@ class HomeView(BaseView):
 
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
+
+'''
+# Views for any home paths
+class Reports(BaseView):
+
+    # add route base for views as /home
+    route_base = "/report"
+
+    # Route for new or logged out users
+    @expose('/bug/')
+    def new(self):
+        return self.render_template('new_user.html')
+
+    # Route for signed in users or users who want to just view data
+    @expose('/conduct/')
+    def general(self):
+        return self.render_template('my_index.html')
+'''
+class MyFormView(SimpleFormView):
+    form = MyForm
+    form_title = 'This is my first form view'
+    message = 'My form was submitted'
+
+    def form_get(self, form):
+        form.field1.data = 'This was prefilled'
+
+    def form_post(self, form):
+        # post process form
+        flash(self.message, 'info')
+
+# Add paths
+appbuilder.add_view(MyFormView, "My form View", icon="fa-group", label=_('My form View'),
+                     category="My Forms", category_icon="fa-cogs")
 
 # Create any db objects
 db.create_all()
