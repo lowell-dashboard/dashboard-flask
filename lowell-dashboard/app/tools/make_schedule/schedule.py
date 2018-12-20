@@ -2,6 +2,7 @@ from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
+from .wkschedule import WeekSchedule
 import json
 import os
 
@@ -47,7 +48,15 @@ def main():
                 schedule[g_row] = list()
                 current_month = g_row
                 continue
-            schedule[current_month].append(g_row)
+            dates = []
+            for d in range(5):
+                dates.append(row[d])
+            print(dates)
+            week = {}
+            week['dates'] = dates
+            week['codes'] = g_row
+            print(week['dates'], week['codes'])
+            schedule[current_month].append(week)
             # Print columns A and E, which correspond to indices 0 and 4.
             # print('%s' % (g_row,))
         print(schedule)
