@@ -5,6 +5,8 @@ from flask_appbuilder.security.registerviews import RegisterUserDBView
 from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
 from .tools import retrieve_schedule
+from flask_babel import lazy_gettext as _
+
 """
     Create your Views::
 
@@ -63,13 +65,13 @@ class LowellResources(BaseView):
         return self.render_template('schedules.html')
 
 # Create appbuilder dropdown menu
-appbuilder.add_view(LowellResources, "News", category='Lowell Resources')
+appbuilder.add_view(LowellResources, "News", category='Lowell Resources', label=_('Lowell Resources'))
 
 # Create textbook link in drop down menu
-appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources')
+appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources', label=_('Lowell Resources'))
 
 # Create schedules link in drop down menu
-appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources')
+appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources', label=_('Lowell Resources'))
 
 # Views for Site files
 class LowellFiles(BaseView):
@@ -120,6 +122,7 @@ class HomeView(BaseView):
     def general(self):
         return self.render_template('my_index.html')
 
+# Add paths
 appbuilder.add_view_no_menu(HomeView())
 
 # Create any db objects
