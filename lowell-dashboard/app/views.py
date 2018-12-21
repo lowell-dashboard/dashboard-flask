@@ -62,8 +62,10 @@ class LowellResources(BaseView):
     @expose('/schedules')
     def schedules(self):
         schedule = retrieve_schedule.retrieve_schedule()
-        print(wkmonth.week_of_month(schedule))
-        return self.render_template('schedules.html', table=schedule['APRIL'])
+        codes = wkmonth.week_of_month(schedule)
+        print(codes)
+        schedule_data = wkmonth.get_schedule_times(codes)
+        return self.render_template('schedules.html', table=schedule_data)
 
 # Create appbuilder dropdown menu
 appbuilder.add_view(LowellResources, "News", category='Lowell Resources', label=_('Lowell Resources'))

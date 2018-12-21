@@ -665,8 +665,16 @@
 			<ul>
 				<li class="events-group">
 					<div class="top-info"><span>Monday</span></div>
-
 					<ul>
+						{% for event in table[0] %}
+							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+							<a href="#0">
+								<em class="event-name">Block Test</em>
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+					<!-- <ul>
 						<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
 							<a href="#0">
 								<em class="event-name">Abs Circuit</em>
@@ -684,7 +692,7 @@
 								<em class="event-name">Yoga Level 1</em>
 							</a>
 						</li>
-					</ul>
+					</ul> -->
 				</li>
 
 				<li class="events-group">
