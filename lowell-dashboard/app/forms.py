@@ -10,10 +10,12 @@ class bugreportform(DynamicForm):
                           description=('Not Required'),
                           widget=BS3TextFieldWidget()
                           )
+
     field2 = StringField(('Email'),
                           description=('Not Required'),
                           widget=BS3TextFieldWidget()
                           )
+
     field3 = StringField(('Bug'),
                           description=('Put the bug report here'),
                           validators = [DataRequired()],

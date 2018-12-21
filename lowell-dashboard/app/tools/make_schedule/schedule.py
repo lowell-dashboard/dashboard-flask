@@ -1,10 +1,10 @@
-from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 from .wkschedule import WeekSchedule
 import json
 import os
+from datetime import datetime
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
@@ -41,6 +41,8 @@ def main():
         MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         MONTHS = [month.upper() for month in MONTHS]
         schedule = {}
+        # code you can use
+        #current_month = datetime.now().month
         current_month = ""
         for row in values:
             g_row = row[6]
