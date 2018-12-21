@@ -1,6 +1,5 @@
-from flask_appbuilder import IndexView
 from flask import g, url_for, redirect
-from flask_appbuilder import expose
+from flask_appbuilder import IndexView, expose
 
 # File to display custom made different views based off if user is signed
 
