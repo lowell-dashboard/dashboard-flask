@@ -138,8 +138,8 @@ appbuilder.add_view_no_menu(HomeView())
 class BugReport(SimpleFormView):
     form = bugreportform
     form_title = 'Bug Report'
-    message_good = 'Bug Report submitted'
-    message_bad = 'Bug Report couldn\'t be sent'
+    message_good = 'Your Bug Report has been submitted'
+    message_bad = 'Your Bug Report couldn\'t be sent'
 
     def form_get(self, form):
         form.field1.data = 'Name'
