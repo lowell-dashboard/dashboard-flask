@@ -63,7 +63,7 @@ class LowellResources(BaseView):
     def schedules(self):
         schedule = retrieve_schedule.retrieve_schedule()
         codes = wkmonth.week_of_month(schedule)
-        print(codes)
+        # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
         return self.render_template('schedules.html', table=schedule_data)
 

@@ -21,11 +21,11 @@ def week_of_month(data):
         for week in month_data:
             for date in week['dates']:
                 if day < int(date):
-                    print("N/A")
+                    # print("N/A")
                     return "00000"
                 if int(date) == day:
-                    print("we found today")
-                    print(week['codes'])
+                    # print("we found today")
+                    # print(week['codes'])
                     return week['codes']
         if month_num == 12:
             new_month = MONTHS[0]
@@ -33,7 +33,7 @@ def week_of_month(data):
         else:
             new_month = MONTHS[month_num+1]
             month_data = data[new_month.upper()]
-    print(month_data)
+    # print(month_data)
 
     return "00000"
 def get_schedule_times(codes):
@@ -47,6 +47,6 @@ def get_schedule_times(codes):
             schedule_for_week.append(schedule)
         except Exception as e:
             print(e)
-    print(schedule_for_week)
-    print(data['M'][0])
+    # print(schedule_for_week)
+    # print(data['M'][0])
     return schedule_for_week
