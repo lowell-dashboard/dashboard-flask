@@ -22,19 +22,19 @@
 		},
 		{
 			"StartTime" : "12:55",
-			"EndTime" : "1:30"
+			"EndTime" : "13:30"
 		},
 		{
-			"StartTime" : "1:35",
-			"EndTime" : "2:10"
+			"StartTime" : "13:35",
+			"EndTime" : "14:10"
 		},
 		{
-			"StartTime" : "2:15",
-			"EndTime" : "2:50"
+			"StartTime" : "14:15",
+			"EndTime" : "14:50"
 		},
 		{
-			"StartTime" : "2:55",
-			"EndTime" : "3:30"
+			"StartTime" : "14:55",
+			"EndTime" : "15:30"
 		}
 	],
 	"N": [
@@ -64,15 +64,15 @@
 		},
 		{
 			"StartTime" : "12:50",
-			"EndTime" : "1:40"
+			"EndTime" : "13:40"
 		},
 		{
-			"StartTime" : "1:45",
-			"EndTime" : "2:35"
+			"StartTime" : "13:45",
+			"EndTime" : "14:35"
 		},
 		{
-			"StartTime" : "2:40",
-			"EndTime" : "3:30"
+			"StartTime" : "14:40",
+			"EndTime" : "15:30"
 		}
 	]
 }
