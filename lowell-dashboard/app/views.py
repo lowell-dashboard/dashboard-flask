@@ -1,3 +1,6 @@
+import json
+import requests
+import secret
 from app import appbuilder, db
 from flask import render_template, flash
 from .forms import bugreportform
@@ -135,15 +138,34 @@ appbuilder.add_view_no_menu(HomeView())
 class BugReport(SimpleFormView):
     form = bugreportform
     form_title = 'Bug Report'
-    message = 'Bug Report submitted'
+    message_good = 'Bug Report submitted'
+    message_bad = 'Bug Report couldn\'t be sent'
 
     def form_get(self, form):
-        #form.field1.data = 'This was prefilled'
-        pass
+        form.field1.data = 'Name'
+        form.field2.data = 'Email'
 
     def form_post(self, form):
         # post process form
-        flash(self.message, 'info')
+        name = form.field1.data
+        email = form.field2.data
+        bug_text = form.field3.data
+
+        slack_data = {
+            'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
+            'username': 'LHF Bug Reporter',
+            'icon_emoji': ':robot_face:'
+        }
+
+        response = requests.post(secret.SLACK,
+                                 data=json.dumps(slack_data),
+                                 headers={'Content-Type': 'application/json'}
+                                 )
+
+        if response.status_code != 200:
+            flash(self.message_bad, 'error')
+        else:
+            flash(self.message_good, 'info')
 
 # Add paths
 appbuilder.add_view(BugReport, "Bug Report", icon="fa-group", label=_('Bug Report'),
