@@ -1,12 +1,16 @@
-from flask import render_template
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
-from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder.security.registerviews import RegisterUserDBView
-from flask_appbuilder.security.sqla.manager import SecurityManager
 from app import appbuilder, db
+from flask import render_template, flash
+from .forms import bugreportform
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
+from flask_appbuilder import SimpleFormView
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.security.sqla.manager import SecurityManager
+from flask_appbuilder.security.registerviews import RegisterUserDBView
+
+
 
 """
     Create your Views::
@@ -68,13 +72,13 @@ class LowellResources(BaseView):
         return self.render_template('schedules.html', table=schedule_data)
 
 # Create appbuilder dropdown menu
-appbuilder.add_view(LowellResources, "News", category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_view(LowellResources, "News", category=_('Lowell Resources'), label=_('News'))
 
 # Create textbook link in drop down menu
-appbuilder.add_link("Textbooks", href='/textbooks', category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_link("Textbooks", href='/textbooks', category=_('Lowell Resources'), label=_('Textbooks'))
 
 # Create schedules link in drop down menu
-appbuilder.add_link("Schedules", href='/schedules', category='Lowell Resources', label=_('Lowell Resources'))
+appbuilder.add_link("Schedules", href='/schedules', category=_('Lowell Resources'), label=_('Schedules'))
 
 # Views for Site files
 class LowellFiles(BaseView):
@@ -127,6 +131,23 @@ class HomeView(BaseView):
 
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
+
+class BugReport(SimpleFormView):
+    form = bugreportform
+    form_title = 'Bug Report'
+    message = 'Bug Report submitted'
+
+    def form_get(self, form):
+        #form.field1.data = 'This was prefilled'
+        pass
+
+    def form_post(self, form):
+        # post process form
+        flash(self.message, 'info')
+
+# Add paths
+appbuilder.add_view(BugReport, "Bug Report", icon="fa-group", label=_('Bug Report'),
+                     category="Forms", category_icon="fa-cogs")
 
 # Create any db objects
 db.create_all()
