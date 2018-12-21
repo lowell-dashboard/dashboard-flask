@@ -1,6 +1,6 @@
 from app import appbuilder, db
 from flask import render_template, flash
-from .forms import MyForm
+from .forms import bugreportform
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
@@ -130,21 +130,22 @@ class HomeView(BaseView):
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
 
-class MyFormView(SimpleFormView):
-    form = bugreport
-    form_title = 'This is my first form view'
-    message = 'My form was submitted'
+class BugReport(SimpleFormView):
+    form = bugreportform
+    form_title = 'Bug Report'
+    message = 'Bug Report submitted'
 
     def form_get(self, form):
-        form.field1.data = 'This was prefilled'
+        #form.field1.data = 'This was prefilled'
+        pass
 
     def form_post(self, form):
         # post process form
         flash(self.message, 'info')
 
 # Add paths
-appbuilder.add_view(MyFormView, "My form View", icon="fa-group", label=_('My form View'),
-                     category="My Forms", category_icon="fa-cogs")
+appbuilder.add_view(BugReport, "Bug Report", icon="fa-group", label=_('Bug Report'),
+                     category="Forms", category_icon="fa-cogs")
 
 # Create any db objects
 db.create_all()
