@@ -8,7 +8,7 @@ def update_schedule():
 	schedule.main()
 	with open(f'{path}/result.json', 'r') as f:
 		parsed = json.load(f)
-	parsed
+	return parsed
 
 def retrieve_schedule():
 	with open(f'{path}/result.json', 'r') as f:

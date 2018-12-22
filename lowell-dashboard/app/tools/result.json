@@ -8,7 +8,8 @@
                 "3",
                 "4",
                 "5"
-            ]
+            ],
+            "message": "Faculty"
         },
         {
             "codes": "NTTTN",
@@ -18,7 +19,8 @@
                 "10",
                 "11",
                 "12"
-            ]
+            ],
+            "message": "Department\n(Thurs)"
         },
         {
             "codes": "NTTTN",
@@ -28,7 +30,8 @@
                 "17",
                 "18",
                 "19"
-            ]
+            ],
+            "message": "Equity\n(Thurs)"
         },
         {
             "codes": "MNNNN",
@@ -38,7 +41,8 @@
                 "24",
                 "25",
                 "26"
-            ]
+            ],
+            "message": "PD"
         }
     ],
     "AUGUST": [
@@ -50,7 +54,8 @@
                 "1",
                 "2",
                 "3"
-            ]
+            ],
+            "message": "N/A"
         },
         {
             "codes": "N/A",
@@ -60,7 +65,8 @@
                 "8",
                 "9",
                 "10"
-            ]
+            ],
+            "message": "N/A"
         },
         {
             "codes": "N/A",
@@ -70,7 +76,8 @@
                 "15",
                 "16",
                 "17"
-            ]
+            ],
+            "message": "FACULTY/PD/\nEQUITY/DEPT"
         },
         {
             "codes": "SNNNN",
@@ -80,7 +87,8 @@
                 "22",
                 "23",
                 "24"
-            ]
+            ],
+            "message": " Special 1st Day Schedule/Opening Rally"
         },
         {
             "codes": "MNNNN",
@@ -90,7 +98,8 @@
                 "29",
                 "30",
                 "31"
-            ]
+            ],
+            "message": "Department"
         }
     ],
     "DECEMBER": [
@@ -102,7 +111,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "message": "Department"
         },
         {
             "codes": "MNNNN",
@@ -112,7 +122,8 @@
                 "12",
                 "13",
                 "14"
-            ]
+            ],
+            "message": "Faculty"
         },
         {
             "codes": "TTTTE",
@@ -122,7 +133,8 @@
                 "19",
                 "20",
                 "21"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "HHHHH",
@@ -132,7 +144,8 @@
                 "26",
                 "27",
                 "28"
-            ]
+            ],
+            "message": "No Meeting"
         }
     ],
     "FEBRUARY": [
@@ -144,7 +157,8 @@
                 "6",
                 "7",
                 "8"
-            ]
+            ],
+            "message": "PD"
         },
         {
             "codes": "MNNNN",
@@ -154,7 +168,8 @@
                 "13",
                 "14",
                 "15"
-            ]
+            ],
+            "message": "Equity"
         },
         {
             "codes": "HNNNN",
@@ -164,7 +179,8 @@
                 "20",
                 "21",
                 "22"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -174,7 +190,8 @@
                 "27",
                 "28",
                 "1"
-            ]
+            ],
+            "message": "Equity"
         }
     ],
     "JANUARY": [
@@ -186,7 +203,8 @@
                 "2",
                 "3",
                 "4"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "SNNNN",
@@ -196,7 +214,8 @@
                 "9",
                 "10",
                 "11"
-            ]
+            ],
+            "message": "Faculty"
         },
         {
             "codes": "MNNNN",
@@ -206,7 +225,8 @@
                 "16",
                 "17",
                 "18"
-            ]
+            ],
+            "message": "Department"
         },
         {
             "codes": "HNNNN",
@@ -216,7 +236,8 @@
                 "23",
                 "24",
                 "25"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -226,7 +247,8 @@
                 "30",
                 "31",
                 "1"
-            ]
+            ],
+            "message": "Equity"
         }
     ],
     "JULY": [
@@ -238,7 +260,8 @@
                 "4",
                 "5",
                 "6"
-            ]
+            ],
+            "message": "N/A"
         },
         {
             "codes": "N/A",
@@ -248,7 +271,8 @@
                 "11",
                 "12",
                 "13"
-            ]
+            ],
+            "message": "N/A"
         },
         {
             "codes": "N/A",
@@ -258,7 +282,8 @@
                 "18",
                 "19",
                 "20"
-            ]
+            ],
+            "message": "N/A"
         },
         {
             "codes": "N/A",
@@ -268,7 +293,8 @@
                 "25",
                 "26",
                 "27"
-            ]
+            ],
+            "message": "N/A"
         }
     ],
     "JUNE": [
@@ -280,7 +306,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "message": "Faculty "
         }
     ],
     "MARCH": [
@@ -292,7 +319,8 @@
                 "6",
                 "7",
                 "8"
-            ]
+            ],
+            "message": "Department"
         },
         {
             "codes": "MNNNN",
@@ -302,7 +330,8 @@
                 "13",
                 "14",
                 "15"
-            ]
+            ],
+            "message": "PD"
         },
         {
             "codes": "MNNNN",
@@ -312,7 +341,8 @@
                 "20",
                 "21",
                 "22"
-            ]
+            ],
+            "message": "Equity"
         },
         {
             "codes": "HHHHH",
@@ -322,7 +352,8 @@
                 "27",
                 "28",
                 "29"
-            ]
+            ],
+            "message": "No Meeting"
         }
     ],
     "MAY": [
@@ -334,7 +365,8 @@
                 "1",
                 "2",
                 "3"
-            ]
+            ],
+            "message": "Department"
         },
         {
             "codes": "NTTTN",
@@ -344,7 +376,8 @@
                 "8",
                 "9",
                 "10"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "NTTTN",
@@ -354,7 +387,8 @@
                 "15",
                 "16",
                 "17"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -364,7 +398,8 @@
                 "22",
                 "23",
                 "24"
-            ]
+            ],
+            "message": "Faculty"
         },
         {
             "codes": "HTTTT",
@@ -374,7 +409,8 @@
                 "29",
                 "30",
                 "31"
-            ]
+            ],
+            "message": "No Meeting"
         }
     ],
     "NOVEMBER": [
@@ -386,7 +422,8 @@
                 "31",
                 "1",
                 "2"
-            ]
+            ],
+            "message": "Equity"
         },
         {
             "codes": "MNNNN",
@@ -396,7 +433,8 @@
                 "7",
                 "8",
                 "9"
-            ]
+            ],
+            "message": "PD"
         },
         {
             "codes": "HNNNN",
@@ -406,7 +444,8 @@
                 "14",
                 "15",
                 "16"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "HHHHH",
@@ -416,7 +455,8 @@
                 "21",
                 "22",
                 "23"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -426,7 +466,8 @@
                 "28",
                 "29",
                 "30"
-            ]
+            ],
+            "message": "Equity"
         }
     ],
     "OCTOBER": [
@@ -438,7 +479,8 @@
                 "3",
                 "4",
                 "5"
-            ]
+            ],
+            "message": "Equity"
         },
         {
             "codes": "HNENN",
@@ -448,7 +490,8 @@
                 "10",
                 "11",
                 "12"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "NNNNM",
@@ -458,7 +501,8 @@
                 "17",
                 "18",
                 "19"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -468,7 +512,8 @@
                 "24",
                 "25",
                 "26"
-            ]
+            ],
+            "message": "Department"
         }
     ],
     "SEPTEMBER": [
@@ -480,7 +525,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "message": "No Meeting"
         },
         {
             "codes": "MNNNN",
@@ -490,7 +536,8 @@
                 "12",
                 "13",
                 "14"
-            ]
+            ],
+            "message": "Equity"
         },
         {
             "codes": "MNNNN",
@@ -500,7 +547,8 @@
                 "19",
                 "20",
                 "21"
-            ]
+            ],
+            "message": "PD"
         },
         {
             "codes": "NNNNM",
@@ -510,7 +558,8 @@
                 "26",
                 "27",
                 "28"
-            ]
+            ],
+            "message": "No Meeting"
         }
     ]
 }

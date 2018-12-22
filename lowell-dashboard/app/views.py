@@ -72,6 +72,7 @@ class LowellResources(BaseView):
         codes = wkmonth.week_of_month(schedule)
         # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
+        print(wkmonth.get_week_message())
         return self.render_template('schedules.html', table=schedule_data)
 
 # Create appbuilder dropdown menu
