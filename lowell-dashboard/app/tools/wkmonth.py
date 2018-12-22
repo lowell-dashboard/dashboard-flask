@@ -3,9 +3,10 @@ import datetime
 import os
 import json
 
-def week_of_month(data):
-    """ Returns the week of the month for the specified date.
-    """
+def find_week():
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open(f"{path}/result.json") as f:
+        data = json.load(f)
 
     dt = datetime.datetime.now()
 
@@ -22,20 +23,26 @@ def week_of_month(data):
             for date in week['dates']:
                 if day < int(date):
                     # print("N/A")
-                    return "00000"
+                    return []
                 if int(date) == day:
                     # print("we found today")
                     # print(week['codes'])
-                    return week['codes']
+                    return week
         if month_num == 12:
             new_month = MONTHS[0]
             month_data = data[new_month.upper()]
         else:
             new_month = MONTHS[month_num+1]
             month_data = data[new_month.upper()]
-    # print(month_data)
+    return []
+def week_of_month(data):
+    """ Returns the week of the month for the specified date.
+    """
 
-    return "00000"
+    week_data = find_week()
+    if len(week_data) == 0:
+        return "00000"
+    return week_data['codes']
 
 def get_schedule_times(codes):
     path = os.path.dirname(os.path.abspath(__file__))
@@ -53,36 +60,7 @@ def get_schedule_times(codes):
     return schedule_for_week
 
 def get_week_message():
-    path = os.path.dirname(os.path.abspath(__file__))
-    with open(f"{path}/result.json") as f:
-        data = json.load(f)
-
-    dt = datetime.datetime.now()
-
-    MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    month_num = dt.month
-    month = MONTHS[month_num-1]
-
-    day = dt.day
-
-    month_data = data[month.upper()]
-
-    while True:
-        for week in month_data:
-            for date in week['dates']:
-                if day < int(date):
-                    # print("N/A")
-                    return "There is no message for the week"
-                if int(date) == day:
-                    # print("we found today")
-                    # print(week['codes'])
-                    return week['message']
-        if month_num == 12:
-            new_month = MONTHS[0]
-            month_data = data[new_month.upper()]
-        else:
-            new_month = MONTHS[month_num+1]
-            month_data = data[new_month.upper()]
-    # print(month_data)
-
-    return "There is no message for the week"
+    week_data = find_week()
+    if len(week_data) == 0:
+        return "No message found"
+    return week_data['message'] 
