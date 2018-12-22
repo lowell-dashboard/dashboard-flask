@@ -11,7 +11,7 @@ SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1rIpxKuWzxgg-TOT0xrsjL6L4X4cSw9Wo1PoKIs1afkM'
-SAMPLE_RANGE_NAME = 'A3:H68'
+SAMPLE_RANGE_NAME = 'A3:G68'
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -53,13 +53,13 @@ def main():
             dates = []
             for d in range(5):
                 dates.append(row[d])
-            message = row[7]
+            events = row[5]
             print(dates)
             week = {}
             week['dates'] = dates
             week['codes'] = g_row
-            week['message'] = message
-            print(week['dates'], week['codes'], week['message'])
+            week['events'] = events
+            print(week['dates'], week['codes'], week['events'])
             schedule[current_month].append(week)
             # Print columns A and E, which correspond to indices 0 and 4.
             # print('%s' % (g_row,))

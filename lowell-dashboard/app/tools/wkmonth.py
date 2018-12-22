@@ -59,8 +59,8 @@ def get_schedule_times(codes):
     # print(data['M'][0])
     return schedule_for_week
 
-def get_week_message():
+def get_week_events():
     week_data = find_week()
     if len(week_data) == 0:
         return "No message found"
-    return week_data['message'] 
+    return week_data['events'] 
