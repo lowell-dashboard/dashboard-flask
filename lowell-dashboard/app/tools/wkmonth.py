@@ -14,7 +14,7 @@ def find_week():
     month_num = dt.month
     month = MONTHS[month_num-1]
 
-    day = 3 #dt.day
+    day = dt.day
 
     month_data = data[month.upper()]
 
@@ -55,6 +55,7 @@ def get_schedule_times(codes):
             schedule_for_week.append(schedule)
         except Exception as e:
             print(e)
+            schedule_for_week.append(data["NotAvailable"])
     # print(schedule_for_week)
     # print(data['M'][0])
     return schedule_for_week

@@ -68,7 +68,8 @@ class LowellResources(BaseView):
     '''
     @expose('/schedules')
     def schedules(self):
-        retrieve_schedule.update_schedule()
+        # uncomment if you need to update the schedule json
+        # retrieve_schedule.update_schedule()
         codes = wkmonth.week_of_month()
         # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
