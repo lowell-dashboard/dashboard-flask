@@ -35,7 +35,7 @@ def find_week():
             new_month = MONTHS[month_num+1]
             month_data = data[new_month.upper()]
     return []
-def week_of_month(data):
+def week_of_month():
     """ Returns the week of the month for the specified date.
     """
 
