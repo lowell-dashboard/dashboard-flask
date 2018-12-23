@@ -9,8 +9,6 @@ from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder.security.sqla.manager import SecurityManager
-from flask_appbuilder.security.registerviews import RegisterUserDBView
 
 
 # 404 error handeler to render 404.html jijna2 template
