@@ -14,7 +14,7 @@ def find_week():
     month_num = dt.month
     month = MONTHS[month_num-1]
 
-    day = dt.day
+    day = 3#dt.day
 
     month_data = data[month.upper()]
 
