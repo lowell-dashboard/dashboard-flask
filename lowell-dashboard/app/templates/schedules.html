@@ -23,25 +23,25 @@ Primary style
 	box-sizing: border-box;
 }
 
-html {
+.main {
 	font-size: 62.5%;
 }
 
-body {
+.main2 {
 	font-size: 1.6rem;
 	font-family: "Source Sans Pro", sans-serif;
 	color: #222222;
 	background-color: white;
 }
 
-a {
+.main a {
 	color: #A2B9B2;
 	text-decoration: none;
 }
-a:hover {
+.main a:hover {
 		text-decoration: none;
 }
-ul {
+.main ul {
 		list-style-type: none;
 }
 
@@ -626,6 +626,8 @@ Main Components
 }
 	</style>
 
+  <div class="main">
+  <div class="main2">
   <h1>{{_("Lowell Schedules")}}</h1>
 	<br/>
 	<p class="codyhouse">link to the site of Codyhouse: <a href="https://codyhouse.co/gem/schedule-template/">https://codyhouse.co/gem/schedule-template/</a></p>
@@ -755,6 +757,8 @@ Main Components
 
 		<div class="cover-layer"></div>
 	</div> <!-- .cd-schedule -->
+  </div>
+  </div>
 	<script type="text/javascript">
 	jQuery(document).ready(function($){
 		var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';

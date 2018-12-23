@@ -7,27 +7,9 @@ from .forms import bugreportform
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
-from flask_appbuilder import SimpleFormView
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder.security.sqla.manager import SecurityManager
-from flask_appbuilder.security.registerviews import RegisterUserDBView
 
-
-
-"""
-    Create your Views::
-
-
-    class MyModelView(ModelView):
-        datamodel = SQLAInterface(MyModel)
-
-
-    Next, register your Views::
-
-
-    appbuilder.add_view(MyModelView, "My View", icon="fa-folder-open-o", category="My Category", category_icon='fa-envelope')
-"""
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -88,7 +70,7 @@ appbuilder.add_link("Schedules", href='/schedules', category=_('Lowell Resources
 # Views for Site files
 class LowellFiles(BaseView):
 
-    # Add route base as root "/"
+    # Add route base as root "/files"
     route_base = "/files"
 
     '''
@@ -112,7 +94,7 @@ class LowellFiles(BaseView):
     that contains the project's privacy policy
     '''
     @expose('/privacy')
-    def license(self):
+    def privacy(self):
         return self.render_template('privacy.html')
 
 # Create paths
@@ -137,41 +119,51 @@ class HomeView(BaseView):
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
 
+# Bugreport view
 class BugReport(SimpleFormView):
-    form = bugreportform
-    form_title = 'Bug Report'
-    message_good = 'Bug Report submitted'
-    message_bad = 'Bug Report couldn\'t be sent'
 
+    # declare form
+    form = bugreportform
+
+    # form data
+    form_title = 'Bug Report'
+    message_success = 'Your Bug Report has been submitted'
+    message_fail = 'Your Bug Report couldn\'t be sent'
+
+    # When form is created and viewed
     def form_get(self, form):
+        # Set name and email placeholders because fields not requried
         form.field1.data = 'Name'
         form.field2.data = 'Email'
 
+    # When form is submit
     def form_post(self, form):
-        # post process form
+        # Get data from fields
         name = form.field1.data
         email = form.field2.data
         bug_text = form.field3.data
 
+        # Create json for slack message
         slack_data = {
             'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
             'username': 'LHF Bug Reporter',
             'icon_emoji': ':robot_face:'
         }
 
+        # Send post request and get status code
         response = requests.post(secret.SLACK,
                                  data=json.dumps(slack_data),
                                  headers={'Content-Type': 'application/json'}
                                  )
 
+        # If sent properly success message and error message if not sent
         if response.status_code != 200:
-            flash(self.message_bad, 'error')
+            flash(self.message_fail, 'error')
         else:
-            flash(self.message_good, 'info')
+            flash(self.message_success, 'info')
 
-# Add paths
-appbuilder.add_view(BugReport, "Bug Report", icon="fa-group", label=_('Bug Report'),
-                     category="Forms", category_icon="fa-cogs")
+# Add form path
+appbuilder.add_view_no_menu(BugReport())
 
 # Create any db objects
 db.create_all()
