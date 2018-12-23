@@ -233,7 +233,7 @@ Main Components
 		margin-bottom: 0;
 	}
 	.cd-schedule .events .events-group > ul {
-		height: 950px;
+		height: 1150px;
 		/* reset style */
 		display: block;
 		overflow: visible;
@@ -631,11 +631,6 @@ Main Components
   <h1>{{_("Lowell Schedules")}}</h1>
 	<br/>
 	<p class="codyhouse">link to the site of Codyhouse: <a href="https://codyhouse.co/gem/schedule-template/">https://codyhouse.co/gem/schedule-template/</a></p>
-	<ul>
-		{% for i in table %}
-			<li>{{i}}</li>
-		{% endfor %}
-	</ul>
 	<div class="cd-schedule loading">
 		<div class="timeline">
 			<ul>
@@ -670,12 +665,22 @@ Main Components
 				<li class="events-group">
 					<div class="top-info"><span>Monday</span></div>
 					<ul>
+						{% set count = namespace(value=1) %}
 						{% for event in table[0] %}
-							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Block Test</em>
-							</a>
-						</li>
+							{% if (loop.index == 5) %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block Registry</em>
+									</a>
+								</li>
+							{% else %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block {{ count.value }}</em>
+									</a>
+								</li>
+								{% set count.value = count.value + 1 %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
@@ -684,12 +689,22 @@ Main Components
 					<div class="top-info"><span>Tuesday</span></div>
 
 					<ul>
+						{% set count = namespace(value=1) %}
 						{% for event in table[1] %}
-							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Block Test</em>
-							</a>
-						</li>
+							{% if (loop.index == 5) %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block Registry</em>
+									</a>
+								</li>
+							{% else %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block {{ count.value }}</em>
+									</a>
+								</li>
+								{% set count.value = count.value + 1 %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
@@ -698,12 +713,22 @@ Main Components
 					<div class="top-info"><span>Wednesday</span></div>
 
 					<ul>
+						{% set count = namespace(value=1) %}
 						{% for event in table[2] %}
-							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Block Test</em>
-							</a>
-						</li>
+							{% if (loop.index == 5) %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block Registry</em>
+									</a>
+								</li>
+							{% else %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block {{ count.value }}</em>
+									</a>
+								</li>
+								{% set count.value = count.value + 1 %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
@@ -712,12 +737,22 @@ Main Components
 					<div class="top-info"><span>Thursday</span></div>
 
 					<ul>
+						{% set count = namespace(value=1) %}
 						{% for event in table[3] %}
-							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Block Test</em>
-							</a>
-						</li>
+							{% if (loop.index == 5) %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block Registry</em>
+									</a>
+								</li>
+							{% else %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block {{ count.value }}</em>
+									</a>
+								</li>
+								{% set count.value = count.value + 1 %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
@@ -725,12 +760,22 @@ Main Components
 				<li class="events-group">
 					<div class="top-info"><span>Friday</span></div>
 					<ul>
+						{% set count = namespace(value=1) %}
 						{% for event in table[4] %}
-							<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
-							<a href="#0">
-								<em class="event-name">Block Test</em>
-							</a>
-						</li>
+							{% if (loop.index == 5) %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block Registry</em>
+									</a>
+								</li>
+							{% else %}
+								<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
+									<a href="#0">
+										<em class="event-name">Block {{ count.value }}</em>
+									</a>
+								</li>
+								{% set count.value = count.value + 1 %}
+							{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
