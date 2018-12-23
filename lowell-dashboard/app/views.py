@@ -7,27 +7,11 @@ from .forms import bugreportform
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
-from flask_appbuilder import SimpleFormView
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.sqla.manager import SecurityManager
 from flask_appbuilder.security.registerviews import RegisterUserDBView
 
-
-
-"""
-    Create your Views::
-
-
-    class MyModelView(ModelView):
-        datamodel = SQLAInterface(MyModel)
-
-
-    Next, register your Views::
-
-
-    appbuilder.add_view(MyModelView, "My View", icon="fa-folder-open-o", category="My Category", category_icon='fa-envelope')
-"""
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
