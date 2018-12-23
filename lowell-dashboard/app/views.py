@@ -50,10 +50,12 @@ class LowellResources(BaseView):
     '''
     @expose('/schedules')
     def schedules(self):
-        schedule = retrieve_schedule.retrieve_schedule()
-        codes = wkmonth.week_of_month(schedule)
+        # uncomment if you need to update the schedule json
+        # retrieve_schedule.update_schedule()
+        codes = wkmonth.week_of_month()
         # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
+        print(wkmonth.get_week_events())
         return self.render_template('schedules.html', table=schedule_data)
 
 # Create appbuilder dropdown menu

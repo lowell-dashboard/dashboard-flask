@@ -53,11 +53,13 @@ def main():
             dates = []
             for d in range(5):
                 dates.append(row[d])
+            events = row[5]
             print(dates)
             week = {}
             week['dates'] = dates
             week['codes'] = g_row
-            print(week['dates'], week['codes'])
+            week['events'] = events
+            print(week['dates'], week['codes'], week['events'])
             schedule[current_month].append(week)
             # Print columns A and E, which correspond to indices 0 and 4.
             # print('%s' % (g_row,))

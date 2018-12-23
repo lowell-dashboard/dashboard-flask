@@ -74,5 +74,11 @@
 			"StartTime" : "14:40",
 			"EndTime" : "15:30"
 		}
+	],
+	"NotAvailable": [
+		{
+			"StartTime" : "7:50",
+			"EndTime" : "15:30"
+		}
 	]
 }

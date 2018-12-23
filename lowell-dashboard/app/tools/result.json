@@ -8,7 +8,8 @@
                 "3",
                 "4",
                 "5"
-            ]
+            ],
+            "events": "6: Junior Prom (7p-11p Off-Site)"
         },
         {
             "codes": "NTTTN",
@@ -18,7 +19,8 @@
                 "10",
                 "11",
                 "12"
-            ]
+            ],
+            "events": "9-11: SBAC Testing; 12: Orchestra Concert (7p); 13: Senior Prom (7p-11p Off-Site)"
         },
         {
             "codes": "NTTTN",
@@ -28,7 +30,8 @@
                 "17",
                 "18",
                 "19"
-            ]
+            ],
+            "events": "16-18: SBAC Testing; 19-20: Dance Concerts (7:30p); 19-27: Passover; 19: End of Grading Cycle; \n20: Beautification Day (9a-3p)"
         },
         {
             "codes": "MNNNN",
@@ -38,7 +41,8 @@
                 "24",
                 "25",
                 "26"
-            ]
+            ],
+            "events": "24:Secretary Appreciation Day; 24:Grades Due; 26:Band Concert (7p); 27-May 5:SFUSD Arts Fest"
         }
     ],
     "AUGUST": [
@@ -50,7 +54,8 @@
                 "1",
                 "2",
                 "3"
-            ]
+            ],
+            "events": ""
         },
         {
             "codes": "N/A",
@@ -60,7 +65,8 @@
                 "8",
                 "9",
                 "10"
-            ]
+            ],
+            "events": "10: Peer Mentor Training"
         },
         {
             "codes": "N/A",
@@ -70,7 +76,8 @@
                 "15",
                 "16",
                 "17"
-            ]
+            ],
+            "events": "13: Freshmen Orientation (10a-3p); 14-17: Teacher Proessional Development Days"
         },
         {
             "codes": "SNNNN",
@@ -80,7 +87,8 @@
                 "22",
                 "23",
                 "24"
-            ]
+            ],
+            "events": "20: First Day of School; 20: Opening Day Rally"
         },
         {
             "codes": "MNNNN",
@@ -90,7 +98,8 @@
                 "29",
                 "30",
                 "31"
-            ]
+            ],
+            "events": "27-31: Senior Portraits (3:30p-8p Aud Lobby); 29-31: School & ID Pictures (PICTURE DAY); 31: Freshmen Mixer"
         }
     ],
     "DECEMBER": [
@@ -102,7 +111,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "events": "7: Winterball Dance (7p-11p Off-Site); 7: Dance Concerts (During School)"
         },
         {
             "codes": "MNNNN",
@@ -112,7 +122,8 @@
                 "12",
                 "13",
                 "14"
-            ]
+            ],
+            "events": "14: Choir Concert (7p); 12-20: Hanukkah"
         },
         {
             "codes": "TTTTE",
@@ -122,7 +133,8 @@
                 "19",
                 "20",
                 "21"
-            ]
+            ],
+            "events": "17-20: Finals; 21:End of Grading Cycle; 21: Early Release Day (Last Day of Semester); 21: Winterfair Co-Curricular (Blocks 3-7)"
         },
         {
             "codes": "HHHHH",
@@ -132,7 +144,8 @@
                 "26",
                 "27",
                 "28"
-            ]
+            ],
+            "events": "25-28: Winter Break (No School)"
         }
     ],
     "FEBRUARY": [
@@ -144,7 +157,8 @@
                 "6",
                 "7",
                 "8"
-            ]
+            ],
+            "events": "4-8: Social Awareness Week; 5: Lunar New Year Holiday (No School); 7: Alumni of Color Panel (LSA)"
         },
         {
             "codes": "MNNNN",
@@ -154,7 +168,8 @@
                 "13",
                 "14",
                 "15"
-            ]
+            ],
+            "events": "14: Valentine's Day Rally (Block 6)"
         },
         {
             "codes": "HNNNN",
@@ -164,7 +179,8 @@
                 "20",
                 "21",
                 "22"
-            ]
+            ],
+            "events": "18: Presidents' Day Holiday (No School); 22: Spring Festival Co-Curricular (Blocks 3-7); 22: Junior Escape (6:30p-9p); 22:End of Grading Cycle"
         },
         {
             "codes": "MNNNN",
@@ -174,7 +190,8 @@
                 "27",
                 "28",
                 "1"
-            ]
+            ],
+            "events": "27: Grades Due; "
         }
     ],
     "JANUARY": [
@@ -186,7 +203,8 @@
                 "2",
                 "3",
                 "4"
-            ]
+            ],
+            "events": "31-4: Winter Break (No School)"
         },
         {
             "codes": "SNNNN",
@@ -196,7 +214,8 @@
                 "9",
                 "10",
                 "11"
-            ]
+            ],
+            "events": "7: First Day of Spring Semester (Special Schedule); Lowell Admissions Test (TBD)"
         },
         {
             "codes": "MNNNN",
@@ -206,7 +225,8 @@
                 "16",
                 "17",
                 "18"
-            ]
+            ],
+            "events": "18: Battle of the Birds (Kezar)"
         },
         {
             "codes": "HNNNN",
@@ -216,7 +236,8 @@
                 "23",
                 "24",
                 "25"
-            ]
+            ],
+            "events": "21: MLK Day Holiday (No School); 25: Jazz Pops Concert (7p)"
         },
         {
             "codes": "MNNNN",
@@ -226,7 +247,8 @@
                 "30",
                 "31",
                 "1"
-            ]
+            ],
+            "events": "1-2: All-City Music Festival (Tentative)"
         }
     ],
     "JULY": [
@@ -238,7 +260,8 @@
                 "4",
                 "5",
                 "6"
-            ]
+            ],
+            "events": ""
         },
         {
             "codes": "N/A",
@@ -248,7 +271,8 @@
                 "11",
                 "12",
                 "13"
-            ]
+            ],
+            "events": ""
         },
         {
             "codes": "N/A",
@@ -258,7 +282,8 @@
                 "18",
                 "19",
                 "20"
-            ]
+            ],
+            "events": ""
         },
         {
             "codes": "N/A",
@@ -268,7 +293,8 @@
                 "25",
                 "26",
                 "27"
-            ]
+            ],
+            "events": ""
         }
     ],
     "JUNE": [
@@ -280,7 +306,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "events": "Graduation Rehearsal (TBD); 3: Make-Up Finals; 3: Graduation (TBD in December); 3: Rooftop K-8 Graduation (Aud); 4: End of Grading Cycle; 4: Last Day of School Year (Early Release Day)"
         }
     ],
     "MARCH": [
@@ -292,7 +319,8 @@
                 "6",
                 "7",
                 "8"
-            ]
+            ],
+            "events": "4-8: Spirit Week (Class Colors); 8: Spring Rally"
         },
         {
             "codes": "MNNNN",
@@ -302,7 +330,8 @@
                 "13",
                 "14",
                 "15"
-            ]
+            ],
+            "events": "12: Special Olympics; Alumni of Color Panel (Peer Resources) 14-16: Spring Musical (7:30p); 17: Spring Musical (2p)"
         },
         {
             "codes": "MNNNN",
@@ -312,7 +341,8 @@
                 "20",
                 "21",
                 "22"
-            ]
+            ],
+            "events": "22-23: Ohlone Theatre Fest (Off-Site); 22: Talent Show; 22: GlobeFest"
         },
         {
             "codes": "HHHHH",
@@ -322,7 +352,8 @@
                 "27",
                 "28",
                 "29"
-            ]
+            ],
+            "events": "25-29: Spring Break Week (No School)"
         }
     ],
     "MAY": [
@@ -334,7 +365,8 @@
                 "1",
                 "2",
                 "3"
-            ]
+            ],
+            "events": "2:SFUSD Arts Fest Celebration (5p-8p); 3:Choir Concert (7p)"
         },
         {
             "codes": "NTTTN",
@@ -344,7 +376,8 @@
                 "8",
                 "9",
                 "10"
-            ]
+            ],
+            "events": "6-10: AP Exams; Teacher Appreciation Week; 9:Special Olympics"
         },
         {
             "codes": "NTTTN",
@@ -354,7 +387,8 @@
                 "15",
                 "16",
                 "17"
-            ]
+            ],
+            "events": "13-17: AP Exams; 17: Last Dance (6p-10p)"
         },
         {
             "codes": "MNNNN",
@@ -364,7 +398,8 @@
                 "22",
                 "23",
                 "24"
-            ]
+            ],
+            "events": "20-24: AP Make Up Exams; 24: Multicultural Night (Tentative)"
         },
         {
             "codes": "HTTTT",
@@ -374,7 +409,8 @@
                 "29",
                 "30",
                 "31"
-            ]
+            ],
+            "events": "27: Memorial Day (No School); 28-31: Finals; Senior Picnic (TBD); Graduation Rehearsal (TBD)"
         }
     ],
     "NOVEMBER": [
@@ -386,7 +422,8 @@
                 "31",
                 "1",
                 "2"
-            ]
+            ],
+            "events": "30-31: Haunted House; 31: Halloween Rally (Block 6); 31-2: Dia De Los Muertos; 2: Sophomore Event - Coco Film Screening (6p-9p); 3:Senior Boat Dance (8p-12a Off-Site)"
         },
         {
             "codes": "MNNNN",
@@ -396,7 +433,8 @@
                 "7",
                 "8",
                 "9"
-            ]
+            ],
+            "events": "9:End of Grading Cycle"
         },
         {
             "codes": "HNNNN",
@@ -406,7 +444,8 @@
                 "14",
                 "15",
                 "16"
-            ]
+            ],
+            "events": "12: Veterans' Day Holiday (No School); 15: Grades Due; 16: Fall Festival Co-Curricular (Blocks 3-7)Cancelled. Will be rescheduled for later in the semester.16: Band Concert (7p)"
         },
         {
             "codes": "HHHHH",
@@ -416,7 +455,8 @@
                 "21",
                 "22",
                 "23"
-            ]
+            ],
+            "events": "19-23: Thanksgiving Week (No School)"
         },
         {
             "codes": "MNNNN",
@@ -426,7 +466,8 @@
                 "28",
                 "29",
                 "30"
-            ]
+            ],
+            "events": "29: Orchestra Concert (7p)"
         }
     ],
     "OCTOBER": [
@@ -438,7 +479,8 @@
                 "3",
                 "4",
                 "5"
-            ]
+            ],
+            "events": "1-5: Spirit Week; 3: Grades Due; 4:Cash for College 5:30p-7:30p (Seniors) 5: Spirit Rally; 5: Panoramic Picture Day; 5: Homecoming Dance (7p-10p)"
         },
         {
             "codes": "HNENN",
@@ -448,7 +490,8 @@
                 "10",
                 "11",
                 "12"
-            ]
+            ],
+            "events": "8: Indigenous People Holiday (No School); 10: PSAT; 13: SFUSD Enrollment Fair"
         },
         {
             "codes": "NNNNM",
@@ -458,7 +501,8 @@
                 "17",
                 "18",
                 "19"
-            ]
+            ],
+            "events": "17: School Tours Begin (Tentative); 18: Great California Shake Out; 18: Back to School Night (6p-8p)"
         },
         {
             "codes": "MNNNN",
@@ -468,7 +512,8 @@
                 "24",
                 "25",
                 "26"
-            ]
+            ],
+            "events": "25: Senior Graduation Orders (Catwalk 10:30-1:30); 25-27: Fall Play (7:30p); 28: Fall Play (2p)"
         }
     ],
     "SEPTEMBER": [
@@ -480,7 +525,8 @@
                 "5",
                 "6",
                 "7"
-            ]
+            ],
+            "events": "3: Labor Day Holiday (No School); 7: Welcome Back Dance (6:30p-10p)"
         },
         {
             "codes": "MNNNN",
@@ -490,7 +536,8 @@
                 "12",
                 "13",
                 "14"
-            ]
+            ],
+            "events": "9-11: Rosh Hashanah"
         },
         {
             "codes": "MNNNN",
@@ -500,7 +547,8 @@
                 "19",
                 "20",
                 "21"
-            ]
+            ],
+            "events": "18-19: Yom Kippur; 19-20: Senior Portraits (3:30p-8p Aud Lobby); 20: Personal Statements Writing Workshops 5:30p-7p (Seniors)"
         },
         {
             "codes": "NNNNM",
@@ -510,7 +558,8 @@
                 "26",
                 "27",
                 "28"
-            ]
+            ],
+            "events": "24: School & ID Pictures; 27: 8th Grade Night (6p-8p); 28:End of Grading Cycle"
         }
     ]
 }
