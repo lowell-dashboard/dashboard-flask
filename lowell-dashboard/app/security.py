@@ -1,23 +1,70 @@
-from flask_appbuilder.security.sqla.models import Permission, PermissionView, ViewMenu, Role
 from .registration import MyRegisterUserDBView
-from .models import CustomUser, CustomRegisterUser
-from flask_appbuilder.manager import BaseSecurityManager
+from .models import CustomUser, CustomRegisterUser, CustomRole, CustomPermissionView, CustomViewMenu, CustomPermission
+from flask_appbuilder.security.manager import BaseSecurityManager
+from flask_appbuilder.security.views import AuthDBView, AuthOIDView, ResetMyPasswordView, AuthLDAPView, AuthOAuthView, AuthRemoteUserView, \
+    ResetPasswordView, UserDBModelView, UserLDAPModelView, UserOIDModelView, UserOAuthModelView, UserRemoteUserModelView, \
+    RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, \
+    UserInfoEditView
 
 class SecurityManager(BaseSecurityManager):
-    """
-        Responsible for authentication, registering security views,
-        role and permission auto management
+    auth_view = None
+    """ The obj instance for authentication view """
+    user_view = None
+    """ The obj instance for user view """
+    registeruser_view = None
+    """ The obj instance for registering user view """
+    lm = None
+    """ Flask-Login LoginManager """
 
-        If you want to change anything just inherit and override, then
-        pass your own security manager to AppBuilder.
-    """
+    userdbmodelview = UserDBModelView
+    """ Override if you want your own user db view """
+    userldapmodelview = UserLDAPModelView
+    """ Override if you want your own user ldap view """
+    useroidmodelview = UserOIDModelView
+    """ Override if you want your own user OID view """
+    useroauthmodelview = UserOAuthModelView
+    """ Override if you want your own user OAuth view """
+    userremoteusermodelview = UserRemoteUserModelView
+    """ Override if you want your own user REMOTE_USER view """
+    registerusermodelview = RegisterUserModelView
+
+    """ Override if you want your own Authentication DB view """
+    authdbview = AuthDBView
+
+    """ Override if you want your own register user db view """
+    registeruserdbview = CustomRegisterUserDBView
+
+    """ Override if you want your own reset my password view """
+    resetmypasswordview = ResetMyPasswordView
+
+    """ Override if you want your own reset password view """
+    resetpasswordview = ResetPasswordView
+
+    """ Override if you want your own User information edit view """
+    userinfoeditview = UserInfoEditView
+
+    rolemodelview = RoleModelView
+    permissionmodelview = PermissionModelView
+    userstatschartview = UserStatsChartView
+    viewmenumodelview = ViewMenuModelView
+    permissionviewmodelview = PermissionViewModelView
+
+    # Set custom user model
     user_model = CustomUser
-    """ Override to set your own User Model """
-    role_model = Role
-    """ Override to set your own Role Model """
-    permission_model = Permission
-    viewmenu_model = ViewMenu
-    permissionview_model = PermissionView
+
+    # Set custom role model
+    role_model = CustomRole
+
+    # Set custom Permission model
+    permission_model = CustomPermission
+
+    # Set custom View Menu model
+    viewmenu_model = CustomViewMenu
+
+    # Set custom Permission View model
+    permissionview_model = CustomPermissionView
+
+    # Set custom Registration model
     registeruser_model = CustomRegisterUser
 
     def __init__(self, appbuilder):
