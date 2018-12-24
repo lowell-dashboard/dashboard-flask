@@ -7,25 +7,11 @@ from flask_appbuilder.security.views import AuthDBView, AuthOIDView, ResetMyPass
     UserInfoEditView
 
 class SecurityManager(BaseSecurityManager):
-    auth_view = None
-    """ The obj instance for authentication view """
-    user_view = None
-    """ The obj instance for user view """
-    registeruser_view = None
-    """ The obj instance for registering user view """
-    lm = None
-    """ Flask-Login LoginManager """
 
-    userdbmodelview = UserDBModelView
     """ Override if you want your own user db view """
-    userldapmodelview = UserLDAPModelView
-    """ Override if you want your own user ldap view """
-    useroidmodelview = UserOIDModelView
-    """ Override if you want your own user OID view """
-    useroauthmodelview = UserOAuthModelView
-    """ Override if you want your own user OAuth view """
-    userremoteusermodelview = UserRemoteUserModelView
-    """ Override if you want your own user REMOTE_USER view """
+    userdbmodelview = UserDBModelView
+
+    """ Override if you want your own user RegisterUserModelView view """
     registerusermodelview = RegisterUserModelView
 
     """ Override if you want your own Authentication DB view """
