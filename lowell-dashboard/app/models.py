@@ -16,6 +16,68 @@ AuditMixin will add automatic timestamp of created and modified by who
 
 """
 
+class CustomPermission(Model):
+    __tablename__ = 'ab_permission'
+    id = Column(Integer, Sequence('ab_permission_id_seq'), primary_key=True)
+    name = Column(String(100), unique=True, nullable=False)
+
+    def __repr__(self):
+        return self.name
+
+
+class CustomViewMenu(Model):
+    __tablename__ = 'ab_view_menu'
+    id = Column(Integer, Sequence('ab_view_menu_id_seq'), primary_key=True)
+    name = Column(String(100), unique=True, nullable=False)
+
+    def __eq__(self, other):
+        return (isinstance(other, self.__class__)) and (self.name == other.name)
+
+    def __neq__(self, other):
+        return self.name != other.name
+
+    def __repr__(self):
+        return self.name
+
+
+class CustomPermissionView(Model):
+    __tablename__ = 'ab_permission_view'
+    __table_args__ = (UniqueConstraint('permission_id', 'view_menu_id'),)
+    id = Column(Integer, Sequence('ab_permission_view_id_seq'), primary_key=True)
+    permission_id = Column(Integer, ForeignKey('ab_permission.id'))
+    permission = relationship("Permission")
+    view_menu_id = Column(Integer, ForeignKey('ab_view_menu.id'))
+    view_menu = relationship("ViewMenu")
+
+    def __repr__(self):
+        return str(self.permission).replace('_', ' ') + ' on ' + str(self.view_menu)
+
+
+assoc_permissionview_role = Table('ab_permission_view_role', Model.metadata,
+                                  Column('id', Integer, Sequence('ab_permission_view_role_id_seq'), primary_key=True),
+                                  Column('permission_view_id', Integer, ForeignKey('ab_permission_view.id')),
+                                  Column('role_id', Integer, ForeignKey('ab_role.id')),
+                                  UniqueConstraint('permission_view_id', 'role_id')
+)
+
+class CustomRole(Model):
+    __tablename__ = 'ab_role'
+
+    id = Column(Integer, Sequence('ab_role_id_seq'), primary_key=True)
+    name = Column(String(64), unique=True, nullable=False)
+    permissions = relationship('PermissionView', secondary=assoc_permissionview_role, backref='role')
+
+    def __repr__(self):
+        return self.name
+
+
+assoc_user_role = Table('ab_user_role', Model.metadata,
+                                  Column('id', Integer, Sequence('ab_user_role_id_seq'), primary_key=True),
+                                  Column('user_id', Integer, ForeignKey('ab_user.id')),
+                                  Column('role_id', Integer, ForeignKey('ab_role.id')),
+                                  UniqueConstraint('user_id', 'role_id')
+)
+
 class CustomUser(Model):
     __tablename__ = 'ab_user'
     id = Column(Integer, Sequence('ab_user_id_seq'), primary_key=True)
