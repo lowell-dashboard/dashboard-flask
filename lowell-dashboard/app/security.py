@@ -1,10 +1,8 @@
 from .registration import MyRegisterUserDBView
 from .models import CustomUser, CustomRegisterUser, CustomRole, CustomPermissionView, CustomViewMenu, CustomPermission
 from flask_appbuilder.security.manager import BaseSecurityManager
-from flask_appbuilder.security.views import AuthDBView, AuthOIDView, ResetMyPasswordView, AuthLDAPView, AuthOAuthView, AuthRemoteUserView, \
-    ResetPasswordView, UserDBModelView, UserLDAPModelView, UserOIDModelView, UserOAuthModelView, UserRemoteUserModelView, \
-    RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, \
-    UserInfoEditView
+from flask_appbuilder.security.views import AuthDBView, ResetMyPasswordView, ResetPasswordView, UserDBModelView, UserLDAPModelView, UserOIDModelView, UserOAuthModelView, UserRemoteUserModelView, \
+    RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, UserInfoEditView
 
 class SecurityManager(BaseSecurityManager):
 
