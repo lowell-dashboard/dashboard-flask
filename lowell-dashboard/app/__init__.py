@@ -1,7 +1,7 @@
 import logging
 from flask import Flask
 from app.index import MyIndexView
-from .security import MySecurityManager
+from .security import SecurityManager
 from flask_appbuilder import SQLA, AppBuilder
 
 
@@ -14,6 +14,6 @@ logging.getLogger().setLevel(logging.DEBUG)
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLA(app)
-appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, security_manager_class=MySecurityManager)
+appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, security_manager_class=SecurityManager)
 
 from app import views
