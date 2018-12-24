@@ -16,7 +16,7 @@ AuditMixin will add automatic timestamp of created and modified by who
 
 """
 
-class User(Model):
+class CustomUser(Model):
     __tablename__ = 'ab_user'
     id = Column(Integer, Sequence('ab_user_id_seq'), primary_key=True)
     username = Column(String(64), unique=True, nullable=False)
@@ -71,7 +71,7 @@ class User(Model):
         return self.get_full_name()
 
 
-class RegisterUser(Model):
+class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
     id = Column(Integer, Sequence('ab_register_user_id_seq'), primary_key=True)
     username = Column(String(64), unique=True, nullable=False)
