@@ -90,7 +90,7 @@ class MyRegisterUserDBView(PublicFormView):
             form.email.validators.append(Unique(datamodel_user, 'email'))
             form.email.validators.append(Unique(datamodel_register_user, 'email'))
 
-class RegisterUserDBView(MyRegisterUserDBView):
+class CustomRegisterUserDBView(MyRegisterUserDBView):
 
     form = CustomRegistration
 
