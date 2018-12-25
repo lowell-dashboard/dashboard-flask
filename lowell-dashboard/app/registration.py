@@ -4,7 +4,6 @@ from flask_babel import lazy_gettext as _
 from .forms import CustomRegistration
 from flask_appbuilder.validators import Unique
 from flask_appbuilder._compat import as_unicode
-from flask_appbuilder import const as c
 from flask_mail import Mail, Message
 
 # Create Registration system
@@ -76,8 +75,6 @@ class MyRegisterUserDBView(PublicFormView):
             self.appbuilder.sm.del_register_user(reg)
             return self.render_template(self.activation_template,
                                username=reg.username,
-                               first_name=reg.first_name,
-                               last_name=reg.last_name,
                                appbuilder=self.appbuilder)
 
     def add_form_unique_validations(self, form):
