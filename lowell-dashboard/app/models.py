@@ -45,9 +45,9 @@ class CustomPermissionView(Model):
     __table_args__ = (UniqueConstraint('permission_id', 'view_menu_id'),)
     id = Column(Integer, Sequence('ab_permission_view_id_seq'), primary_key=True)
     permission_id = Column(Integer, ForeignKey('ab_permission.id'))
-    permission = relationship("Permission")
+    permission = relationship("CustomPermission")
     view_menu_id = Column(Integer, ForeignKey('ab_view_menu.id'))
-    view_menu = relationship("ViewMenu")
+    view_menu = relationship("CustomViewMenu")
 
     def __repr__(self):
         return str(self.permission).replace('_', ' ') + ' on ' + str(self.view_menu)
@@ -65,7 +65,7 @@ class CustomRole(Model):
 
     id = Column(Integer, Sequence('ab_role_id_seq'), primary_key=True)
     name = Column(String(64), unique=True, nullable=False)
-    permissions = relationship('PermissionView', secondary=assoc_permissionview_role, backref='role')
+    permissions = relationship('CustomPermissionView', secondary=assoc_permissionview_role, backref='role')
 
     def __repr__(self):
         return self.name
@@ -88,7 +88,7 @@ class CustomUser(Model):
     last_login = Column(DateTime)
     login_count = Column(Integer)
     fail_login_count = Column(Integer)
-    roles = relationship('Role', secondary=assoc_user_role, backref='user')
+    roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
     created_on = Column(DateTime, default=datetime.datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.datetime.now, nullable=True)
 
@@ -102,10 +102,10 @@ class CustomUser(Model):
         return Column(Integer, ForeignKey('ab_user.id'),
                       default=self.get_user_id, nullable=True)
 
-    created_by = relationship("User", backref=backref("created", uselist=True),
-                              remote_side=[id], primaryjoin='User.created_by_fk == User.id', uselist=False)
-    changed_by = relationship("User", backref=backref("changed", uselist=True),
-                              remote_side=[id], primaryjoin='User.changed_by_fk == User.id', uselist=False)
+    created_by = relationship("CustomUser", backref=backref("created", uselist=True),
+                              remote_side=[id], primaryjoin='CustomUser.created_by_fk == CustomUser.id', uselist=False)
+    changed_by = relationship("CustomUser", backref=backref("changed", uselist=True),
+                              remote_side=[id], primaryjoin='CustomUser.changed_by_fk == CustomUser.id', uselist=False)
 
     @classmethod
     def get_user_id(cls):
