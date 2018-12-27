@@ -3,7 +3,7 @@ from .models import CustomUser, CustomRegisterUser, CustomRole, CustomPermission
 from flask_appbuilder.security.manager import BaseSecurityManager
 from flask_appbuilder.security.views import AuthDBView, ResetMyPasswordView, ResetPasswordView, UserDBModelView, UserLDAPModelView, UserOIDModelView, UserOAuthModelView, UserRemoteUserModelView, \
     RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, UserInfoEditView
-from .registration import CustomRegisterUserDBView
+from .registration import Register
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.models.sqla import Base
 from flask_appbuilder import const as c
@@ -27,7 +27,7 @@ class SecurityManager(BaseSecurityManager):
     authdbview = AuthDBView
 
     """ Override if you want your own register user db view """
-    registeruserdbview = CustomRegisterUserDBView
+    registeruserdbview = Register
 
     """ Override if you want your own reset my password view """
     resetmypasswordview = ResetMyPasswordView

@@ -101,11 +101,11 @@ class MyRegisterUserDBView(PublicFormView):
             form.email.validators.append(Unique(datamodel_user, 'email'))
             form.email.validators.append(Unique(datamodel_register_user, 'email'))
 
-class CustomRegisterUserDBView(MyRegisterUserDBView):
+class Register(MyRegisterUserDBView):
 
     form = CustomRegistration
 
-    redirect_url = '/'
+    redirect_url = '/home/new/'
 
     def form_get(self, form):
         self.add_form_unique_validations(form)
