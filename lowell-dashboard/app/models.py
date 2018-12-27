@@ -16,6 +16,8 @@ AuditMixin will add automatic timestamp of created and modified by who
 
 """
 
+_dont_audit = False
+
 class CustomPermission(Model):
     __tablename__ = 'ab_permission'
     id = Column(Integer, Sequence('ab_permission_id_seq'), primary_key=True)
@@ -81,13 +83,13 @@ assoc_user_role = Table('ab_user_role', Model.metadata,
 class CustomUser(Model):
     __tablename__ = 'ab_user'
     id = Column(Integer, Sequence('ab_user_id_seq'), primary_key=True)
+    # NOTE: Missing first_name, last_name properties
+    first_name = Column(String(64))
+    last_name = Column(String(64))
     username = Column(String(64), unique=True, nullable=False)
     password = Column(String(256))
     active = Column(Boolean)
     email = Column(String(64), unique=True, nullable=False)
-    # NOTE: Missing first_name, last_name properties
-    first_name = Column(String(64))
-    last_name = Column(String(64))
     last_login = Column(DateTime)
     login_count = Column(Integer)
     fail_login_count = Column(Integer)
@@ -117,12 +119,18 @@ class CustomUser(Model):
         except Exception as e:
             return None
 
+    # NOTE: add property because base model had it
+    @property
     def is_authenticated(self):
         return True
 
+    # NOTE: add property because base model had it
+    @property
     def is_active(self):
         return self.active
 
+    # NOTE: add property because base model had it
+    @property
     def is_anonymous(self):
         return False
 
@@ -139,11 +147,11 @@ class CustomUser(Model):
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
     id = Column(Integer, Sequence('ab_register_user_id_seq'), primary_key=True)
-    username = Column(String(64), unique=True, nullable=False)
-    password = Column(String(256))
-    email = Column(String(64), nullable=False)
     # NOTE: Missing first_name, last_name properties
     first_name = Column(String(64))
     last_name = Column(String(64))
+    username = Column(String(64), unique=True, nullable=False)
+    password = Column(String(256))
+    email = Column(String(64), nullable=False)
     registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
     registration_hash = Column(String(256))
