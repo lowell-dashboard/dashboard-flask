@@ -3,8 +3,7 @@ import requests
 import secret
 from app import appbuilder, db
 from flask import render_template, flash
-from .forms import bugreportform, CustomRegistration
-from .registration import MyRegisterUserDBView
+from .forms import bugreportform
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
@@ -165,25 +164,6 @@ class BugReport(SimpleFormView):
 
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
-
-class Register(MyRegisterUserDBView):
-
-    form = CustomRegistration
-
-    redirect_url = '/home/general/'
-
-    def form_get(self, form):
-        self.add_form_unique_validations(form)
-
-    def form_post(self, form):
-        self.add_form_unique_validations(form)
-        # MARK: not giving function first_name or last_name
-        self.add_registration(username=form.username.data,
-                              first_name=form.username.data,
-                              last_name='',
-                              email=form.email.data,
-                              password=form.password.data
-                              )
 
 # Create any db objects
 db.create_all()

@@ -1,6 +1,7 @@
 from flask import flash, redirect, session, url_for, request
 from flask_appbuilder.views import expose, PublicFormView
 from flask_babel import lazy_gettext as _
+from .forms import CustomRegistration
 from flask_appbuilder.validators import Unique
 from flask_appbuilder._compat import as_unicode
 from flask_mail import Mail, Message
@@ -99,3 +100,22 @@ class MyRegisterUserDBView(PublicFormView):
         if len(form.email.validators) == 2:
             form.email.validators.append(Unique(datamodel_user, 'email'))
             form.email.validators.append(Unique(datamodel_register_user, 'email'))
+
+class Register(MyRegisterUserDBView):
+
+    form = CustomRegistration
+
+    redirect_url = '/home/new/'
+
+    def form_get(self, form):
+        self.add_form_unique_validations(form)
+
+    def form_post(self, form):
+        self.add_form_unique_validations(form)
+        # MARK: not giving function first_name or last_name
+        self.add_registration(username=form.username.data,
+                              first_name=form.username.data,
+                              last_name='',
+                              email=form.email.data,
+                              password=form.password.data
+                              )
