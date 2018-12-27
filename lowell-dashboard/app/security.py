@@ -5,6 +5,12 @@ from flask_appbuilder.security.views import AuthDBView, ResetMyPasswordView, Res
     RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, UserInfoEditView
 from .registration import CustomRegisterUserDBView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder import const as c
+from sqlalchemy.engine.reflection import Inspector
+from sqlalchemy import func
+import logging
+
+log = logging.getLogger(__name__)
 
 class SecurityManager(BaseSecurityManager):
 
@@ -113,6 +119,7 @@ class SecurityManager(BaseSecurityManager):
 
             :rtype : RegisterUser
         """
+        # MARK: either remove first_name and last_name params or store them in the data set
         register_user = self.registeruser_model()
         register_user.username = username
         register_user.email = email
@@ -404,6 +411,7 @@ class SecurityManager(BaseSecurityManager):
                 role.permissions.append(perm_view)
                 self.get_session.merge(role)
                 self.get_session.commit()
+                # MARK: Probably what is causing the error
                 log.info(c.LOGMSG_INF_SEC_ADD_PERMROLE.format(str(perm_view), role.name))
             except Exception as e:
                 log.error(c.LOGMSG_ERR_SEC_ADD_PERMROLE.format(str(e)))

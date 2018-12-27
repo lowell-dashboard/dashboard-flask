@@ -85,6 +85,9 @@ class CustomUser(Model):
     password = Column(String(256))
     active = Column(Boolean)
     email = Column(String(64), unique=True, nullable=False)
+    # NOTE: Missing first_name, last_name properties
+    first_name = Column(String(64))
+    last_name = Column(String(64))
     last_login = Column(DateTime)
     login_count = Column(Integer)
     fail_login_count = Column(Integer)
@@ -139,5 +142,8 @@ class CustomRegisterUser(Model):
     username = Column(String(64), unique=True, nullable=False)
     password = Column(String(256))
     email = Column(String(64), nullable=False)
+    # NOTE: Missing first_name, last_name properties
+    first_name = Column(String(64))
+    last_name = Column(String(64))
     registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
     registration_hash = Column(String(256))
