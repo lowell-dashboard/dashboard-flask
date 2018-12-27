@@ -5,6 +5,17 @@ from .forms import CustomRegistration
 from flask_appbuilder.validators import Unique
 from flask_appbuilder._compat import as_unicode
 from flask_mail import Mail, Message
+from flask_appbuilder import const as c
+import logging
+
+log = logging.getLogger(__name__)
+
+def get_first_last_name(fullname):
+    names = fullname.split()
+    if len(names) > 1:
+        return names[0], ' '.join(names[1:])
+    elif names:
+        return names[0], ''
 
 # Create Registration system
 class MyRegisterUserDBView(PublicFormView):
@@ -67,6 +78,8 @@ class MyRegisterUserDBView(PublicFormView):
             return redirect(self.appbuilder.get_url_for_index)
         if not self.appbuilder.sm.add_user(username=reg.username,
                                            email=reg.email,
+                                           first_name=reg.first_name,
+                                           last_name=reg.last_name,
                                            role=self.appbuilder.sm.find_role(
                                                             self.appbuilder.sm.auth_user_registration_role),
                                            hashed_password=reg.password):
@@ -101,6 +114,8 @@ class CustomRegisterUserDBView(MyRegisterUserDBView):
         self.add_form_unique_validations(form)
         # MARK: not giving function first_name or last_name
         self.add_registration(username=form.username.data,
+                              first_name=form.username.data,
+                              last_name='',
                               email=form.email.data,
                               password=form.password.data
                               )
