@@ -119,6 +119,7 @@ class SecurityManager(BaseSecurityManager):
 
             :rtype : RegisterUser
         """
+        # MARK: either remove first_name and last_name params or store them in the data set
         register_user = self.registeruser_model()
         register_user.username = username
         register_user.email = email
