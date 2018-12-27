@@ -5,10 +5,13 @@ from flask_appbuilder.security.views import AuthDBView, ResetMyPasswordView, Res
     RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, UserInfoEditView
 from .registration import CustomRegisterUserDBView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
+from flask_appbuilder.models.sqla import Base
 from flask_appbuilder import const as c
 from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy import func
 import logging
+import uuid
+from werkzeug.security import generate_password_hash
 
 log = logging.getLogger(__name__)
 
