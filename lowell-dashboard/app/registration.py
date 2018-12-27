@@ -43,6 +43,7 @@ class MyRegisterUserDBView(PublicFormView):
         return True
 
     def add_registration(self, username, first_name, last_name, email, password=''):
+        # MARK: either provide first_name and last_name or remove it from the function
         register_user = self.appbuilder.sm.add_register_user(username, first_name, last_name, email, password)
         if register_user:
             if self.send_email(register_user):
@@ -98,6 +99,7 @@ class CustomRegisterUserDBView(MyRegisterUserDBView):
 
     def form_post(self, form):
         self.add_form_unique_validations(form)
+        # MARK: not giving function first_name or last_name
         self.add_registration(username=form.username.data,
                               email=form.email.data,
                               password=form.password.data
