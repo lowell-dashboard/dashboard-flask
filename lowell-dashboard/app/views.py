@@ -9,6 +9,7 @@ from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
+from app.models import CustomNews
 
 
 # 404 error handeler to render 404.html jijna2 template
@@ -164,7 +165,10 @@ class BugReport(SimpleFormView):
 
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
-'''
+
+# Create any db objects
+db.create_all()
+
 # CreateNews view
 class CreateNews(SimpleFormView):
 
@@ -183,31 +187,15 @@ class CreateNews(SimpleFormView):
     # When form is submit
     def form_post(self, form):
         # Get data from fields
-        name = form.field1.data
-        email = form.field2.data
-        bug_text = form.field3.data
-
-        # Create json for slack message
-        slack_data = {
-            'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
-            'username': 'LHF Bug Reporter',
-            'icon_emoji': ':robot_face:'
-        }
-
-        # Send post request and get status code
-        response = requests.post(secret.SLACK,
-                                 data=json.dumps(slack_data),
-                                 headers={'Content-Type': 'application/json'}
-                                 )
-
-        # If sent properly success message and error message if not sent
-        if response.status_code != 200:
-            flash(self.message_fail, 'error')
-        else:
-            flash(self.message_success, 'info')
-
+        title = form.title.data
+        news = form.news.data
+        # bug_text = form.field3.data
+        model = CustomNews(title=title, news=news)
+        db.session.add(model)
+        db.session.commit()
+        # log.info(c.LOGMSG_INF_SEC_ADD_NEWS.format(title))
+        flash(self.message_success, 'info')
 # Add form path
 appbuilder.add_view_no_menu(CreateNews())
-'''
-# Create any db objects
-db.create_all()
+
+
