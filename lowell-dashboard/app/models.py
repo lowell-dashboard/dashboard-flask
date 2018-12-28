@@ -155,3 +155,10 @@ class CustomRegisterUser(Model):
     email = Column(String(64), nullable=False)
     registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
     registration_hash = Column(String(256))
+
+class NewPosts(Model):
+    __tablename__ = 'news_posts'
+    id = Column(Integer, primary_key=True)
+    username = Column(String(64), nullable=False)
+    time_created = Column(DateTime)
+    news = Column(String(300))
