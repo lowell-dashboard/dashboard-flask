@@ -1,25 +1,24 @@
-from wtforms import Form, StringField, BooleanField, PasswordField
+from wtforms import Form, StringField, BooleanField, PasswordField, RadioField
 from flask_babel import lazy_gettext as _
-from wtforms.validators import DataRequired, EqualTo, Email
+from wtforms.validators import DataRequired, EqualTo, Email, Length
 from flask_wtf.recaptcha import RecaptchaField
 from flask_appbuilder.forms import DynamicForm
 from flask_appbuilder.fieldwidgets import BS3PasswordFieldWidget, BS3TextFieldWidget
 
 
-
 class bugreportform(DynamicForm):
 
-    field1 = StringField(_('Name'),
+    name = StringField(_('Name'),
                           description=_('Not Required'),
                           widget=BS3TextFieldWidget()
                           )
 
-    field2 = StringField(_('Email'),
+    email = StringField(_('Email'),
                           description=_('Not Required'),
                           widget=BS3TextFieldWidget()
                           )
 
-    field3 = StringField(_('Bug'),
+    bug = StringField(_('Bug'),
                           description=_('Put the bug report here'),
                           validators = [DataRequired()],
                           widget=BS3TextFieldWidget()
@@ -43,7 +42,10 @@ class CustomRegistration(DynamicForm):
 
     conf_password = PasswordField(_('Confirm Password'),
                                   description=_('Please rewrite the password to confirm'),
-                                  validators=[EqualTo('password', message=_('Passwords must match'))],
+                                  validators=[
+                                             EqualTo('password',
+                                             message=_('Passwords must match'))
+                                             ],
                                   widget=BS3PasswordFieldWidget())
 
     recaptcha = RecaptchaField()
@@ -55,5 +57,11 @@ class CreateNews(DynamicForm):
                           widget=BS3TextFieldWidget())
 
     news = StringField(_('News'),
-                          validators=[DataRequired()],
+                          description=_('Please write at least 15 characters and maximum of 300 characters'),
+                          validators=[DataRequired(), Length(min=15,max=300)],
                           widget=BS3TextFieldWidget())
+
+    rule_check = RadioField(_('Community Guidelines'),
+                               description=_('By accepting this you confirm that your post follows the ommunity guidelines. The guidelines are the in the footer of the page'),
+                               choices=[('confirm','True'),('deny','False')],
+                               validators=[DataRequired()])
