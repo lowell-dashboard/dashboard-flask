@@ -157,11 +157,9 @@ class CustomRegisterUser(Model):
     registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
     registration_hash = Column(String(256))
 
-class CustomNews(Model):
-    # __tablename__ = 'ab_news'
+class NewsPost(Model):
+    # __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
-    title = Column(String(64))
-    news = Column(String(2048))
-
-    def __repr__(self):
-        return self.title
+    title = Column(String(64), nullable=False)
+    time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
+    news = Column(String(1024))

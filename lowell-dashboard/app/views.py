@@ -9,8 +9,7 @@ from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from app.models import CustomNews
-
+from app.models import NewsPost
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -140,9 +139,9 @@ class BugReport(SimpleFormView):
     # When form is submit
     def form_post(self, form):
         # Get data from fields
-        name = form.field1.data
-        email = form.field2.data
-        bug_text = form.field3.data
+        name = form.name.data
+        email = form.email.data
+        bug_text = form.bug.data
 
         # Create json for slack message
         slack_data = {
@@ -166,11 +165,8 @@ class BugReport(SimpleFormView):
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
 
-# Create any db objects
-db.create_all()
-
 # CreateNews view
-class CreateNews(SimpleFormView):
+class News(SimpleFormView):
 
     # declare form
     form = CreateNews
@@ -189,13 +185,21 @@ class CreateNews(SimpleFormView):
         # Get data from fields
         title = form.title.data
         news = form.news.data
-        # bug_text = form.field3.data
-        model = CustomNews(title=title, news=news)
+
+        model = NewsPost()
+        model.title = title
+        model.news = news
+
         db.session.add(model)
         db.session.commit()
-        # log.info(c.LOGMSG_INF_SEC_ADD_NEWS.format(title))
-        flash(self.message_success, 'info')
+        # If posted true
+        if True:
+            flash(self.message_success, 'info')
+        else:
+            flash(self.message_fail, 'error')
+
 # Add form path
-appbuilder.add_view_no_menu(CreateNews())
+appbuilder.add_view_no_menu(News())
 
-
+# Create any db objects
+db.create_all()
