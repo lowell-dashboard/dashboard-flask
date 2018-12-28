@@ -139,9 +139,9 @@ class BugReport(SimpleFormView):
     # When form is submit
     def form_post(self, form):
         # Get data from fields
-        name = form.field1.data
-        email = form.field2.data
-        bug_text = form.field3.data
+        name = form.name.data
+        email = form.email.data
+        bug_text = form.bug.data
 
         # Create json for slack message
         slack_data = {
@@ -164,9 +164,9 @@ class BugReport(SimpleFormView):
 
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
-'''
+
 # CreateNews view
-class CreateNews(SimpleFormView):
+class News(SimpleFormView):
 
     # declare form
     form = CreateNews
@@ -183,31 +183,17 @@ class CreateNews(SimpleFormView):
     # When form is submit
     def form_post(self, form):
         # Get data from fields
-        name = form.field1.data
-        email = form.field2.data
-        bug_text = form.field3.data
+        title = form.title.data
+        news = form.news.data
 
-        # Create json for slack message
-        slack_data = {
-            'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
-            'username': 'LHF Bug Reporter',
-            'icon_emoji': ':robot_face:'
-        }
-
-        # Send post request and get status code
-        response = requests.post(secret.SLACK,
-                                 data=json.dumps(slack_data),
-                                 headers={'Content-Type': 'application/json'}
-                                 )
-
-        # If sent properly success message and error message if not sent
-        if response.status_code != 200:
-            flash(self.message_fail, 'error')
-        else:
+        # If posted true
+        if True:
             flash(self.message_success, 'info')
+        else:
+            flash(self.message_fail, 'error')
 
 # Add form path
-appbuilder.add_view_no_menu(CreateNews())
-'''
+appbuilder.add_view_no_menu(News())
+
 # Create any db objects
 db.create_all()
