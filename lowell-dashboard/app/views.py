@@ -3,7 +3,7 @@ import requests
 import secret
 from app import appbuilder, db
 from flask import render_template, flash
-from .forms import bugreportform
+from .forms import bugreportform, CreateNews
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
@@ -164,6 +164,50 @@ class BugReport(SimpleFormView):
 
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
+'''
+# CreateNews view
+class CreateNews(SimpleFormView):
 
+    # declare form
+    form = CreateNews
+
+    # form data
+    form_title = 'Create a News Post'
+    message_success = 'Your News Post has been created'
+    message_fail = 'Your News Post couldn\'t be created'
+
+    # When form is created and viewed
+    def form_get(self, form):
+        pass
+
+    # When form is submit
+    def form_post(self, form):
+        # Get data from fields
+        name = form.field1.data
+        email = form.field2.data
+        bug_text = form.field3.data
+
+        # Create json for slack message
+        slack_data = {
+            'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
+            'username': 'LHF Bug Reporter',
+            'icon_emoji': ':robot_face:'
+        }
+
+        # Send post request and get status code
+        response = requests.post(secret.SLACK,
+                                 data=json.dumps(slack_data),
+                                 headers={'Content-Type': 'application/json'}
+                                 )
+
+        # If sent properly success message and error message if not sent
+        if response.status_code != 200:
+            flash(self.message_fail, 'error')
+        else:
+            flash(self.message_success, 'info')
+
+# Add form path
+appbuilder.add_view_no_menu(CreateNews())
+'''
 # Create any db objects
 db.create_all()

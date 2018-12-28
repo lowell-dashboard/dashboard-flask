@@ -45,5 +45,15 @@ class CustomRegistration(DynamicForm):
                                   description=_('Please rewrite the password to confirm'),
                                   validators=[EqualTo('password', message=_('Passwords must match'))],
                                   widget=BS3PasswordFieldWidget())
-                                  
+
     recaptcha = RecaptchaField()
+
+class CreateNews(DynamicForm):
+
+    title = StringField(_('Title'),
+                          validators=[DataRequired()],
+                          widget=BS3TextFieldWidget())
+
+    news = StringField(_('News'),
+                          validators=[DataRequired()],
+                          widget=BS3TextFieldWidget())
