@@ -1,0 +1,67 @@
+# Polish translations for Lowell Help Forum.
+# Copyright (C) 2018 Lowell Help Forum
+# This file is distributed under the same license as the PROJECT project.
+# Lowell-Dashboard Github Organization, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-10 09:20-0800\n"
+"PO-Revision-Date: 2018-12-10 09:19-0800\n"
+"Last-Translator: Rafael Cenzano\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/templates/404.html:5
+msgid "Page not found"
+msgstr "Strona nie znaleziona"
+
+#: app/templates/404.html:6
+msgid "Go to the Home Page"
+msgstr "Wróć do strony głównej"
+
+#: app/templates/my_index.html:5
+msgid "My App on F.A.B."
+msgstr ""
+
+#: app/templates/my_index.html:6
+msgid "My first app using F.A.B, bla, bla, bla"
+msgstr ""
+
+#: app/templates/news.html:3
+msgid "Lowell News"
+msgstr "Aktualności Lowell"
+
+#: app/templates/schedules.html:3
+msgid "Lowell Schedules"
+msgstr "harmonogramy Lowell"
+
+#: app/templates/textbooks.html:3
+msgid "Lowell Textbooks"
+msgstr "Podręczniki Lowell"
+
+#: app/templates/appbuilder/footer.html:3
+msgid "Lowell Help Forum"
+msgstr "Forum pomocy Lowell"
+
+#: app/templates/appbuilder/footer.html:7
+msgid "Login"
+msgstr "Zaloguj Się"
+
+#: app/templates/appbuilder/footer.html:10
+msgid "Report Bugs"
+msgstr "Zgłoś błędy"
+
+#: app/templates/appbuilder/footer.html:18
+msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
+msgstr "© Lowell-Dashboard Github Organization. Wszelkie prawa zastrzeżone."
+
+#: app/templates/appbuilder/footer.html:21
+msgid "Wyświetl licencję"
+msgstr ""

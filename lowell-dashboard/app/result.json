@@ -1,0 +1,75 @@
+{
+    "APRIL": [
+        "MNNNN",
+        "NTTTN",
+        "NTTTN",
+        "MNNNN"
+    ],
+    "AUGUST": [
+        "N/A",
+        "N/A",
+        "N/A",
+        "SNNNN",
+        "MNNNN"
+    ],
+    "DECEMBER": [
+        "MNNNN",
+        "MNNNN",
+        "TTTTE",
+        "HHHHH"
+    ],
+    "FEBRUARY": [
+        "MHNNN",
+        "MNNNN",
+        "HNNNN",
+        "MNNNN"
+    ],
+    "JANUARY": [
+        "HHHHH",
+        "SNNNN",
+        "MNNNN",
+        "HNNNN",
+        "MNNNN"
+    ],
+    "JULY": [
+        "N/A",
+        "N/A",
+        "N/A",
+        "N/A"
+    ],
+    "JUNE": [
+        "ME"
+    ],
+    "MARCH": [
+        "MNNNR",
+        "MNNNN",
+        "MNNNN",
+        "HHHHH"
+    ],
+    "MAY": [
+        "MNNNN",
+        "NTTTN",
+        "NTTTN",
+        "MNNNN",
+        "HTTTT"
+    ],
+    "NOVEMBER": [
+        "MNNNN",
+        "MNNNN",
+        "HNNNN",
+        "HHHHH",
+        "MNNNN"
+    ],
+    "OCTOBER": [
+        "MNNNR",
+        "HNENN",
+        "NNNNM",
+        "MNNNN"
+    ],
+    "SEPTEMBER": [
+        "HNNNN",
+        "MNNNN",
+        "MNNNN",
+        "NNNNM"
+    ]
+}

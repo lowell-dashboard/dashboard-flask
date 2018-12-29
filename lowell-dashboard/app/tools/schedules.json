@@ -1,0 +1,84 @@
+{
+	"M": [
+		{
+			"StartTime" : "9:50",
+			"EndTime" : "10:25"
+		},
+		{
+			"StartTime" : "10:30",
+			"EndTime" : "11:05"
+		},
+		{
+			"StartTime" : "11:10",
+			"EndTime" : "11:45"
+		},
+		{
+			"StartTime" : "11:50",
+			"EndTime" : "12:25"
+		},
+		{
+			"StartTime" : "12:30",
+			"EndTime" : "12:50"
+		},
+		{
+			"StartTime" : "12:55",
+			"EndTime" : "13:30"
+		},
+		{
+			"StartTime" : "13:35",
+			"EndTime" : "14:10"
+		},
+		{
+			"StartTime" : "14:15",
+			"EndTime" : "14:50"
+		},
+		{
+			"StartTime" : "14:55",
+			"EndTime" : "15:30"
+		}
+	],
+	"N": [
+		{
+			"StartTime" : "7:50",
+			"EndTime" : "8:40"
+		},
+		{
+			"StartTime" : "8:45",
+			"EndTime" : "9:35"
+		},
+		{
+			"StartTime" : "9:40",
+			"EndTime" : "10:30"
+		},
+		{
+			"StartTime" : "10:35",
+			"EndTime" : "11:25"
+		},
+		{
+			"StartTime" : "11:30",
+			"EndTime" : "11:50"
+		},
+		{
+			"StartTime" : "11:55",
+			"EndTime" : "12:45"
+		},
+		{
+			"StartTime" : "12:50",
+			"EndTime" : "13:40"
+		},
+		{
+			"StartTime" : "13:45",
+			"EndTime" : "14:35"
+		},
+		{
+			"StartTime" : "14:40",
+			"EndTime" : "15:30"
+		}
+	],
+	"NotAvailable": [
+		{
+			"StartTime" : "7:50",
+			"EndTime" : "15:30"
+		}
+	]
+}

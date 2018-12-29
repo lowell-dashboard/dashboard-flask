@@ -47,15 +47,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-
 # Flask stuff:
 instance/
 .webassets-cache
@@ -102,3 +93,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# .gitignore extension
+lowell-dashboard/app.db
+lowell-dashboard/secret.py
+lowell-dashboard/app/static/
+.DS_Store
+
+lowell-dashboard/app/static

@@ -1,0 +1,17 @@
+{% extends "appbuilder/base.html" %}
+
+{% block head_meta %}
+  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
+  <meta charset='utf-8'>
+{% endblock %}
+
+{% block content %}
+    <h1>{{_("Lowell News")}}</h1>
+    {% for n in news %}
+    	<h1>{{n.title}}</h1>
+    	<p>{{n.news}}</p>
+    {% endfor %}
+    {% if news|length == 0 %}
+    	<p>There are no announcements</p>
+    {% endif %}
+{% endblock %}
