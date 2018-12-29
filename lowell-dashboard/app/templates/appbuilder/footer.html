@@ -10,7 +10,7 @@
 
 {% block content %}
 
-    <footer class="text-secondary">
+    <footer>
 
       <h3>{{_("Lowell Help Forum")}}</h3>
 
@@ -19,19 +19,38 @@
         <div class="row">
 
           <div class="col-xs-3">
-            <a href="/register/form" class="nounderline"><center><p>{{_("Register")}}</p></center></a>
+            <ul>
+              <strong><center><p>Quick Links</p></center></strong>
+              <a href="/login/" class="nounderline"><center><p>{{_("Login")}}</p></center></a>
+              <a href="/register/form" class="nounderline"><center><p>{{_("Register")}}</p></center></a>
+            </ul>
           </div>
 
           <div class="col-xs-3">
-            <a href="/login/" class="nounderline"><center><p>{{_("Login")}}</p></center></a>
+            <ul>
+              <strong><center><p>Forms</p></center></strong>
+              <a href="/bugreport/form" class="nounderline"><center><p>{{_("Report Bugs")}}</p></center></a>
+              <a href="/news/form" class="nounderline"><center><p>{{_("Create News")}}</p></center></a>
+            </ul>
           </div>
 
           <div class="col-xs-3">
-            <a href="/files/disclaimer" class="nounderline"><center><p>{{_("Disclaimer")}}</p></center></a>
+            <ul>
+              <strong><center><p>Help</p></center></strong>
+              <a href="/help/" class="nounderline"><center><p>{{_("Quick Help")}}</p></center></a>
+              <a href="/help/faq" class="nounderline"><center><p>{{_("FAQ")}}</p></center></a>
+            </ul>
           </div>
 
           <div class="col-xs-3">
-            <a href="/bugreport/form" class="nounderline"><center><p>{{_("Report Bugs")}}</p></center></a>
+            <ul>
+              <strong><center><p>Policies</p></center></strong>
+              <a href="/files/disclaimer" class="nounderline"><center><p>{{_("Disclaimer")}}</p></center></a>
+              <a href="/files/license" class="nounderline"><center><p>{{_("License")}}</p></center></a>
+              <a href="/files/privacy" class="nounderline"><center><p>{{_("Privacy")}}</p></center></a>
+              <a href="/files/terms" class="nounderline"><center><p>{{_("Terms")}}</p></center></a>
+              <a href="/files/guidelines" class="nounderline"><center><p>{{_("Posting Guidelines")}}</p></center></a>
+            </ul>
           </div>
 
         </div>
@@ -39,25 +58,12 @@
       </div>
 
       <div class="container">
-
         <div class="row">
-
-          <a href="/files/license" class="nounderline">
-
-            <div class="col-xs-6">
-              <center><h4>{{_("© Lowell-Dashboard Github Organization. All Rights Reserved.")}}</h4></center>
-            </div>
-
-            <div class="col-xs-6">
-              <center><h4>{{_("View License")}}</h4></center>
-            </div>
-
-          </a>
-
+          <div class="col-xs-12">
+            <center><h4>{{_("© Lowell-Dashboard Github Organization. All Rights Reserved.")}}</h4></center>
+          </div>
         </div>
-
       </div>
-
     </footer>
 
 {% endblock %}

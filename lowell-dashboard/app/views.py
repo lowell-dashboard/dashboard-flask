@@ -3,13 +3,13 @@ import requests
 import secret
 from app import appbuilder, db
 from flask import render_template, flash
-from .forms import bugreportform
+from .forms import bugreportform, CreateNews
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-
+from app.models import NewsPost
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -30,9 +30,13 @@ class LowellResources(BaseView):
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
+    datamodel = SQLAInterface(NewsPost)
+
     @expose('/news')
     def news(self):
-        return self.render_template('news.html')
+        num_news = 1
+        news = self.datamodel.session.query(NewsPost).order_by(NewsPost.id).all()
+        return self.render_template('news.html', news=news)
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -139,9 +143,9 @@ class BugReport(SimpleFormView):
     # When form is submit
     def form_post(self, form):
         # Get data from fields
-        name = form.field1.data
-        email = form.field2.data
-        bug_text = form.field3.data
+        name = form.name.data
+        email = form.email.data
+        bug_text = form.bug.data
 
         # Create json for slack message
         slack_data = {
@@ -164,6 +168,42 @@ class BugReport(SimpleFormView):
 
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
+
+# CreateNews view
+class News(SimpleFormView):
+
+    # declare form
+    form = CreateNews
+
+    # form data
+    form_title = 'Create a News Post'
+    message_success = 'Your News Post has been created'
+    message_fail = 'Your News Post couldn\'t be created'
+
+    # When form is created and viewed
+    def form_get(self, form):
+        pass
+
+    # When form is submit
+    def form_post(self, form):
+        # Get data from fields
+        title = form.title.data
+        news = form.news.data
+
+        model = NewsPost()
+        model.title = title
+        model.news = news
+
+        db.session.add(model)
+        db.session.commit()
+        # If posted true
+        if True:
+            flash(self.message_success, 'info')
+        else:
+            flash(self.message_fail, 'error')
+
+# Add form path
+appbuilder.add_view_no_menu(News())
 
 # Create any db objects
 db.create_all()
