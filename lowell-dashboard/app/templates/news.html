@@ -1,17 +1,29 @@
 {% extends "appbuilder/base.html" %}
 
 {% block head_meta %}
-  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
+  <title>Lowell Help Forum News</title>
+  <meta name="description" content="Lowell Help Forum News Page.">
   <meta charset='utf-8'>
 {% endblock %}
 
+{% block head_css%}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="../static/css/news.css">
+{% endblock %}
+
 {% block content %}
-    <h1>{{_("Lowell News")}}</h1>
-    {% for n in news %}
-    	<h1>{{n.title}}</h1>
-    	<p>{{n.news}}</p>
-    {% endfor %}
-    {% if news|length == 0 %}
-    	<p>There are no announcements</p>
-    {% endif %}
+  <h1>{{_("Lowell News")}}</h1>
+
+  {% for n in news %}
+  <div class="announcement">
+    <h2>{{n.title}}</h2>
+    <p style="white-space: pre-line;">{{n.news}}</p>
+    <p>Created by {{n.creator_username}}</p>
+  </div>
+  {% endfor %}
+
+  {% if news|length == 0 %}
+  	<p>There are no announcements</p>
+  {% endif %}
+  
 {% endblock %}
