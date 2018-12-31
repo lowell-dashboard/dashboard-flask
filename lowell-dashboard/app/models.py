@@ -160,7 +160,20 @@ class CustomRegisterUser(Model):
 class NewsPost(Model):
     # __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
-    username = Column(String(64), nullable=False)
+    creator_username = Column(String(64), nullable=False)
     title = Column(String(64), nullable=False)
     time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
     news = Column(String(1024))
+
+    def drop_table(self, db):
+        try:
+            NewsPost.__table__.drop(db.engine)
+            return True
+        except Exception as e:
+            print(e)
+            return False
+    def add_column(self, col):
+        # code for adding a new column
+        test = Column('test', Integer)
+        User.__table__.append(test)
+

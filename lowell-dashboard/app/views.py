@@ -193,18 +193,22 @@ class News(SimpleFormView):
         title = form.title.data
         news = form.news.data
 
+        # Create the news post
         model = NewsPost()
-        model.username = str(g.user)
+        model.creator_username = str(g.user)
         model.title = title
         model.news = news
-
-        # If posted true
+        # Add the model to the database
         try:
             db.session.add(model)
             db.session.commit()
             flash(self.message_success, 'info')
         except:
+            # flash error
             flash(self.message_fail, 'error')
+        # NOTE: comment once deleted table
+        #success = model.drop_table(db)
+        #flash(success, 'info')
 
 # Add form path
 appbuilder.add_view_no_menu(News())
