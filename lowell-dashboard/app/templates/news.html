@@ -7,4 +7,11 @@
 
 {% block content %}
     <h1>{{_("Lowell News")}}</h1>
+    {% for n in news %}
+    	<h1>{{n.title}}</h1>
+    	<p>{{n.news}}</p>
+    {% endfor %}
+    {% if news|length == 0 %}
+    	<p>There are no announcements</p>
+    {% endif %}
 {% endblock %}

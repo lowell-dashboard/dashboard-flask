@@ -9,7 +9,7 @@ from app.tools import wkmonth
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-
+from app.models import NewsPost
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -30,9 +30,18 @@ class LowellResources(BaseView):
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
+    datamodel = SQLAInterface(NewsPost)
+
     @expose('/news')
+<<<<<<< HEAD
     def newsview(self):
         return self.render_template('news.html')
+=======
+    def news(self):
+        num_news = 1
+        news = self.datamodel.session.query(NewsPost).order_by(NewsPost.id).all()
+        return self.render_template('news.html', news=news)
+>>>>>>> 1c4e6de16df19cfcaa19e8543189cd1270f23842
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -189,6 +198,12 @@ class News(SimpleFormView):
         title = form.title.data
         news = form.news.data
 
+        model = NewsPost()
+        model.title = title
+        model.news = news
+
+        db.session.add(model)
+        db.session.commit()
         # If posted true
         if True:
             flash(self.message_success, 'info')

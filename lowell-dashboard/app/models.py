@@ -1,7 +1,7 @@
 import datetime
 from flask import g
 from flask_appbuilder._compat import as_unicode
-from sqlalchemy import Table, Column, Integer, String, Boolean, DateTime, ForeignKey, Sequence, UniqueConstraint
+from sqlalchemy import Table, Column, Integer, String, Boolean, DateTime, ForeignKey, Sequence, UniqueConstraint, MetaData
 from sqlalchemy.orm import relationship, backref
 from flask_appbuilder import Model
 from sqlalchemy.ext.declarative import declared_attr
@@ -17,6 +17,7 @@ AuditMixin will add automatic timestamp of created and modified by who
 """
 
 _dont_audit = False
+_mt = MetaData()
 
 class CustomPermission(Model):
     __tablename__ = 'ab_permission'
@@ -156,9 +157,9 @@ class CustomRegisterUser(Model):
     registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
     registration_hash = Column(String(256))
 
-class NewPosts(Model):
-    __tablename__ = 'news_posts'
+class NewsPost(Model):
+    # __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
-    username = Column(String(64), nullable=False)
-    time_created = Column(DateTime)
-    news = Column(String(300))
+    title = Column(String(64), nullable=False)
+    time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
+    news = Column(String(1024))
