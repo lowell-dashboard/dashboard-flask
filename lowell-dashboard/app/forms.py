@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, BooleanField, PasswordField, RadioField
+from wtforms import Form, StringField, BooleanField, PasswordField, RadioField, TextAreaField
 from flask_babel import lazy_gettext as _
 from wtforms.validators import DataRequired, EqualTo, Email, Length
 from flask_wtf.recaptcha import RecaptchaField
@@ -56,10 +56,14 @@ class CreateNews(DynamicForm):
                           validators=[DataRequired()],
                           widget=BS3TextFieldWidget())
 
-    news = StringField(_('News'),
+    news = TextAreaField(_('News'),
+                          render_kw={"rows": 15, "cols": 40},
                           description=_('Please write at least 15 characters and maximum of 300 characters'),
-                          validators=[DataRequired(), Length(min=15,max=300)],
-                          widget=BS3TextFieldWidget())
+                          validators=[
+                                     DataRequired(),
+                                     Length(min=15,max=400)
+                                     ]
+                          )
 
     rule_check = RadioField(_('Community Guidelines'),
                                description=_('By accepting this you confirm that your post follows the ommunity guidelines. The guidelines are the in the footer of the page'),
