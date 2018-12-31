@@ -12,18 +12,33 @@
 {% endblock %}
 
 {% block content %}
-  <h1>{{_("Lowell News")}}</h1>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-6">
+        <h1>{{_("Lowell News")}}</h1>
+      </div>
+
+      <div class="col-xs-6">
+        <h3><a href="/news/form">{{_("Create News ✎")}}</a></h3>
+      </div>
+
+    </div>
+
+  </div>
+
 
   {% for n in news %}
   <div class="announcement">
     <h2>{{n.title}}</h2>
     <p style="white-space: pre-line;">{{n.news}}</p>
-    <p>Created by {{n.creator_username}}</p>
+    <p>{{n.made_by_message}}{{n.creator_username}}</p>
   </div>
   {% endfor %}
 
   {% if news|length == 0 %}
   	<p>There are no announcements</p>
   {% endif %}
-  
+
 {% endblock %}

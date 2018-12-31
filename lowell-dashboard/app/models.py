@@ -164,6 +164,7 @@ class NewsPost(Model):
     title = Column(String(64), nullable=False)
     time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
     news = Column(String(1024))
+    made_by_message = Column(String(64))
 
     def drop_table(self, db):
         try:
@@ -172,7 +173,7 @@ class NewsPost(Model):
         except Exception as e:
             print(e)
             return False
-            
+
     def add_column(self, col):
         # code for adding a new column
         test = Column('test', Integer)

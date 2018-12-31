@@ -198,6 +198,8 @@ class News(SimpleFormView):
         model.creator_username = str(g.user)
         model.title = title
         model.news = news
+        model.made_by_message = 'Created by '
+        
         # Add the model to the database
         try:
             db.session.add(model)
