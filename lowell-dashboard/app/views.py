@@ -206,8 +206,8 @@ class News(SimpleFormView):
         except:
             flash(self.message_fail, 'error')
         # NOTE: comment once deleted table
-        success = model.drop_table(db)
-        flash(success, 'info')
+        #success = model.drop_table(db)
+        #flash(success, 'info')
 
 # Add form path
 appbuilder.add_view_no_menu(News())

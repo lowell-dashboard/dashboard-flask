@@ -10,7 +10,7 @@
     <h1>{{_("Lowell News")}}</h1>
     {% for n in news %}
     	<h1>{{n.title}}</h1>
-    	<p>{{n.news}}</p>
+    	<p style="white-space: pre-line;">{{n.news}}</p>
       <p>Created by {{n.username}}</p>
     {% endfor %}
     {% if news|length == 0 %}

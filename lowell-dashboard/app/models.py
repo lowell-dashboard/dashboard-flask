@@ -172,4 +172,8 @@ class NewsPost(Model):
         except Exception as e:
             print(e)
             return False
+    def add_column(self, col):
+        # code for adding a new column
+        test = Column('test', Integer)
+        User.__table__.append(test)
 
