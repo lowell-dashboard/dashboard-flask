@@ -198,12 +198,12 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
 
-        db.session.add(model)
-        db.session.commit()
         # If posted true
-        if True:
+        try:
+            db.session.add(model)
+            db.session.commit()
             flash(self.message_success, 'info')
-        else:
+        except:
             flash(self.message_fail, 'error')
 
 # Add form path
