@@ -2,7 +2,7 @@ import json
 import requests
 import secret
 from app import appbuilder, db
-from flask import render_template, flash
+from flask import render_template, flash, g
 from .forms import bugreportform, CreateNews
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
@@ -20,7 +20,7 @@ def page_not_found(e):
 class LowellResources(BaseView):
 
     # Top choice for drop down menu
-    default_view = 'news'
+    default_view = 'newsview'
 
     # Add route base as root "/"
     route_base = "/"
@@ -33,7 +33,7 @@ class LowellResources(BaseView):
     datamodel = SQLAInterface(NewsPost)
 
     @expose('/news')
-    def news(self):
+    def newsview(self):
         num_news = 1
         news = self.datamodel.session.query(NewsPost).order_by(NewsPost.id).all()
         return self.render_template('news.html', news=news)
@@ -66,7 +66,7 @@ class LowellResources(BaseView):
 appbuilder.add_view(LowellResources, "News", category=_('Lowell Resources'), label=_('News'))
 
 # Create news link in drop down menu
-appbuilder.add_link("News", href='/news', category=_('Lowell Resources'), label=_('News'))
+appbuilder.add_link("newsview", href='/news', category=_('Lowell Resources'), label=_('News'))
 
 # Create textbook link in drop down menu
 appbuilder.add_link("Textbooks", href='/textbooks', category=_('Lowell Resources'), label=_('Textbooks'))
@@ -140,8 +140,8 @@ class BugReport(SimpleFormView):
     # When form is created and viewed
     def form_get(self, form):
         # Set name and email placeholders because fields not requried
-        form.field1.data = 'Name'
-        form.field2.data = 'Email'
+        form.name.data = 'Name'
+        form.email.data = 'Email'
 
     # When form is submit
     def form_post(self, form):
@@ -152,7 +152,7 @@ class BugReport(SimpleFormView):
 
         # Create json for slack message
         slack_data = {
-            'text': 'Bug Report from: ' + str(name) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
+            'text': 'Bug Report from: ' + str(name) + '\nUsername: ' + str(g.user) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
             'username': 'LHF Bug Reporter',
             'icon_emoji': ':robot_face:'
         }
@@ -194,6 +194,7 @@ class News(SimpleFormView):
         news = form.news.data
 
         model = NewsPost()
+        model.username = str(g.user)
         model.title = title
         model.news = news
 

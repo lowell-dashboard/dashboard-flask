@@ -160,6 +160,7 @@ class CustomRegisterUser(Model):
 class NewsPost(Model):
     # __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
+    username = Column(String(64), nullable=False)
     title = Column(String(64), nullable=False)
     time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
     news = Column(String(1024))
