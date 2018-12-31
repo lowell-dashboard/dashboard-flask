@@ -33,15 +33,10 @@ class LowellResources(BaseView):
     datamodel = SQLAInterface(NewsPost)
 
     @expose('/news')
-<<<<<<< HEAD
-    def newsview(self):
-        return self.render_template('news.html')
-=======
     def news(self):
         num_news = 1
         news = self.datamodel.session.query(NewsPost).order_by(NewsPost.id).all()
         return self.render_template('news.html', news=news)
->>>>>>> 1c4e6de16df19cfcaa19e8543189cd1270f23842
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
