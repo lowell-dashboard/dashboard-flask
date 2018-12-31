@@ -31,7 +31,7 @@ class LowellResources(BaseView):
     work with database and can only be seen by logged in users
     '''
     @expose('/news')
-    def news(self):
+    def newsview(self):
         return self.render_template('news.html')
 
     '''
@@ -60,6 +60,9 @@ class LowellResources(BaseView):
 
 # Create appbuilder dropdown menu
 appbuilder.add_view(LowellResources, "News", category=_('Lowell Resources'), label=_('News'))
+
+# Create news link in drop down menu
+appbuilder.add_link("Textbooks", href='/news', category=_('Lowell Resources'), label=_('News'))
 
 # Create textbook link in drop down menu
 appbuilder.add_link("Textbooks", href='/textbooks', category=_('Lowell Resources'), label=_('Textbooks'))
