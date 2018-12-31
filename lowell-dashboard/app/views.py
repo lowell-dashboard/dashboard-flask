@@ -193,17 +193,18 @@ class News(SimpleFormView):
         title = form.title.data
         news = form.news.data
 
+        # Create the news post
         model = NewsPost()
         model.creator_username = str(g.user)
         model.title = title
         model.news = news
-        print('news data', type(news))
-        db.session.add(model)
-        # If posted true
+        # Add the model to the database
         try:
+            db.session.add(model)
             db.session.commit()
             flash(self.message_success, 'info')
         except:
+            # flash error
             flash(self.message_fail, 'error')
         # NOTE: comment once deleted table
         #success = model.drop_table(db)

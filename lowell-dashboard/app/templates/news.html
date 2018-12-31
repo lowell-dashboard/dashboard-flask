@@ -11,7 +11,7 @@
     {% for n in news %}
     	<h1>{{n.title}}</h1>
     	<p style="white-space: pre-line;">{{n.news}}</p>
-      <p>Created by {{n.username}}</p>
+      <p>Created by {{n.creator_username}}</p>
     {% endfor %}
     {% if news|length == 0 %}
     	<p>There are no announcements</p>
