@@ -1,14 +1,14 @@
 from flask import flash, redirect, session, url_for, request
-from flask_appbuilder.views import expose, PublicFormView
-from flask_babel import lazy_gettext as _
 from .forms import CustomRegistration
-from flask_appbuilder.validators import Unique
-from flask_appbuilder._compat import as_unicode
+from logging import getLogger
 from flask_mail import Mail, Message
+from flask_babel import lazy_gettext as _
 from flask_appbuilder import const as c
-import logging
+from flask_appbuilder.views import expose, PublicFormView
+from flask_appbuilder._compat import as_unicode
+from flask_appbuilder.validators import Unique
 
-log = logging.getLogger(__name__)
+log = getLogger(__name__)
 
 def get_first_last_name(fullname):
     names = fullname.split()

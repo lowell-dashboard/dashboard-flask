@@ -69,3 +69,5 @@ class CreateNews(DynamicForm):
                                description=_('By accepting this you confirm that your post follows the ommunity guidelines. The guidelines are the in the footer of the page'),
                                choices=[('confirm','True'),('deny','False')],
                                validators=[DataRequired()])
+
+    recaptcha = RecaptchaField()

@@ -1,19 +1,19 @@
-from .registration import MyRegisterUserDBView
+from uuid import uuid1
+from logging import getLogger
 from .models import CustomUser, CustomRegisterUser, CustomRole, CustomPermissionView, CustomViewMenu, CustomPermission
-from flask_appbuilder.security.manager import BaseSecurityManager
+from sqlalchemy import func
+from .registration import Register
+from .registration import MyRegisterUserDBView
+from flask_appbuilder import const as c
+from werkzeug.security import generate_password_hash
+from flask_appbuilder.models.sqla import Base
+from sqlalchemy.engine.reflection import Inspector
 from flask_appbuilder.security.views import AuthDBView, ResetMyPasswordView, ResetPasswordView, UserDBModelView, UserLDAPModelView, UserOIDModelView, UserOAuthModelView, UserRemoteUserModelView, \
     RoleModelView, PermissionViewModelView, ViewMenuModelView, PermissionModelView, UserStatsChartView, RegisterUserModelView, UserInfoEditView
-from .registration import Register
+from flask_appbuilder.security.manager import BaseSecurityManager
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder.models.sqla import Base
-from flask_appbuilder import const as c
-from sqlalchemy.engine.reflection import Inspector
-from sqlalchemy import func
-import logging
-import uuid
-from werkzeug.security import generate_password_hash
 
-log = logging.getLogger(__name__)
+log = getLogger(__name__)
 
 class SecurityManager(BaseSecurityManager):
 
@@ -132,7 +132,7 @@ class SecurityManager(BaseSecurityManager):
             register_user.password = hashed_password
         else:
             register_user.password = generate_password_hash(password)
-        register_user.registration_hash = str(uuid.uuid1())
+        register_user.registration_hash = str(uuid1())
         try:
             self.get_session.add(register_user)
             self.get_session.commit()
