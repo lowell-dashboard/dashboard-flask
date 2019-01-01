@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-10 09:24-0800\n"
+"POT-Creation-Date: 2018-12-31 23:27-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,284 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/views.py:48 app/views.py:49 app/views.py:50
+#: app/forms.py:11
+msgid "Name"
+msgstr ""
+
+#: app/forms.py:12 app/forms.py:17
+msgid "Not Required"
+msgstr ""
+
+#: app/forms.py:16 app/forms.py:33
+msgid "Email"
+msgstr ""
+
+#: app/forms.py:21
+msgid "Bug"
+msgstr ""
+
+#: app/forms.py:22
+msgid "Put the bug report here"
+msgstr ""
+
+#: app/forms.py:29
+msgid "User Name"
+msgstr ""
+
+#: app/forms.py:38
+msgid "Password"
+msgstr ""
+
+#: app/forms.py:39
+msgid ""
+"Please use a good password policy, this application does not check this "
+"for you"
+msgstr ""
+
+#: app/forms.py:43
+msgid "Confirm Password"
+msgstr ""
+
+#: app/forms.py:44
+msgid "Please rewrite the password to confirm"
+msgstr ""
+
+#: app/forms.py:47
+msgid "Passwords must match"
+msgstr ""
+
+#: app/forms.py:55
+msgid "Title"
+msgstr ""
+
+#: app/forms.py:59 app/views.py:66 app/views.py:69
+msgid "News"
+msgstr ""
+
+#: app/forms.py:61
+msgid "Please write at least 15 characters and maximum of 300 characters"
+msgstr ""
+
+#: app/forms.py:68
+msgid "Community Guidelines"
+msgstr ""
+
+#: app/forms.py:69
+msgid ""
+"By accepting this you confirm that your post follows the ommunity "
+"guidelines. The guidelines are the in the footer of the page"
+msgstr ""
+
+#: app/registration.py:30
+msgid "Your Account activation for Lowell Help Forum"
+msgstr ""
+
+#: app/registration.py:33
+msgid "Fill out the registration form for Lowell Help Forum"
+msgstr ""
+
+#: app/registration.py:36
+msgid "Not possible to register you at the moment, try again later"
+msgstr ""
+
+#: app/registration.py:39
+msgid "Registration sent to your email"
+msgstr ""
+
+#: app/views.py:66 app/views.py:69 app/views.py:72 app/views.py:75
 msgid "Lowell Resources"
 msgstr ""
 
-#: app/templates/404.html:5
+#: app/views.py:72
+msgid "Textbooks"
+msgstr ""
+
+#: app/views.py:75
+msgid "Schedules"
+msgstr ""
+
+#: app/templates/404.html:12
 msgid "Page not found"
 msgstr ""
 
-#: app/templates/404.html:6
+#: app/templates/404.html:13
 msgid "Go to the Home Page"
 msgstr ""
 
-#: app/templates/my_index.html:5
-msgid "My App on F.A.B."
+#: app/templates/activation.html:10
+msgid "Welcome"
 msgstr ""
 
-#: app/templates/my_index.html:6
-msgid "My first app using F.A.B, bla, bla, bla"
+#: app/templates/activation.html:12
+msgid ""
+"Your user is activated for Lowell Help Forum. You can now proceed to "
+"login and use the forum"
 msgstr ""
 
-#: app/templates/news.html:3
-msgid "Lowell News"
+#: app/templates/disclaimer.html:14
+msgid "Lowell Help Forum Disclaimer"
 msgstr ""
 
-#: app/templates/schedules.html:3
-msgid "Lowell Scedules"
+#: app/templates/disclaimer.html:15
+msgid "We are in no way run by or affiliated with Lowell High school"
 msgstr ""
 
-#: app/templates/textbooks.html:3
-msgid "Lowell Textbooks"
+#: app/templates/disclaimer.html:16
+msgid "in San Francisco. This site was created by Lowell students"
 msgstr ""
 
-#: app/templates/appbuilder/footer.html:3
+#: app/templates/disclaimer.html:17
+msgid "for Lowell students. If there is ever a bug or something a"
+msgstr ""
+
+#: app/templates/disclaimer.html:18
+msgid "problem that needs to reported, use the websites report function"
+msgstr ""
+
+#: app/templates/disclaimer.html:19
+msgid "and do not ask Lowell school staff for help with this website"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:15 app/templates/my_index.html:11
+#: app/templates/new_user.html:14
 msgid "Lowell Help Forum"
 msgstr ""
 
-#: app/templates/appbuilder/footer.html:7
+#: app/templates/new_user.html:16
+msgid "Create an account to post and communicate with fellow students"
+msgstr ""
+
+#: app/templates/new_user.html:28
+msgid "✅ Register ✅"
+msgstr ""
+
+#: app/templates/new_user.html:30
+msgid "Don't have an account but want one?"
+msgstr ""
+
+#: app/templates/new_user.html:32
+msgid "Register Here!"
+msgstr ""
+
+#: app/templates/new_user.html:43
+msgid "🔒 Login 🔒"
+msgstr ""
+
+#: app/templates/new_user.html:45
+msgid "Already have an account with us?"
+msgstr ""
+
+#: app/templates/new_user.html:47
+msgid "Login Here!"
+msgstr ""
+
+#: app/templates/new_user.html:62
+msgid "👓 Just a Viewer 👓"
+msgstr ""
+
+#: app/templates/new_user.html:64
+msgid "Just want to view data or not create an acount? Click this Button."
+msgstr ""
+
+#: app/templates/new_user.html:65
+msgid ""
+"(We do recommend using or creating an account because it allows you more "
+"resources from the website)"
+msgstr ""
+
+#: app/templates/new_user.html:67
+msgid "Be a Viewer"
+msgstr ""
+
+#: app/templates/new_user.html:82
+msgid "🧱 On the Fence 🧱"
+msgstr ""
+
+#: app/templates/new_user.html:84
+msgid "Not sure if you should trust us?"
+msgstr ""
+
+#: app/templates/new_user.html:85
+msgid ""
+"We are Lowell Students and created this site to help remove stress. We "
+"will never do anything bad with your information. We also only ask for "
+"minimal data from you and keep all your data protected. Check out our "
+"Privacy Policy Here."
+msgstr ""
+
+#: app/templates/new_user.html:87
+msgid "Privacy Policy"
+msgstr ""
+
+#: app/templates/news.html:20
+msgid "Lowell News"
+msgstr ""
+
+#: app/templates/news.html:24
+msgid "Create News ✎"
+msgstr ""
+
+#: app/templates/privacy.html:13
+msgid "Lowell Help Forum Privacy Policy"
+msgstr ""
+
+#: app/templates/privacy.html:14
+msgid "Privacy Policy being made"
+msgstr ""
+
+#: app/templates/schedules.html:41
+msgid "Lowell Schedules"
+msgstr ""
+
+#: app/templates/textbooks.html:10
+msgid "Lowell Textbooks"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:24
 msgid "Login"
 msgstr ""
 
-#: app/templates/appbuilder/footer.html:10
+#: app/templates/appbuilder/footer.html:25
+msgid "Register"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:32
 msgid "Report Bugs"
 msgstr ""
 
-#: app/templates/appbuilder/footer.html:18
-msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
+#: app/templates/appbuilder/footer.html:33
+msgid "Create News"
 msgstr ""
 
-#: app/templates/appbuilder/footer.html:21
-msgid "View License"
+#: app/templates/appbuilder/footer.html:40
+msgid "Quick Help"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:41
+msgid "FAQ"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:48
+msgid "Disclaimer"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:49
+msgid "License"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:50
+msgid "Privacy"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:51
+msgid "Terms"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:52
+msgid "Posting Guidelines"
+msgstr ""
+
+#: app/templates/appbuilder/footer.html:63
+msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
 msgstr ""
 

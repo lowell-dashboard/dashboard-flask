@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-10 09:20-0800\n"
+"POT-Creation-Date: 2018-12-10 09:24-0800\n"
 "PO-Revision-Date: 2018-12-10 09:19-0800\n"
 "Last-Translator: Rafael Cenzano\n"
 "Language: es\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
+
+#: app/views.py:48 app/views.py:49 app/views.py:50
+msgid "Lowell Resources"
+msgstr ""
 
 #: app/templates/404.html:5
 msgid "Page not found"
@@ -39,8 +43,8 @@ msgid "Lowell News"
 msgstr "Aktualności Lowell"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Schedules"
-msgstr "harmonogramy Lowell"
+msgid "Lowell Scedules"
+msgstr ""
 
 #: app/templates/textbooks.html:3
 msgid "Lowell Textbooks"
@@ -63,5 +67,12 @@ msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
 msgstr "© Lowell-Dashboard Github Organization. Wszelkie prawa zastrzeżone."
 
 #: app/templates/appbuilder/footer.html:21
-msgid "Wyświetl licencję"
+msgid "View License"
 msgstr ""
+
+#~ msgid "Lowell Schedules"
+#~ msgstr "harmonogramy Lowell"
+
+#~ msgid "Wyświetl licencję"
+#~ msgstr ""
+
