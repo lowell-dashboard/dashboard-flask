@@ -43,7 +43,7 @@ msgid "Lowell News"
 msgstr "Lowell Noticias"
 
 #: app/templates/schedules.html:3
-msgid "Lowell Scedules"
+msgid "Lowell Schedules"
 msgstr ""
 
 #: app/templates/textbooks.html:3
@@ -69,7 +69,3 @@ msgstr "© Lowell-Dashboard Organización Github. Todos los derechos reservados.
 #: app/templates/appbuilder/footer.html:21
 msgid "View License"
 msgstr "Ver licencia"
-
-#~ msgid "Lowell Schedules"
-#~ msgstr "Horarios Lowell"
-
