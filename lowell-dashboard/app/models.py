@@ -172,8 +172,21 @@ class NewsPost(Model):
         except Exception as e:
             print(e)
             return False
-    def add_column(self, col):
-        # code for adding a new column
-        test = Column('test', Integer)
-        User.__table__.append(test)
+
+    def add_column(self, db):
+        test = Column('test', String(64))
+        column = test
+        conn = db.engine.connect()
+        table_name = NewsPost.__tablename__
+        column_name = column.key
+        column_type = column.type.compile(conn.dialect)
+        try:
+            # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
+            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            return True
+            # log.info("Added Column {0} on {1}".format(column_name, table_name))
+        except Exception as e:
+            print(e)
+            return False
+            # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
 
