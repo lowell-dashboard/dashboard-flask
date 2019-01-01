@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-31 23:27-0800\n"
+"POT-Creation-Date: 2018-12-31 23:45-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,6 +244,10 @@ msgstr ""
 
 #: app/templates/schedules.html:41
 msgid "Lowell Schedules"
+msgstr ""
+
+#: app/templates/schedules.html:91
+msgid "See announcements for more infomation on the current schedule"
 msgstr ""
 
 #: app/templates/textbooks.html:10

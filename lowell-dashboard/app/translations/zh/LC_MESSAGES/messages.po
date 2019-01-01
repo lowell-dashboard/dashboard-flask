@@ -1,72 +1,241 @@
-# Chinese translations for Lowell Help Forum.
-# Copyright (C) 2018 Lowell Help Forum
+# Chinese translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# Lowell-Dashboard Github Organization, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-10 09:24-0800\n"
-"PO-Revision-Date: 2018-12-10 09:19-0800\n"
-"Last-Translator: Rafael Cenzano\n"
-"Language: es\n"
-"Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2018-12-31 23:44-0800\n"
+"PO-Revision-Date: 2018-12-31 23:43-0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/views.py:48 app/views.py:49 app/views.py:50
-msgid "Lowell Resources"
-msgstr ""
+#~ msgid "Name"
+#~ msgstr ""
 
-#: app/templates/404.html:5
-msgid "Page not found"
-msgstr ""
+#~ msgid "Not Required"
+#~ msgstr ""
 
-#: app/templates/404.html:6
-msgid "Go to the Home Page"
-msgstr ""
+#~ msgid "Email"
+#~ msgstr ""
 
-#: app/templates/my_index.html:5
-msgid "My App on F.A.B."
-msgstr ""
+#~ msgid "Bug"
+#~ msgstr ""
 
-#: app/templates/my_index.html:6
-msgid "My first app using F.A.B, bla, bla, bla"
-msgstr ""
+#~ msgid "Put the bug report here"
+#~ msgstr ""
 
-#: app/templates/news.html:3
-msgid "Lowell News"
-msgstr ""
+#~ msgid "User Name"
+#~ msgstr ""
 
-#: app/templates/schedules.html:3
-msgid "Lowell Scedules"
-msgstr ""
+#~ msgid "Password"
+#~ msgstr ""
 
-#: app/templates/textbooks.html:3
-msgid "Lowell Textbooks"
-msgstr ""
+#~ msgid ""
+#~ "Please use a good password policy, "
+#~ "this application does not check this "
+#~ "for you"
+#~ msgstr ""
 
-#: app/templates/appbuilder/footer.html:3
-msgid "Lowell Help Forum"
-msgstr ""
+#~ msgid "Confirm Password"
+#~ msgstr ""
 
-#: app/templates/appbuilder/footer.html:7
-msgid "Login"
-msgstr ""
+#~ msgid "Please rewrite the password to confirm"
+#~ msgstr ""
 
-#: app/templates/appbuilder/footer.html:10
-msgid "Report Bugs"
-msgstr ""
+#~ msgid "Passwords must match"
+#~ msgstr ""
 
-#: app/templates/appbuilder/footer.html:18
-msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
-msgstr ""
+#~ msgid "Title"
+#~ msgstr ""
 
-#: app/templates/appbuilder/footer.html:21
-msgid "View License"
-msgstr ""
+#~ msgid "News"
+#~ msgstr ""
+
+#~ msgid "Please write at least 15 characters and maximum of 300 characters"
+#~ msgstr ""
+
+#~ msgid "Community Guidelines"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By accepting this you confirm that "
+#~ "your post follows the ommunity "
+#~ "guidelines. The guidelines are the in"
+#~ " the footer of the page"
+#~ msgstr ""
+
+#~ msgid "Your Account activation for Lowell Help Forum"
+#~ msgstr ""
+
+#~ msgid "Fill out the registration form for Lowell Help Forum"
+#~ msgstr ""
+
+#~ msgid "Not possible to register you at the moment, try again later"
+#~ msgstr ""
+
+#~ msgid "Registration sent to your email"
+#~ msgstr ""
+
+#~ msgid "Lowell Resources"
+#~ msgstr ""
+
+#~ msgid "Textbooks"
+#~ msgstr ""
+
+#~ msgid "Schedules"
+#~ msgstr ""
+
+#~ msgid "Page not found"
+#~ msgstr ""
+
+#~ msgid "Go to the Home Page"
+#~ msgstr ""
+
+#~ msgid "Welcome"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Your user is activated for Lowell "
+#~ "Help Forum. You can now proceed to"
+#~ " login and use the forum"
+#~ msgstr ""
+
+#~ msgid "Lowell Help Forum Disclaimer"
+#~ msgstr ""
+
+#~ msgid "We are in no way run by or affiliated with Lowell High school"
+#~ msgstr ""
+
+#~ msgid "in San Francisco. This site was created by Lowell students"
+#~ msgstr ""
+
+#~ msgid "for Lowell students. If there is ever a bug or something a"
+#~ msgstr ""
+
+#~ msgid "problem that needs to reported, use the websites report function"
+#~ msgstr ""
+
+#~ msgid "and do not ask Lowell school staff for help with this website"
+#~ msgstr ""
+
+#~ msgid "Lowell Help Forum"
+#~ msgstr ""
+
+#~ msgid "Create an account to post and communicate with fellow students"
+#~ msgstr ""
+
+#~ msgid "✅ Register ✅"
+#~ msgstr ""
+
+#~ msgid "Don't have an account but want one?"
+#~ msgstr ""
+
+#~ msgid "Register Here!"
+#~ msgstr ""
+
+#~ msgid "🔒 Login 🔒"
+#~ msgstr ""
+
+#~ msgid "Already have an account with us?"
+#~ msgstr ""
+
+#~ msgid "Login Here!"
+#~ msgstr ""
+
+#~ msgid "👓 Just a Viewer 👓"
+#~ msgstr ""
+
+#~ msgid "Just want to view data or not create an acount? Click this Button."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "(We do recommend using or creating "
+#~ "an account because it allows you "
+#~ "more resources from the website)"
+#~ msgstr ""
+
+#~ msgid "Be a Viewer"
+#~ msgstr ""
+
+#~ msgid "🧱 On the Fence 🧱"
+#~ msgstr ""
+
+#~ msgid "Not sure if you should trust us?"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We are Lowell Students and created "
+#~ "this site to help remove stress. "
+#~ "We will never do anything bad with"
+#~ " your information. We also only ask"
+#~ " for minimal data from you and "
+#~ "keep all your data protected. Check "
+#~ "out our Privacy Policy Here."
+#~ msgstr ""
+
+#~ msgid "Privacy Policy"
+#~ msgstr ""
+
+#~ msgid "Lowell News"
+#~ msgstr ""
+
+#~ msgid "Create News ✎"
+#~ msgstr ""
+
+#~ msgid "Lowell Help Forum Privacy Policy"
+#~ msgstr ""
+
+#~ msgid "Privacy Policy being made"
+#~ msgstr ""
+
+#~ msgid "Lowell Schedules"
+#~ msgstr ""
+
+#~ msgid "Lowell Textbooks"
+#~ msgstr ""
+
+#~ msgid "Login"
+#~ msgstr ""
+
+#~ msgid "Register"
+#~ msgstr ""
+
+#~ msgid "Report Bugs"
+#~ msgstr ""
+
+#~ msgid "Create News"
+#~ msgstr ""
+
+#~ msgid "Quick Help"
+#~ msgstr ""
+
+#~ msgid "FAQ"
+#~ msgstr ""
+
+#~ msgid "Disclaimer"
+#~ msgstr ""
+
+#~ msgid "License"
+#~ msgstr ""
+
+#~ msgid "Privacy"
+#~ msgstr ""
+
+#~ msgid "Terms"
+#~ msgstr ""
+
+#~ msgid "Posting Guidelines"
+#~ msgstr ""
+
+#~ msgid "© Lowell-Dashboard Github Organization. All Rights Reserved."
+#~ msgstr ""
 
