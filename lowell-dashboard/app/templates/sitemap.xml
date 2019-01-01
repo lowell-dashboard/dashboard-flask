@@ -6,7 +6,7 @@
 
       <loc>http://www.example.com/home/new</loc>
 
-      <lastmod>2005-01-01</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <changefreq>yearly</changefreq>
 
@@ -18,7 +18,7 @@
 
       <loc>http://www.example.com/home/general</loc>
 
-      <lastmod>2005-01-01</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <changefreq>weekly</changefreq>
 
@@ -30,7 +30,7 @@
 
       <loc>http://www.example.com/news</loc>
 
-      <lastmod>2004-12-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <changefreq>hourly</changefreq>
 
@@ -42,7 +42,7 @@
 
       <loc>http://www.example.com/register/form</loc>
 
-      <lastmod>2004-12-23T18:00:15+00:00</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.8</priority>
 
@@ -52,7 +52,7 @@
 
       <loc>http://www.example.com/login/</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.8</priority>
 
@@ -62,7 +62,7 @@
 
       <loc>http://www.example.com/news/form</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.5</priority>
 
@@ -72,7 +72,7 @@
 
       <loc>http://www.example.com/bugreport/form</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.2</priority>
 
@@ -82,7 +82,7 @@
 
       <loc>http://www.example.com/files/disclaimer</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -92,7 +92,7 @@
 
       <loc>http://www.example.com/files/license</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -102,7 +102,7 @@
 
       <loc>http://www.example.com/files/privacy</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -112,7 +112,7 @@
 
       <loc>http://www.example.com/files/terms</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -122,7 +122,7 @@
 
       <loc>http://www.example.com/files/guidelines</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -132,7 +132,7 @@
 
       <loc>http://www.example.com/help/</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
@@ -142,7 +142,7 @@
 
       <loc>http://www.example.com/help/faq</loc>
 
-      <lastmod>2004-11-23</lastmod>
+      <lastmod>2018-12-31</lastmod>
 
       <priority>0.4</priority>
 
