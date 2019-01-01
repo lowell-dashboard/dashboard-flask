@@ -1,15 +1,15 @@
-import json
-import requests
-import secret
 from app import appbuilder, db
+from json import dumps
 from flask import render_template, flash, g
+from secret import SLACK
 from .forms import bugreportform, CreateNews
+from requests import post
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
+from app.models import NewsPost
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from app.models import NewsPost
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -126,6 +126,35 @@ class HomeView(BaseView):
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
 
+# Views for SEO Site files
+class SEOfiles(BaseView):
+
+    # Add route base as root "/"
+    route_base = "/"
+
+    '''
+    Create path robots.txt that renders robots.txt jijna2 template
+    that contains project's robots.txt
+    '''
+    @expose('/robots.txt')
+    def disclaimer(self):
+        return 'robots.txt'
+
+    '''
+    Create path sitemap.xml that renders sitemap.xml jijna2 template
+    that contains the project's sitemap
+    '''
+    @expose('/sitemap.xml')
+    def license(self):
+        return 'sitemap.xml'
+
+# Create paths
+appbuilder.add_view_no_menu(SEOfiles())
+
+'''
+Form Views
+'''
+
 # Bugreport view
 class BugReport(SimpleFormView):
 
@@ -158,10 +187,10 @@ class BugReport(SimpleFormView):
         }
 
         # Send post request and get status code
-        response = requests.post(secret.SLACK,
-                                 data=json.dumps(slack_data),
-                                 headers={'Content-Type': 'application/json'}
-                                 )
+        response = post(SLACK,
+                        data=dumps(slack_data),
+                        headers={'Content-Type': 'application/json'}
+                       )
 
         # If sent properly success message and error message if not sent
         if response.status_code != 200:
@@ -199,7 +228,7 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
-        
+
         # Add the model to the database
         try:
             db.session.add(model)
