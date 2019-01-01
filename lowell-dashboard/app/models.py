@@ -1,9 +1,9 @@
-import datetime
 from flask import g
-from flask_appbuilder._compat import as_unicode
+from datetime import datetime
 from sqlalchemy import Table, Column, Integer, String, Boolean, DateTime, ForeignKey, Sequence, UniqueConstraint, MetaData
 from sqlalchemy.orm import relationship, backref
 from flask_appbuilder import Model
+from flask_appbuilder._compat import as_unicode
 from sqlalchemy.ext.declarative import declared_attr
 from flask_appbuilder.models.mixins import AuditMixin, FileColumn, ImageColumn
 
@@ -95,8 +95,8 @@ class CustomUser(Model):
     login_count = Column(Integer)
     fail_login_count = Column(Integer)
     roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
-    created_on = Column(DateTime, default=datetime.datetime.now, nullable=True)
-    changed_on = Column(DateTime, default=datetime.datetime.now, nullable=True)
+    created_on = Column(DateTime, default=datetime.now, nullable=True)
+    changed_on = Column(DateTime, default=datetime.now, nullable=True)
 
     @declared_attr
     def created_by_fk(self):
@@ -154,7 +154,7 @@ class CustomRegisterUser(Model):
     username = Column(String(64), unique=True, nullable=False)
     password = Column(String(256))
     email = Column(String(64), nullable=False)
-    registration_date = Column(DateTime, default=datetime.datetime.now, nullable=True)
+    registration_date = Column(DateTime, default=datetime.now, nullable=True)
     registration_hash = Column(String(256))
 
 class NewsPost(Model):
@@ -162,7 +162,7 @@ class NewsPost(Model):
     id = Column(Integer, primary_key=True)
     creator_username = Column(String(64), nullable=False)
     title = Column(String(64), nullable=False)
-    time_created = Column(DateTime, default=datetime.datetime.now, nullable=False)
+    time_created = Column(DateTime, default=datetime.now, nullable=False)
     news = Column(String(1024))
     made_by_message = Column(String(64))
 
