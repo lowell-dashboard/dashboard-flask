@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+
+      <loc>http://www.example.com/home/new</loc>
+
+      <lastmod>2005-01-01</lastmod>
+
+      <changefreq>yearly</changefreq>
+
+      <priority>0.1</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/home/general</loc>
+
+      <lastmod>2005-01-01</lastmod>
+
+      <changefreq>weekly</changefreq>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/news</loc>
+
+      <lastmod>2004-12-23</lastmod>
+
+      <changefreq>hourly</changefreq>
+
+      <priority>0.9</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/register/form</loc>
+
+      <lastmod>2004-12-23T18:00:15+00:00</lastmod>
+
+      <priority>0.8</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/login/</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.8</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/news/form</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.5</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/bugreport/form</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.2</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/files/disclaimer</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/files/license</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/files/privacy</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/files/terms</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/files/guidelines</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/help/</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://www.example.com/help/faq</loc>
+
+      <lastmod>2004-11-23</lastmod>
+
+      <priority>0.4</priority>
+
+   </url>
+
+</urlset>
