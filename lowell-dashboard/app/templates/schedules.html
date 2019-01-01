@@ -8,7 +8,7 @@
 
 {% block head_meta %}
   <title>Lowell Help Forum Schedules</title>
-  <meta name="description" content="Lowell support site to help Lowell students get information easily and remove stress.">
+  <meta name="description" content="Lowell Help Forum Schedule Resource Page.">
   <meta charset='utf-8'>
 {% endblock %}
 
@@ -88,7 +88,7 @@
 								{% elif (table[i]|length == 1) %}
 									<li class="single-event" data-start="{{event['StartTime']}}" data-end="{{event['EndTime']}}" data-content="event-abs-circuit" data-event="event-1">
 										<a href="#0">
-											<em class="event-name">See announcements for more infomation on the current schedule</em>
+											<em class="event-name">{{_("See announcements for more infomation on the current schedule")}}</em>
 										</a>
 									</li>
 								{% else %}
