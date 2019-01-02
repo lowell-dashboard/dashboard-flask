@@ -6,38 +6,18 @@
   <meta charset='utf-8'>
 {% endblock %}
 
+{% block head_css%}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="../static/css/license.css">
+{% endblock %}
+
 {% block content %}
-
-  <style>
-
-    #toc_container {
-      background: #f9f9f9 none repeat scroll 0 0;
-      border: 1px solid #aaa;
-      display: table;
-      font-size: 95%;
-      margin-bottom: 1em;
-      padding: 20px;
-      width: auto;
-    }
-
-    #toc_container li, #toc_container ul, #toc_container ul li{
-      list-style: outside none none !important;
-    }
-
-  </style>
-
   <div class="jumbotron">
-
     <div class="container">
-
       <h2 id="TOP">Table of contents for License</h2>
-
       <br>
-
       <div id="toc_container">
-
         <ul class="toc_list" type="1">
-
           <li><a href="#TOP"><p>Table of Contents</p></a></li>
           <li><a href="#Definitions"><p>Definitions</p></a></li>
           <li><a href="#Grant_of_Copyright_License"><p>Grant of Copyright License</p></a></li>
@@ -49,37 +29,23 @@
           <li><a href="#Limitation_of_Liability"><p>Limitation of Liability</p></a></li>
           <li><a href="#Accepting_Warranty_or_Additional_Liability"><p>Accepting Warranty or Additional Liability</p></a></li>
           <li><a href="#Copyright"><p>Copyright</p></a></li>
-
         </ul>
-
       </div>
-
     </div>
-
   </div>
 
   <div class="jumbotron">
-
     <div class="container">
-
       <center>
-
         <h3>Apache License</h3>
-
         <p>Version 2.0, January 2004</p>
-
         <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank"><p>http://www.apache.org/licenses/LICENSE-2.0</p></a>
-
       </center>
-
       <br>
 
       <h3>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</h3>
-
       <br>
-
       <strong><h4 id="Definitions">1. Definitions.</h4></<strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>"License" shall mean the terms and conditions for use, reproduction,
         and distribution as defined by Sections 1 through 9 of this document.
 
@@ -137,11 +103,9 @@
         on behalf of whom a Contribution has been received by Licensor and
         subsequently incorporated within the Work.
       </p>
-
       <br>
 
       <strong><h4 id="Grant_of_Copyright_License">2. Grant of Copyright License.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>Subject to the terms and conditions of
         this License, each Contributor hereby grants to You a perpetual,
         worldwide, non-exclusive, no-charge, royalty-free, irrevocable
@@ -149,11 +113,9 @@
         publicly display, publicly perform, sublicense, and distribute the
         Work and such Derivative Works in Source or Object form.
       </p>
-
       <br>
 
       <strong><h4 id="Grant_of_Patent_License">3. Grant of Patent License.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>Subject to the terms and conditions of
         this License, each Contributor hereby grants to You a perpetual,
         worldwide, non-exclusive, no-charge, royalty-free, irrevocable
@@ -170,11 +132,9 @@
         granted to You under this License for that Work shall terminate
         as of the date such litigation is filed.
       </p>
-
       <br>
 
       <strong><h4 id="Redistribution">4. Redistribution.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>You may reproduce and distribute copies of the
         Work or Derivative Works thereof in any medium, with or without
         modifications, and in Source or Object form, provided that You
@@ -216,11 +176,9 @@
         reproduction, and distribution of the Work otherwise complies with
         the conditions stated in this License.
       </p>
-
       <br>
 
       <strong><h4 id="Submission_of_Contributions">5. Submission of Contributions.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>Unless You explicitly state otherwise,
         any Contribution intentionally submitted for inclusion in the Work
         by You to the Licensor shall be under the terms and conditions of
@@ -229,21 +187,17 @@
         the terms of any separate license agreement you may have executed
         with Licensor regarding such Contributions.
       </p>
-
       <br>
 
       <strong><h4 id="Trademarks">6. Trademarks.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>This License does not grant permission to use the trade
         names, trademarks, service marks, or product names of the Licensor,
         except as required for reasonable and customary use in describing the
         origin of the Work and reproducing the content of the NOTICE file.
       </p>
-
       <br>
 
       <strong><h4 id="Disclaimer_of_Warranty">7. Disclaimer of Warranty.</h4><strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>Unless required by applicable law or
         agreed to in writing, Licensor provides the Work (and each
         Contributor provides its Contributions) on an "AS IS" BASIS,
@@ -254,11 +208,9 @@
         appropriateness of using or redistributing the Work and assume any
         risks associated with Your exercise of permissions under this License.
       </p>
-
       <br>
 
       <strong><h4 id="Limitation_of_Liability">8. Limitation of Liability.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>In no event and under no legal theory,
         whether in tort (including negligence), contract, or otherwise,
         unless required by applicable law (such as deliberate and grossly
@@ -271,11 +223,9 @@
         other commercial damages or losses), even if such Contributor
         has been advised of the possibility of such damages.
       </p>
-
       <br>
 
       <strong><h4 id="Accepting_Warranty_or_Additional_Liability">9. Accepting Warranty or Additional Liability.</h4></strong><a href="#TOP"><p>^ Back to Top</p></a>
-
       <p>While redistributing
         the Work or Derivative Works thereof, You may choose to offer,
         and charge a fee for, acceptance of support, warranty, indemnity,
@@ -287,40 +237,26 @@
         incurred by, or claims asserted against, such Contributor by reason
         of your accepting any such warranty or additional liability.
       </p>
-
       <br>
 
       <center>
-
         <h4>END OF TERMS AND CONDITIONS</h4>
-
         <br>
-
         <strong><h2 id="Copyright">© Copyright 2018 Lowell-Dashboard Github Organization<h1><strong>
-
         <br>
-
         <p>Licensed under the Apache License, Version 2.0 (the "License");
           you may not use this file except in compliance with the License.
           You may obtain a copy of the License at
         </p>
-
         <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank"><p>http://www.apache.org/licenses/LICENSE-2.0</p></a>
-
-
         <p>Unless required by applicable law or agreed to in writing, software
           distributed under the License is distributed on an "AS IS" BASIS,
           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
           See the License for the specific language governing permissions and
           limitations under the License.
         </p>
-
         <a href="#TOP"><p>^ Back to Top</p></a>
-
       </center>
-
     </div>
-
   </div>
-
 {% endblock %}
