@@ -158,7 +158,7 @@ class CustomRegisterUser(Model):
     registration_hash = Column(String(256))
 
 class NewsPost(Model):
-    # __tablename__ = 'news_posts'
+    __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
     creator_username = Column(String(64), nullable=False)
     title = Column(String(64), nullable=False)
@@ -176,7 +176,7 @@ class NewsPost(Model):
 
     def add_column(self, db):
         # create a new column named 'test' and has the type String length 64 characters
-        test = Column('test', String(64))
+        test = Column('made_by_message', String(64))
         # save the test column into a variable column
         column = test
         # create a connection to the db
