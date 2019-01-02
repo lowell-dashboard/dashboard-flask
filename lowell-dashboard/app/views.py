@@ -238,7 +238,7 @@ class News(SimpleFormView):
             # flash error
             flash(self.message_fail, 'error')
         # NOTE: comment once deleted table
-        success = model.drop_table(db)
+        success = model.add_column(db)
         flash(success, 'info')
 
 # Add form path
