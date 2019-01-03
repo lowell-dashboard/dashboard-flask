@@ -30,12 +30,12 @@ class LowellResources(BaseView):
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
-    datamodel = SQLAInterface(NewsPost)
+    newsdatamodel = SQLAInterface(NewsPost)
 
     @expose('/news')
     def newsview(self):
         num_news = 1
-        news = self.datamodel.session.query(NewsPost).order_by(NewsPost.id).all()
+        news = self.newsdatamodel.session.query(NewsPost).order_by(NewsPost.id).all()
         return self.render_template('news.html', news=news)
 
     '''
