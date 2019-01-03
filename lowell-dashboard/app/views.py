@@ -1,7 +1,7 @@
 from app import appbuilder, db
 from json import dumps
 from flask import render_template, flash, g
-from secret import SLACK
+# from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
 from app.tools import retrieve_schedule
@@ -234,10 +234,10 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
-
+        # NOTE: for some reason this line must remain outside of the try or else the code won't work
+        db.session.add(model)
         # Add the model to the database
         try:
-            db.session.add(model)
             db.session.commit()
             flash(self.message_success, 'info')
         except:
