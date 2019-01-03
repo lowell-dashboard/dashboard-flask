@@ -158,7 +158,7 @@ class CustomRegisterUser(Model):
     registration_hash = Column(String(256))
 
 class NewsPost(Model):
-    # __tablename__ = 'news_posts'
+    __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
     creator_username = Column(String(64), nullable=False)
     title = Column(String(64), nullable=False)
@@ -174,7 +174,26 @@ class NewsPost(Model):
             print(e)
             return False
 
-    def add_column(self, col):
-        # code for adding a new column
-        test = Column('test', Integer)
-        User.__table__.append(test)
+    def add_column(self, db):
+        # create a new column named 'test' and has the type String length 64 characters
+        test = Column('made_by_message', String(64))
+        # save the test column into a variable column
+        column = test
+        # create a connection to the db
+        conn = db.engine.connect()
+        # get the table name of the model
+        table_name = NewsPost.__tablename__
+        # get the key of the column
+        column_name = column.key
+        # get the type of the column; this is required by sql syntax
+        column_type = column.type.compile(conn.dialect)
+        try:
+            # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
+            # Using the sql 'ALTER' command to add a new column to the model in the db
+            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            return True
+            # log.info("Added Column {0} on {1}".format(column_name, table_name))
+        except Exception as e:
+            print(e)
+            return False
+            # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))

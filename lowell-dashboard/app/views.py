@@ -1,6 +1,6 @@
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g
+from flask import render_template, flash, g, make_response
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
@@ -8,7 +8,7 @@ from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost
 from flask_babel import lazy_gettext as _
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 
 # 404 error handeler to render 404.html jijna2 template
@@ -114,12 +114,12 @@ class HomeView(BaseView):
     route_base = "/home"
 
     # Route for new or logged out users
-    @expose('/new/')
+    @expose('/new')
     def new(self):
         return self.render_template('new_user.html')
 
     # Route for signed in users or users who want to just view data
-    @expose('/general/')
+    @expose('/general')
     def general(self):
         return self.render_template('my_index.html')
 
@@ -133,20 +133,24 @@ class SEOfiles(BaseView):
     route_base = "/"
 
     '''
-    Create path robots.txt that renders robots.txt jijna2 template
-    that contains project's robots.txt
+    Create path robots.txt that renders robots.txt text file
+    that contains project's robots.txt paths
     '''
     @expose('/robots.txt')
     def disclaimer(self):
-        return 'robots.txt'
+        robots_txt = render_template('seo/robots.txt')
+        return robots_txt
 
     '''
-    Create path sitemap.xml that renders sitemap.xml jijna2 template
-    that contains the project's sitemap
+    Create path sitemap.xml that renders sitemap.xml xml file
+    that contains the project's sitemap for SEO
     '''
     @expose('/sitemap.xml')
     def license(self):
-        return 'sitemap.xml'
+        sitemap_xml = render_template('seo/sitemap.xml')
+        response = make_response(sitemap_xml)
+        response.headers["Content-Type"] = "application/xml"
+        return response
 
 # Create paths
 appbuilder.add_view_no_menu(SEOfiles())
@@ -156,7 +160,7 @@ Form Views
 '''
 
 # Bugreport view
-class BugReport(SimpleFormView):
+class BugReport(PublicFormView):
 
     # declare form
     form = bugreportform
@@ -228,18 +232,18 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
-
+        # NOTE: for some reason this line must remain outside of the try or else the code won't work
+        db.session.add(model)
         # Add the model to the database
         try:
-            db.session.add(model)
             db.session.commit()
             flash(self.message_success, 'info')
         except:
             # flash error
             flash(self.message_fail, 'error')
         # NOTE: comment once deleted table
-        #success = model.drop_table(db)
-        #flash(success, 'info')
+        # success = model.add_column(db)
+        # flash(success, 'info')
 
 # Add form path
 appbuilder.add_view_no_menu(News())

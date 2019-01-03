@@ -12,33 +12,42 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
+  <div class="body">
+    <div class="container">
+      <div class="row">
 
-    <div class="row">
+        <div class="col-xs-6">
+          <h1>{{_("Lowell News")}}</h1>
+        </div>
 
-      <div class="col-xs-6">
-        <h1>{{_("Lowell News")}}</h1>
+        <div class="col-xs-6">
+          <div id="workarea">
+            <div class="position">
+              <div class="svg-wrapper">
+                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                  <rect id="shape" height="40" width="160" />
+                  <div id="text">
+                    <a href="/news/form"><span class="spot"></span>Create News</a>
+                  </div>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-xs-6">
-        <h3><a href="/news/form">{{_("Create News ✎")}}</a></h3>
+      {% for n in news %}
+      <div class="announcement">
+        <h2>{{n.title}}</h2>
+        <p style="white-space: pre-line;">{{n.news}}</p>
+        <p>{{n.made_by_message}}{{n.creator_username}}</p>
       </div>
+      {% endfor %}
+
+      {% if news|length == 0 %}
+        <p>There are no announcements</p>
+      {% endif %}
 
     </div>
-
   </div>
-
-
-  {% for n in news %}
-  <div class="announcement">
-    <h2>{{n.title}}</h2>
-    <p style="white-space: pre-line;">{{n.news}}</p>
-    <p>{{n.made_by_message}}{{n.creator_username}}</p>
-  </div>
-  {% endfor %}
-
-  {% if news|length == 0 %}
-  	<p>There are no announcements</p>
-  {% endif %}
-
 {% endblock %}
