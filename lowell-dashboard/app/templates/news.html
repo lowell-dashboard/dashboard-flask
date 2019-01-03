@@ -9,31 +9,48 @@
 {% block head_css%}
   {{ super() }}
   <link rel="stylesheet" type="text/css" href="../static/css/news.css">
+  <link rel="stylesheet" type="text/css" href="../static/js/news.js">
 {% endblock %}
 
 {% block content %}
   <div class="body">
     <div class="container">
       <div class="row">
+      <center>
 
         <div class="col-xs-6">
           <h1>{{_("Lowell News")}}</h1>
         </div>
 
         <div class="col-xs-6">
-          <div id="workarea">
-            <div class="position">
-              <div class="svg-wrapper">
-                <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                  <rect id="shape" height="40" width="160" />
-                  <div id="text">
-                    <a href="/news/form"><span class="spot"></span>Create News</a>
-                  </div>
-                </svg>
-              </div>
-            </div>
+          <div class="btndiv">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                  <feComposite in="SourceGraphic" in2="goo"/>
+                </filter>
+              </defs>
+            </svg>
+
+            <span class="button--bubble__container">
+              <a href="/news/form" class="button button--bubble nounderline">Hover me</a>
+              <span class="button--bubble__effect-container">
+                <span class="circle top-left"></span>
+                <span class="circle top-left"></span>
+                <span class="circle top-left"></span>
+
+                <span class="button effect-button"></span>
+
+                <span class="circle bottom-right"></span>
+                <span class="circle bottom-right"></span>
+                <span class="circle bottom-right"></span>
+              </span>
+            </span>
           </div>
         </div>
+      </center>
       </div>
 
       {% for n in news %}
