@@ -114,12 +114,12 @@ class HomeView(BaseView):
     route_base = "/home"
 
     # Route for new or logged out users
-    @expose('/new/')
+    @expose('/new')
     def new(self):
         return self.render_template('new_user.html')
 
     # Route for signed in users or users who want to just view data
-    @expose('/general/')
+    @expose('/general')
     def general(self):
         return self.render_template('my_index.html')
 
