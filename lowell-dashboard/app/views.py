@@ -1,7 +1,7 @@
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g
-# from secret import SLACK
+from flask import render_template, flash, g, make_response
+from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
 from app.tools import retrieve_schedule
@@ -139,9 +139,7 @@ class SEOfiles(BaseView):
     @expose('/robots.txt')
     def disclaimer(self):
         robots_txt = render_template('seo/robots.txt')
-        response = make_response(robots_txt)
-        response.headers["Content-Type"] = "application/txt"
-        return response
+        return robots_txt
 
     '''
     Create path sitemap.xml that renders sitemap.xml xml file
