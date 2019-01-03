@@ -132,7 +132,7 @@ body {
   right: 27%;
 }
 
-.goo {
+#goo {
   position: absolute;
   visibility: hidden;
   width: 1px;
