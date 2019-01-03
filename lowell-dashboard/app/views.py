@@ -8,7 +8,7 @@ from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost
 from flask_babel import lazy_gettext as _
-from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView
+from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 
 # 404 error handeler to render 404.html jijna2 template
@@ -133,20 +133,26 @@ class SEOfiles(BaseView):
     route_base = "/"
 
     '''
-    Create path robots.txt that renders robots.txt jijna2 template
-    that contains project's robots.txt
+    Create path robots.txt that renders robots.txt text file
+    that contains project's robots.txt paths
     '''
     @expose('/robots.txt')
     def disclaimer(self):
-        return 'robots.txt'
+        robots_txt = render_template('seo/robots.txt')
+        response = make_response(robots_txt)
+        response.headers["Content-Type"] = "application/txt"
+        return response
 
     '''
-    Create path sitemap.xml that renders sitemap.xml jijna2 template
-    that contains the project's sitemap
+    Create path sitemap.xml that renders sitemap.xml xml file
+    that contains the project's sitemap for SEO
     '''
     @expose('/sitemap.xml')
     def license(self):
-        return 'sitemap.xml'
+        sitemap_xml = render_template('seo/sitemap.xml')
+        response = make_response(sitemap_xml)
+        response.headers["Content-Type"] = "application/xml"
+        return response
 
 # Create paths
 appbuilder.add_view_no_menu(SEOfiles())
@@ -156,7 +162,7 @@ Form Views
 '''
 
 # Bugreport view
-class BugReport(SimpleFormView):
+class BugReport(PublicFormView):
 
     # declare form
     form = bugreportform
