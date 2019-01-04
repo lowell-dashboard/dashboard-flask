@@ -5,8 +5,12 @@
   <meta charset='utf-8'>
 {% endblock %}
 
-{% block content %}
+{% block head_css%}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="../static/css/all.css">
+{% endblock %}
 
+{% block content %}
 <div class="jumbotron">
   <div class="container">
     <center>
