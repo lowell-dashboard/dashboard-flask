@@ -12,14 +12,9 @@
   color: #ff5252;
 }
 
-.announcement {
+.announcements {
   padding: 10px 15px 0px;
   border: 1px solid #e1e1e1;
   background-color: #f9f9f9;
   border-radius: 4px;
-}
-
-.newsdiv {
-  padding-top: 7px;
-  padding-bottom: 7px;
 }
