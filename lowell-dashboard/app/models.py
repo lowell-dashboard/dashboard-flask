@@ -1,24 +1,25 @@
+# Import check user from flask
 from flask import g
+# Import datetime for saving time
 from datetime import datetime
+# Import sqlalchemy for sql work for App
 from sqlalchemy import Table, Column, Integer, String, Boolean, DateTime, ForeignKey, Sequence, UniqueConstraint, MetaData
+# Import specific sqlalchemy functions for sql work
 from sqlalchemy.orm import relationship, backref
+# Import base class of Flask App Builder for Models
 from flask_appbuilder import Model
+# Import specific flask app builder function for encoding
 from flask_appbuilder._compat import as_unicode
+# Import specific sqlalchemy function for sql work
 from sqlalchemy.ext.declarative import declared_attr
+# Import Flask App Builder special sql columns
 from flask_appbuilder.models.mixins import AuditMixin, FileColumn, ImageColumn
 
-"""
-
-You can use the extra Flask-AppBuilder fields and Mixin's
-
-AuditMixin will add automatic timestamp of created and modified by who
-
-
-"""
-
+# needed variables
 _dont_audit = False
 _mt = MetaData()
 
+# Custom Permission db class for possible future permissions
 class CustomPermission(Model):
     __tablename__ = 'ab_permission'
     id = Column(Integer, Sequence('ab_permission_id_seq'), primary_key=True)
@@ -27,7 +28,7 @@ class CustomPermission(Model):
     def __repr__(self):
         return self.name
 
-
+# Custom View Menu for future customizations
 class CustomViewMenu(Model):
     __tablename__ = 'ab_view_menu'
     id = Column(Integer, Sequence('ab_view_menu_id_seq'), primary_key=True)
@@ -42,7 +43,7 @@ class CustomViewMenu(Model):
     def __repr__(self):
         return self.name
 
-
+# Custom Permission View for future customizations
 class CustomPermissionView(Model):
     __tablename__ = 'ab_permission_view'
     __table_args__ = (UniqueConstraint('permission_id', 'view_menu_id'),)
@@ -63,6 +64,7 @@ assoc_permissionview_role = Table('ab_permission_view_role', Model.metadata,
                                   UniqueConstraint('permission_view_id', 'role_id')
 )
 
+# Custom Role model for future customizations
 class CustomRole(Model):
     __tablename__ = 'ab_role'
 
@@ -81,6 +83,7 @@ assoc_user_role = Table('ab_user_role', Model.metadata,
                                   UniqueConstraint('user_id', 'role_id')
 )
 
+# Custom User for changing possible user data
 class CustomUser(Model):
     __tablename__ = 'ab_user'
     id = Column(Integer, Sequence('ab_user_id_seq'), primary_key=True)
@@ -144,7 +147,7 @@ class CustomUser(Model):
     def __repr__(self):
         return self.get_full_name()
 
-
+# Custom Register User for changing possible user data
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
     id = Column(Integer, Sequence('ab_register_user_id_seq'), primary_key=True)
@@ -157,6 +160,7 @@ class CustomRegisterUser(Model):
     registration_date = Column(DateTime, default=datetime.now, nullable=True)
     registration_hash = Column(String(256))
 
+# News model for Saving news post data
 class NewsPost(Model):
     __tablename__ = 'news_posts'
     id = Column(Integer, primary_key=True)
