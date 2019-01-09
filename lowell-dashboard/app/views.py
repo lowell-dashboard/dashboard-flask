@@ -5,6 +5,7 @@ from flask import render_template, flash, g, make_response
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
+from datetime import datetime
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost
@@ -34,8 +35,46 @@ class LowellResources(BaseView):
     @expose('/news')
     def newsview(self):
         num_news = 1
-        news = db.session.query(NewsPost).order_by(NewsPost.id).all()
-        return self.render_template('news.html', news=news)
+        news_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
+        # fill random object because jinja starts index at 1
+        how_long_ago = ['lowell help forum filler bot to help jinja yay']
+        time_unit = ['lowell help forum filler bot to help jinja yay']
+        now = datetime.now()
+        for times in news_data:
+            then = times.time_created
+            delta = now - then
+
+            delta_days = delta.days
+            delta_seconds = delta.seconds
+
+            if delta_days != 0:
+                time_ago = delta_days
+                if delta_days == 1:
+                    time_measure = 'day'
+                else:
+                    time_measure = 'days'
+            else:
+                if delta_seconds >= 60:
+                    if delta_seconds >= 3600:
+                        temp_time = delta_seconds // 3600
+                        time_ago = int(temp_time)
+                        if time_ago == 1:
+                            time_measure = 'hour'
+                        else:
+                            time_measure = 'hours'
+                    else:
+                        temp_time = delta_seconds // 60
+                        time_ago = int(temp_time)
+                        if time_ago == 1:
+                            time_measure = 'minute'
+                        else:
+                            time_measure = 'minutes'
+                else:
+                    time_ago = delta_seconds
+                    time_measure = 'seconds'
+            how_long_ago.append(time_ago)
+            time_unit.append(time_measure)
+        return self.render_template('news.html', news=news_data, timestamps=how_long_ago, time_unit=time_unit)
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
