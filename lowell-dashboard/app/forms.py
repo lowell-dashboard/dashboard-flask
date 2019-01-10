@@ -77,7 +77,7 @@ class CreateNews(DynamicForm):
     # Get the news for the News post, required
     news = TextAreaField(_('News'),
                           render_kw={"rows": 15, "cols": 40},
-                          description=_('Please write at least 15 characters and maximum of 300 characters'),
+                          description=_('Please write at least 15 characters and maximum of 400 characters'),
                           validators=[
                                      DataRequired(),
                                      Length(min=15,max=400)
