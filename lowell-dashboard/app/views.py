@@ -1,7 +1,7 @@
 # Imports
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g, make_response
+from flask import render_template, flash, g, make_response, current_app, abort
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
@@ -18,10 +18,10 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 def page_not_found(e):
     return render_template('404.html', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
 
-# 404 error handeler to render 404.html jijna2 template
+# 500 error handeler to render 500.html html file
 @appbuilder.app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html', base_template=appbuilder.base_template, appbuilder=appbuilder), 500
+    return current_app.send_static_file('500.html')
 
 # Views for Lowellresources
 class LowellResources(BaseView):
