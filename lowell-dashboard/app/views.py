@@ -21,7 +21,7 @@ def page_not_found(e):
 # 500 error handeler to render 500.html html file
 @appbuilder.app.errorhandler(500)
 def page_not_found(e):
-    return current_app.send_static_file('500.html')
+    return render_template('500.html')
 
 # Views for Lowellresources
 class LowellResources(BaseView):
