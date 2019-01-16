@@ -16,12 +16,12 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
+    return render_template('404.py', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
 
 # 500 error handeler to render 500.html html file
 @appbuilder.app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html')
+    return render_template('500.py')
 
 # Views for Lowellresources
 class LowellResources(BaseView):
@@ -52,7 +52,7 @@ class LowellResources(BaseView):
             news_data.append(news_posts)
 
 
-        return self.render_template('news.html', news=news_data, timestamps=how_long_ago, time_unit=time_unit)
+        return self.render_template('news.py', news=news_data, timestamps=how_long_ago, time_unit=time_unit)
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -61,7 +61,7 @@ class LowellResources(BaseView):
     '''
     @expose('/textbooks')
     def textbooks(self):
-        return self.render_template('textbooks.html')
+        return self.render_template('textbooks.py')
 
     '''
     Create path schedules that renders schedules.html jijna2 template
@@ -76,19 +76,10 @@ class LowellResources(BaseView):
         # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
         print(wkmonth.get_week_events())
-        return self.render_template('schedules.html', table=schedule_data)
+        return self.render_template('schedules.py', table=schedule_data)
 
-# Create appbuilder dropdown menu
-appbuilder.add_view(LowellResources, "News", category=_('Lowell Resources'), label=_('News'))
-
-# Create news link in drop down menu
-appbuilder.add_link("newsview", href='/news', category=_('Lowell Resources'), label=_('News'))
-
-# Create textbook link in drop down menu
-appbuilder.add_link("Textbooks", href='/textbooks', category=_('Lowell Resources'), label=_('Textbooks'))
-
-# Create schedules link in drop down menu
-appbuilder.add_link("Schedules", href='/schedules', category=_('Lowell Resources'), label=_('Schedules'))
+# Create paths
+appbuilder.add_view_no_menu(LowellResources())
 
 # Views for Site files
 class LowellFiles(BaseView):
@@ -97,28 +88,28 @@ class LowellFiles(BaseView):
     route_base = "/files"
 
     '''
-    Create path disclaimer that renders disclaimer.html jijna2 template
+    Create path disclaimer that renders disclaimer.py jijna2 template
     that contains project's disclaimer
     '''
     @expose('/disclaimer')
     def disclaimer(self):
-        return self.render_template('disclaimer.html')
+        return self.render_template('disclaimer.py')
 
     '''
-    Create path license that renders license.html jijna2 template
+    Create path license that renders license.py jijna2 template
     that contains the project's license
     '''
     @expose('/license')
     def license(self):
-        return self.render_template('license.html')
+        return self.render_template('license.py')
 
     '''
-    Create path privacy that renders privacy.html jijna2 template
+    Create path privacy that renders privacy.py jijna2 template
     that contains the project's privacy policy
     '''
     @expose('/privacy')
     def privacy(self):
-        return self.render_template('privacy.html')
+        return self.render_template('privacy.py')
 
 # Create paths
 appbuilder.add_view_no_menu(LowellFiles())
@@ -132,12 +123,12 @@ class HomeView(BaseView):
     # Route for new or logged out users
     @expose('/new')
     def new(self):
-        return self.render_template('new_user.html')
+        return self.render_template('new_user.py')
 
     # Route for signed in users or users who want to just view data
     @expose('/general')
     def general(self):
-        return self.render_template('my_index.html')
+        return self.render_template('my_index.py')
 
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
@@ -183,7 +174,7 @@ class UserInfo(BaseView):
     '''
     @expose('/profile/<user>')
     def disclaimer(self, user):
-        return render_template('profile.html')
+        return render_template('profile.py')
 
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
