@@ -204,7 +204,7 @@ class NewsPost(Model):
             print(e)
             return False
             # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
-
+'''
 # Class model for Saving Classes data
 class Classes(Model):
     __tablename__ = 'all_classes'
@@ -214,3 +214,4 @@ class Classes(Model):
     student_grade_levels = Column(String(32))
     block_number = Column(Integer)
     year = Column(Integer)
+'''
