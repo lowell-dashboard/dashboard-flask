@@ -144,6 +144,9 @@ class CustomUser(Model):
     def get_full_name(self):
         return u'{0} {1}'.format(self.first_name, self.last_name)
 
+    def get_username(self):
+        return u'{0}'.format(self.username)
+
     def __repr__(self):
         return self.get_full_name()
 
@@ -201,3 +204,16 @@ class NewsPost(Model):
             print(e)
             return False
             # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
+'''
+# Class model for Saving Classes data
+class Classes(Model):
+    __tablename__ = 'all_classes'
+    id = Column(Integer, primary_key=True)
+    teacher = Column(String(64))
+    course_name = Column(String(64))
+    student_grade_levels = Column(String(32))
+    block_number = Column(Integer)
+    year = Column(Integer)
+    course_type = Column(String(64))
+    a_g_requirement = Column(String(64))
+'''
