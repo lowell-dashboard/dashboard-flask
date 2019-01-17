@@ -1,7 +1,7 @@
 # Imports
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g, make_response, current_app, abort
+from flask import render_template, flash, g, make_response, current_app, abort, redirect
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
@@ -27,9 +27,6 @@ def page_not_found(e):
 # Views for Lowellresources
 class LowellResources(BaseView):
 
-    # Top choice for drop down menu
-    default_view = 'newsview'
-
     # Add route base as root "/"
     route_base = "/"
 
@@ -38,6 +35,7 @@ class LowellResources(BaseView):
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
+
     @expose('/news/<number>')
     def newsview(self, number='1'):
         if number == '0':
@@ -179,6 +177,24 @@ class UserInfo(BaseView):
 
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
+
+# Views for SEO Site files
+class RandomViews(BaseView):
+
+    # Add route base as root "/"
+    route_base = "/"
+
+    '''
+    Create path robots.txt that renders robots.txt text file
+    that contains project's robots.txt paths
+    '''
+    @expose('/news')
+    @expose('/news/')
+    def news_redirect(self):
+        return redirect('/news/1')
+
+# Create paths
+appbuilder.add_view_no_menu(RandomViews())
 
 '''
 Form Views
