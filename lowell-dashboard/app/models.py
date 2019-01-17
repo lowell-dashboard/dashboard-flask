@@ -172,6 +172,7 @@ class NewsPost(Model):
     time_created = Column(DateTime, default=datetime.now, nullable=False)
     news = Column(String(1024))
     made_by_message = Column(String(64))
+    # tags = Column(String(128))
 
     def drop_table(self, db):
         try:

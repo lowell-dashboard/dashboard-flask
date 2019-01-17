@@ -6,6 +6,7 @@ from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
 #from tools.news import
+#from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost
@@ -256,6 +257,7 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
+        # model.tags = dumps([list])
         # NOTE: for some reason this line must remain outside of the try or else the code won't work
         db.session.add(model)
         # Add the model to the database
