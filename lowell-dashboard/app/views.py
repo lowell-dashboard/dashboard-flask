@@ -9,7 +9,7 @@ from requests import post
 #from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
-from app.models import NewsPost
+from app.models import NewsPost, CustomUser
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
@@ -173,6 +173,13 @@ class UserInfo(BaseView):
     '''
     @expose('/profile/<user>')
     def disclaimer(self, user):
+        '''
+        Query the data base to find the current user 
+        and their information
+        '''
+        q = db.session.query(CustomUser).filter(CustomUser.username == user).first()
+        q = q.id
+        print(q)
         return render_template('profile.py')
 
 # Create paths
