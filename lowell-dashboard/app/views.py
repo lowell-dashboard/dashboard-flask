@@ -174,13 +174,10 @@ class UserInfo(BaseView):
     '''
     @expose('/profile/<user>')
     def disclaimer(self, user):
-        '''
-        Query the data base to find the current user 
-        and their information
-        '''
-        q = db.session.query(CustomUser).filter(CustomUser.username == user).first()
-        q = q.id
-        print(q)
+        if user.is_anonymous:
+            return render_template('profile.py')
+        user = g.user
+        print(user.roles)
         return render_template('profile.py')
 
 # Create paths
