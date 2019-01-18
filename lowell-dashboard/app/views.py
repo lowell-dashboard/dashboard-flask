@@ -1,12 +1,11 @@
 # Imports
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g, make_response, current_app, abort, redirect
+from flask import render_template, flash, g, make_response, current_app, abort
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
 #from tools.news import
-#from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost, CustomUser
@@ -27,6 +26,9 @@ def page_not_found(e):
 # Views for Lowellresources
 class LowellResources(BaseView):
 
+    # Top choice for drop down menu
+    default_view = 'newsview'
+
     # Add route base as root "/"
     route_base = "/"
 
@@ -35,7 +37,6 @@ class LowellResources(BaseView):
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
-
     @expose('/news/<number>')
     def newsview(self, number='1'):
         if number == '0':
@@ -173,32 +174,20 @@ class UserInfo(BaseView):
     '''
     @expose('/profile/<user>')
     def disclaimer(self, user):
-        if user.is_anonymous:
-            return render_template('profile.py')
         user = g.user
-        print(user.roles)
-        return render_template('profile.py')
+        if not user.is_anonymous:
+            print(user.roles)
+        '''
+        Query the data base to find the current user 
+        and their information
+        '''
+        # q = db.session.query(CustomUser).filter(CustomUser.username == user).first()
+        # q = q.id
+        # print(q)
+        return self.render_template('profile.py')
 
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
-
-# Views for SEO Site files
-class RandomViews(BaseView):
-
-    # Add route base as root "/"
-    route_base = "/"
-
-    '''
-    Create path robots.txt that renders robots.txt text file
-    that contains project's robots.txt paths
-    '''
-    @expose('/news')
-    @expose('/news/')
-    def news_redirect(self):
-        return redirect('/news/1')
-
-# Create paths
-appbuilder.add_view_no_menu(RandomViews())
 
 '''
 Form Views
@@ -277,7 +266,6 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
-        # model.tags = dumps([list])
         # NOTE: for some reason this line must remain outside of the try or else the code won't work
         db.session.add(model)
         # Add the model to the database
