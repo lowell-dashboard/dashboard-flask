@@ -1,8 +1,6 @@
 from datetime import datetime
 from json import loads
 
-from datetime import datetime
-
 class NewsWork:
     def __init__(self, list):
         self.list = list
@@ -15,8 +13,8 @@ class NewsWork:
             if self.check_ten(number) == True:
                 count += 1
                 news_data['news_data'][str(count)] = {'time_created_list':[],'time_measure':[],'new_post':[]}
-
-        final_news_data = self.time_sort(news_data)
+        temp_news_data = self.time_sort(news_data)
+        final_news_data = self.news_data_sort(temp_news_data)
         return final_news_data
 
     def time_sort(self, dic):
