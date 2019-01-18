@@ -5,10 +5,11 @@ from flask import render_template, flash, g, make_response, current_app, abort
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
-#from tools.news import
+from .news import NewsWork
+from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
-from app.models import NewsPost
+from app.models import NewsPost, CustomUser
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
@@ -33,16 +34,15 @@ class LowellResources(BaseView):
     route_base = "/"
 
     '''
-    Create path news that renders news.html jijna2 template
+    Create path news that renders news.py jijna2 template
     that contains any added news might be moved to models to
     work with database and can only be seen by logged in users
     '''
-    @expose('/news/<number>')
-    def newsview(self, number='1'):
+    @expose('/news/<input_number>')
+    def newsview(self, input_number):
+        number = str(input_number)
         if number == '0':
             number = '1'
-        num = int(number)
-        num_news = 1
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
         # Create empty list to put reverse order data posts
@@ -51,8 +51,14 @@ class LowellResources(BaseView):
         for news_posts in reversed(news_db_data):
             news_data.append(news_posts)
 
+        news_work_instance = NewsWork(news_data)
+        news_data = news_work_instance.news_sort
 
-        return self.render_template('news.py', news=news_data, timestamps=how_long_ago, time_unit=time_unit)
+        test = news_data['news_data'][number]['news_data']
+        test2 = news_data['news_data'][number]['time_created_list']
+        test1 = news_data['news_data'][number]['time_measure']
+
+        return self.render_template('news.py', news=news_data['news_data'][number]['new_post'], timestamps=news_data['news_data'][number]['time_measure'], time_unit=news_data['news_data'][number]['time_created_list'])
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -174,7 +180,10 @@ class UserInfo(BaseView):
     '''
     @expose('/profile/<user>')
     def disclaimer(self, user):
-        return render_template('profile.py')
+        user = g.user
+        if not user.is_anonymous:
+            print(user.roles)
+        return self.render_template('profile.py')
 
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
