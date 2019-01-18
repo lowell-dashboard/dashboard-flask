@@ -177,13 +177,6 @@ class UserInfo(BaseView):
         user = g.user
         if not user.is_anonymous:
             print(user.roles)
-        '''
-        Query the data base to find the current user 
-        and their information
-        '''
-        # q = db.session.query(CustomUser).filter(CustomUser.username == user).first()
-        # q = q.id
-        # print(q)
         return self.render_template('profile.py')
 
 # Create paths
