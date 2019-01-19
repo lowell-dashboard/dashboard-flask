@@ -39,9 +39,11 @@ class LowellResources(BaseView):
     '''
     @expose('/news/<input_number>')
     def newsview(self, input_number):
-        number = str(input_number)
-        if number == '0':
+        print(input_number)
+        number = input_number
+        if number == None:
             number = '1'
+        number = str(number)
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
         # Create empty list to put reverse order data posts
