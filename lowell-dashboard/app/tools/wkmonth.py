@@ -2,6 +2,7 @@ from math import ceil
 import datetime
 import os
 import json
+from calendar import monthrange
 
 def find_week():
     path = os.path.dirname(os.path.abspath(__file__))
@@ -14,7 +15,7 @@ def find_week():
     month_num = dt.month
     month = MONTHS[month_num-1]
 
-    day = dt.day
+    day = handle_weekends(dt.day)
 
     month_data = data[month.upper()]
     print(month_data)
@@ -23,7 +24,7 @@ def find_week():
         count = 0
         for week in month_data:
             for date in week['dates']:
-                if count > 5:
+                if count >= 4:
                     # print("N/A")
                     return []
                 if int(date) == day:
@@ -45,6 +46,7 @@ def week_of_month():
     week_data = find_week()
     if len(week_data) == 0:
         return "00000"
+    print(week_data['dates'])
     return week_data['codes']
 
 def get_schedule_times(codes):
@@ -68,3 +70,12 @@ def get_week_events():
     if len(week_data) == 0:
         return "No message found"
     return week_data['events'] 
+
+def handle_weekends(date):
+    weeknum = datetime.datetime.today().weekday()
+    if weeknum < 5:
+        return date
+    elif weeknum == 5: # if it is Saturday show the schedule for Friday
+        return date - 1
+    elif weeknum == 6: # if it is Sunday show the schedul for Monday
+        return date + 1
