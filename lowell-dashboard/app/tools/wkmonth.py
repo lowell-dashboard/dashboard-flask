@@ -17,17 +17,20 @@ def find_week():
     day = dt.day
 
     month_data = data[month.upper()]
-
+    print(month_data)
+    print(month)
     while True:
+        count = 0
         for week in month_data:
             for date in week['dates']:
-                if day < int(date):
+                if count > 5:
                     # print("N/A")
                     return []
                 if int(date) == day:
                     # print("we found today")
                     # print(week['codes'])
                     return week
+            count += 1
         if month_num == 12:
             new_month = MONTHS[0]
             month_data = data[new_month.upper()]
