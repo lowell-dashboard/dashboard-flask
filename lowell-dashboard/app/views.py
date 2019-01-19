@@ -1,12 +1,11 @@
 # Imports
 from app import appbuilder, db
 from json import dumps
+from .news import NewsWork
 from flask import render_template, flash, g, make_response, current_app, abort
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
-from .news import NewsWork
-from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost, CustomUser
