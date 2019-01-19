@@ -36,7 +36,7 @@
           <center><h2>{{n.title}}</h2></center>
           <br>
           <p style="white-space: pre-line;">{{n.news}}</p>
-          <h5>{{n.made_by_message}}{{n.creator_username}} about {{timestamps[loop.index]}} {{time_unit[loop.index]}} ago</h5>
+          <h5>{{n.made_by_message}}{{n.creator_username}} about {{timestamps[loop.index-1]}} {{time_unit[loop.index-1]}} ago</h5>
         </div>
         <br>
       {% endfor %}
