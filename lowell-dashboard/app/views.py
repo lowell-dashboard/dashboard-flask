@@ -187,6 +187,24 @@ class UserInfo(BaseView):
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
 
+# Views for SEO Site files
+class RandomViews(BaseView):
+
+    # Add route base as root "/"
+    route_base = "/"
+
+    '''
+    Create paths that redirects users to the correct
+    news path
+    '''
+    @expose('/news')
+    @expose('/news/')
+    def news_redirect(self):
+        return redirect('/news/1')
+
+# Create paths
+appbuilder.add_view_no_menu(RandomViews())
+
 '''
 Form Views
 '''
@@ -264,6 +282,8 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
+        # needed for saving tags as a list in db
+        # model.tags = dumps([list])
         # NOTE: for some reason this line must remain outside of the try or else the code won't work
         db.session.add(model)
         # Add the model to the database
