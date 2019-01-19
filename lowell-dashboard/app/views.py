@@ -52,13 +52,13 @@ class LowellResources(BaseView):
             news_data.append(news_posts)
 
         news_work_instance = NewsWork(news_data)
-        news_data = news_work_instance.news_sort
+        news_data = news_work_instance.news_sort()
+        print(news_data)
+        # test = news_data['news_data'][number]['news_post']
+        # test2 = news_data['news_data'][number]['time_created_list']
+        # test1 = news_data['news_data'][number]['time_measure']
 
-        test = news_data['news_data'][number]['news_data']
-        test2 = news_data['news_data'][number]['time_created_list']
-        test1 = news_data['news_data'][number]['time_measure']
-
-        return self.render_template('news.py', news=news_data['news_data'][number]['new_post'], timestamps=news_data['news_data'][number]['time_measure'], time_unit=news_data['news_data'][number]['time_created_list'])
+        return self.render_template('news.py', news=news_data['news_data'][number]['new_post'], timestamps=news_data['news_data'][number]['time_created_list'], time_unit=news_data['news_data'][number]['time_measure'])
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
