@@ -13,10 +13,10 @@ def find_week():
 
     MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     month_num = dt.month
+
+    day, month_num = handle_weekends(31, dt.year, 3)
+
     month = MONTHS[month_num-1]
-
-    day = handle_weekends(dt.day)
-
     month_data = data[month.upper()]
     print(month_data)
     print(month)
@@ -71,11 +71,23 @@ def get_week_events():
         return "No message found"
     return week_data['events'] 
 
-def handle_weekends(date):
-    weeknum = datetime.datetime.today().weekday()
+def handle_weekends(date, year, month):
+    weeknum = 6 #datetime.datetime.today().weekday()
     if weeknum < 5:
-        return date
-    elif weeknum == 5: # if it is Saturday show the schedule for Friday
-        return date - 1
-    elif weeknum == 6: # if it is Sunday show the schedul for Monday
-        return date + 1
+        return date, month
+    elif weeknum == 5:
+        # if it is the weekend show the schedule for upcoming week
+        m, d = monthrange(year, month)
+        print(m, d)
+        if(date == d):
+            print("something")
+            return 2, month + 1
+        return date + 2, month
+    elif weeknum == 6:
+        # if it is the weekend show the schedule for upcoming week
+        m, d = monthrange(year, month)
+        print(m, d)
+        if(date == d):
+            print("something")
+            return 1, month + 1
+        return date + 1, month
