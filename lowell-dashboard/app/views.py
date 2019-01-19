@@ -2,7 +2,7 @@
 from app import appbuilder, db
 from json import dumps
 from .news import NewsWork
-from flask import render_template, flash, g, make_response, current_app, abort
+from flask import render_template, flash, g, make_response, current_app, abort, redirect
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
