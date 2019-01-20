@@ -2,7 +2,7 @@
 from app import appbuilder, db
 from json import dumps
 from .news import NewsWork
-from flask import render_template, flash, g, make_response, current_app, abort, redirect
+from flask import render_template, flash, g, make_response, current_app, abort, redirect, url_for
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
@@ -54,7 +54,8 @@ class LowellResources(BaseView):
 
         news_work_instance = NewsWork(news_data)
         news_data = news_work_instance.news_sort()
-        print(news_data)
+        #if news_data['news_data'][number]:
+        #    return redirect('/back')
         news_ = news_data['news_data'][number]['new_post']
         timestamps_ = news_data['news_data'][number]['time_created_list']
         timeunit_ = news_data['news_data'][number]['time_measure']
@@ -298,6 +299,7 @@ class News(SimpleFormView):
         # NOTE: comment once deleted table
         # success = model.add_column(db)
         # flash(success, 'info')
+        return redirect(url_for('LowellResources.newsview'))
 
 # Add form path
 appbuilder.add_view_no_menu(News())
