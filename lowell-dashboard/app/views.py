@@ -190,7 +190,7 @@ class UserInfo(BaseView):
 appbuilder.add_view_no_menu(UserInfo())
 
 # Views for SEO Site files
-class RandomViews(BaseView):
+class InitialNewsViews(BaseView):
 
     # Add route base as root "/"
     route_base = "/"
@@ -205,7 +205,7 @@ class RandomViews(BaseView):
         return redirect('/news/1')
 
 # Create paths
-appbuilder.add_view_no_menu(RandomViews())
+appbuilder.add_view_no_menu(InitialNewsViews())
 
 '''
 Form Views
