@@ -1,12 +1,11 @@
 # Imports
 from app import appbuilder, db
 from json import dumps
-from flask import render_template, flash, g, make_response, current_app, abort
+from .news import NewsWork
+from flask import render_template, flash, g, make_response, current_app, abort, redirect, url_for
 from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
-from .news import NewsWork
-from json import dumps
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
 from app.models import NewsPost, CustomUser
@@ -40,25 +39,24 @@ class LowellResources(BaseView):
     '''
     @expose('/news/<input_number>')
     def newsview(self, input_number):
-        number = str(input_number)
-        if number == '0':
+        print(input_number)
+        number = input_number
+        if number == None:
             number = '1'
+        number = str(number)
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
-        # Create empty list to put reverse order data posts
-        news_data = []
-        # Reverse list
-        for news_posts in reversed(news_db_data):
-            news_data.append(news_posts)
-
+        # Start news sort
         news_work_instance = NewsWork(news_data)
-        news_data = news_work_instance.news_sort
+        news_data = news_work_instance.news_sort()
+        try:
+            news_ = news_data['news_data'][number]['new_post']
+            timestamps_ = news_data['news_data'][number]['time_created_list']
+            timeunit_ = news_data['news_data'][number]['time_measure']
+        except KeyError:
 
-        test = news_data['news_data'][number]['news_data']
-        test2 = news_data['news_data'][number]['time_created_list']
-        test1 = news_data['news_data'][number]['time_measure']
 
-        return self.render_template('news.py', news=news_data['news_data'][number]['new_post'], timestamps=news_data['news_data'][number]['time_measure'], time_unit=news_data['news_data'][number]['time_created_list'])
+        return self.render_template('news.py', news=news_, timestamps=timestamps_, timeunit=timeunit_)
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -188,6 +186,24 @@ class UserInfo(BaseView):
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
 
+# Views for SEO Site files
+class InitialNewsViews(BaseView):
+
+    # Add route base as root "/"
+    route_base = "/"
+
+    '''
+    Create paths that redirects users to the correct
+    news path
+    '''
+    @expose('/news')
+    @expose('/news/')
+    def news_redirect(self):
+        return redirect('/news/1')
+
+# Create paths
+appbuilder.add_view_no_menu(InitialNewsViews())
+
 '''
 Form Views
 '''
@@ -265,6 +281,8 @@ class News(SimpleFormView):
         model.title = title
         model.news = news
         model.made_by_message = 'Created by '
+        # needed for saving tags as a list in db
+        # model.tags = dumps([list])
         # NOTE: for some reason this line must remain outside of the try or else the code won't work
         db.session.add(model)
         # Add the model to the database
@@ -277,6 +295,7 @@ class News(SimpleFormView):
         # NOTE: comment once deleted table
         # success = model.add_column(db)
         # flash(success, 'info')
+        return redirect(url_for('LowellResources.newsview'))
 
 # Add form path
 appbuilder.add_view_no_menu(News())

@@ -120,11 +120,11 @@ class NewsWork:
             # count loops
             loop_count += 1
             # loop looped multiple of 10
-            if self.count_ten(loop_count) == True:
+            if self.check_ten(loop_count) == True:
                 # change data output to diffent page
                 count += 1
             # add db object to proper lists
-            dic['news_data'][str(count)]['new_post'].apphend(news)
+            dic['news_data'][str(count)]['new_post'].append(news)
 
         return dic
 
