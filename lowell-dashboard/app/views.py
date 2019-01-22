@@ -46,19 +46,15 @@ class LowellResources(BaseView):
         number = str(number)
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
-        # Create empty list to put reverse order data posts
-        news_data = []
-        # Reverse list
-        for news_posts in reversed(news_db_data):
-            news_data.append(news_posts)
-
+        # Start news sort
         news_work_instance = NewsWork(news_data)
         news_data = news_work_instance.news_sort()
-        #if news_data['news_data'][number]:
-        #    return redirect('/back')
-        news_ = news_data['news_data'][number]['new_post']
-        timestamps_ = news_data['news_data'][number]['time_created_list']
-        timeunit_ = news_data['news_data'][number]['time_measure']
+        try:
+            news_ = news_data['news_data'][number]['new_post']
+            timestamps_ = news_data['news_data'][number]['time_created_list']
+            timeunit_ = news_data['news_data'][number]['time_measure']
+        except KeyError:
+
 
         return self.render_template('news.py', news=news_, timestamps=timestamps_, timeunit=timeunit_)
 
