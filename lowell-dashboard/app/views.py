@@ -174,9 +174,10 @@ class UserInfo(BaseView):
     @expose('/profile/<user>')
     def disclaimer(self, user):
         user = g.user
-        if not user.is_anonymous:
-            print(user.roles)
-        return self.render_template('profile.py')
+        if user.is_anonymous:
+            return self.render_template('profile.py', user=user)
+        print(user.roles)
+        return self.render_template('profile.py', user=user)
 
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
