@@ -39,24 +39,19 @@ class LowellResources(BaseView):
     '''
     @expose('/news/<input_number>')
     def newsview(self, input_number):
-        print(input_number)
-        number = input_number
+        number = int(input_number)
         if number == None:
-            number = '1'
-        number = str(number)
+            number = 1
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
         # Start news sort
-        news_work_instance = NewsWork(news_data)
-        news_data = news_work_instance.news_sort()
-        try:
-            news_ = news_data['news_data'][number]['new_post']
-            timestamps_ = news_data['news_data'][number]['time_created_list']
-            timeunit_ = news_data['news_data'][number]['time_measure']
-        except KeyError:
+        news_work_instance = NewsWork(news_db_data, number)
+        if news_work_instance.check() == True:
 
+            news_list, timestamps, time_unit = news_work_instance.get_news()
 
-        return self.render_template('news.py', news=news_, timestamps=timestamps_, timeunit=timeunit_)
+            return self.render_template('news.py', news=news_list, timestamps=timestamps, timeunit=time_unit)
+        return redirect('/back')
 
     '''
     Create path textbooks that renders textbooks.html jijna2 template
@@ -295,7 +290,7 @@ class News(SimpleFormView):
         # NOTE: comment once deleted table
         # success = model.add_column(db)
         # flash(success, 'info')
-        return redirect(url_for('LowellResources.newsview'))
+        return redirect('/news')
 
 # Add form path
 appbuilder.add_view_no_menu(News())
