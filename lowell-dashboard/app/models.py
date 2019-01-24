@@ -100,6 +100,7 @@ class CustomUser(Model):
     roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
     created_on = Column(DateTime, default=datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.now, nullable=True)
+    _class_ids = Column(String(64))
 
     @declared_attr
     def created_by_fk(self):
@@ -150,6 +151,31 @@ class CustomUser(Model):
     def __repr__(self):
         return self.get_full_name()
 
+    '''
+    A getter function for the class id property
+    Args:
+        None
+    Returns:
+        list: a list of the class ids that the student has
+    Use case:
+    print(CustomUser.class_ids)
+    ['12', '27']
+    '''
+    @property
+    def class_ids(self):
+        return [float(x) for x in self._class_ids.split(';')]
+    '''
+    A setter for the class id property
+    Args:
+        str: class id
+    Returns:
+        void: nothing
+    Use case:
+    CustomUser.class_ids = 12
+    '''
+    @class_ids.setter
+    def class_ids(self, value):
+        self._class_ids += ';%s' % value
 # Custom Register User for changing possible user data
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
@@ -217,7 +243,7 @@ class Classes(Model):
     year = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
-    students_ids = Column(String(64))
+    _students_ids = Column(String(64))
 
     '''
     A getter function for the student id property
@@ -231,7 +257,7 @@ class Classes(Model):
     '''
     @property
     def students_ids(self):
-        return [float(x) for x in self.students_ids.split(';')]
+        return [float(x) for x in self._students_ids.split(';')]
     '''
     A setter for the student id property
     Args:
@@ -243,4 +269,4 @@ class Classes(Model):
     '''
     @students_ids.setter
     def students_ids(self, value):
-        self.students_ids += ';%s' % value
+        self._students_ids += ';%s' % value
