@@ -100,7 +100,7 @@ class CustomUser(Model):
     roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
     created_on = Column(DateTime, default=datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.now, nullable=True)
-    _class_ids = Column(String(64))
+    _class_ids = Column(String)
 
     @declared_attr
     def created_by_fk(self):
@@ -243,7 +243,7 @@ class Classes(Model):
     year = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
-    _students_ids = Column(String(64))
+    _students_ids = Column(String)
 
     '''
     A getter function for the student id property
