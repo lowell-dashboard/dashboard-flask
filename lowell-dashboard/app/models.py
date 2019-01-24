@@ -205,7 +205,7 @@ class NewsPost(Model):
             print(e)
             return False
             # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
-'''
+
 # Class model for Saving Classes data
 class Classes(Model):
     __tablename__ = 'all_classes'
@@ -217,4 +217,30 @@ class Classes(Model):
     year = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
-'''
+    students_ids = Column(String(64))
+
+    '''
+    A getter function for the student id property
+    Args:
+        None
+    Returns:
+        list: a list of the students ids that are in the class
+    Use case:
+    print(Classes.students_ids)
+    ['421', '319']
+    '''
+    @property
+    def students_ids(self):
+        return [float(x) for x in self.students_ids.split(';')]
+    '''
+    A setter for the student id property
+    Args:
+        str: user id
+    Returns:
+        void: nothing
+    Use case:
+    Classes.students_ids = 421
+    '''
+    @students_ids.setter
+    def students_ids(self, value):
+        self.students_ids += ';%s' % value
