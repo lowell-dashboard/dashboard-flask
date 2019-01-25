@@ -100,6 +100,7 @@ class CustomUser(Model):
     roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
     created_on = Column(DateTime, default=datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.now, nullable=True)
+    _class_ids = Column(String)
 
     @declared_attr
     def created_by_fk(self):
@@ -150,6 +151,54 @@ class CustomUser(Model):
     def __repr__(self):
         return self.get_full_name()
 
+    '''
+    A getter function for the class id property
+    Args:
+        None
+    Returns:
+        list: a list of the class ids that the student has
+    Use case:
+    print(CustomUser.class_ids)
+    ['12', '27']
+    '''
+    @property
+    def class_ids(self):
+        return [float(x) for x in self._class_ids.split(';')]
+
+    def add_column(db):
+        # create a new column named 'col' and has the type String length 64 characters
+        _class_ids = Column('_class_ids', String)
+        # save the test column into a variable column
+        column = _class_ids
+        # create a connection to the db
+        conn = db.engine.connect()
+        # get the table name of the model
+        table_name = CustomUser.__tablename__
+        # get the key of the column
+        column_name = column.key
+        # get the type of the column; this is required by sql syntax
+        column_type = column.type.compile(conn.dialect)
+        try:
+            # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
+            # Using the sql 'ALTER' command to add a new column to the model in the db
+            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            return True
+            # log.info("Added Column {0} on {1}".format(column_name, table_name))
+        except Exception as e:
+            print(e)
+            return False
+    '''
+    A setter for the class id property
+    Args:
+        str: class id
+    Returns:
+        void: nothing
+    Use case:
+    CustomUser.class_ids = 12
+    '''
+    @class_ids.setter
+    def class_ids(self, value):
+        self._class_ids += ';%s' % value
 # Custom Register User for changing possible user data
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
@@ -205,7 +254,7 @@ class NewsPost(Model):
             print(e)
             return False
             # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
-'''
+
 # Class model for Saving Classes data
 class Classes(Model):
     __tablename__ = 'all_classes'
@@ -217,4 +266,53 @@ class Classes(Model):
     year = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
-'''
+    _students_ids = Column(String)
+
+    '''
+    A getter function for the student id property
+    Args:
+        None
+    Returns:
+        list: a list of the students ids that are in the class
+    Use case:
+    print(Classes.students_ids)
+    ['421', '319']
+    '''
+    @property
+    def students_ids(self):
+        return [float(x) for x in self._students_ids.split(';')]
+    '''
+    A setter for the student id property
+    Args:
+        str: user id
+    Returns:
+        void: nothing
+    Use case:
+    Classes.students_ids = 421
+    '''
+    @students_ids.setter
+    def students_ids(self, value):
+        self._students_ids += ';%s' % value
+
+    def add_column(db):
+        # create a new column named 'col' and has the type String length 64 characters
+        _students_ids = Column('_students_ids', String)
+        # save the test column into a variable column
+        column = _students_ids
+        # create a connection to the db
+        conn = db.engine.connect()
+        # get the table name of the model
+        table_name = Classes.__tablename__
+        # get the key of the column
+        column_name = column.key
+        # get the type of the column; this is required by sql syntax
+        column_type = column.type.compile(conn.dialect)
+        try:
+            # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
+            # Using the sql 'ALTER' command to add a new column to the model in the db
+            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            return True
+            # log.info("Added Column {0} on {1}".format(column_name, table_name))
+        except Exception as e:
+            print(e)
+            return False

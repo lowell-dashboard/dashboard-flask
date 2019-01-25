@@ -30,3 +30,8 @@ appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, security_manager
 
 # Import views for running app
 from app import views
+# Uncomment code to fix table error
+# from app.models import CustomUser
+# CustomUser.add_column(db)
+# from app.models import Classes
+# Classes.add_column(db)
