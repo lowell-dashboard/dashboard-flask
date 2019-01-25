@@ -33,3 +33,5 @@ from app import views
 # Uncomment code to fix table error
 # from app.models import CustomUser
 # CustomUser.add_column(db)
+# from app.models import Classes
+# Classes.add_column(db)
