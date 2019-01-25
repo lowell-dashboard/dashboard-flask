@@ -293,3 +293,26 @@ class Classes(Model):
     @students_ids.setter
     def students_ids(self, value):
         self._students_ids += ';%s' % value
+
+    def add_column(db):
+        # create a new column named 'col' and has the type String length 64 characters
+        _students_ids = Column('_students_ids', String)
+        # save the test column into a variable column
+        column = _students_ids
+        # create a connection to the db
+        conn = db.engine.connect()
+        # get the table name of the model
+        table_name = Classes.__tablename__
+        # get the key of the column
+        column_name = column.key
+        # get the type of the column; this is required by sql syntax
+        column_type = column.type.compile(conn.dialect)
+        try:
+            # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
+            # Using the sql 'ALTER' command to add a new column to the model in the db
+            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            return True
+            # log.info("Added Column {0} on {1}".format(column_name, table_name))
+        except Exception as e:
+            print(e)
+            return False
