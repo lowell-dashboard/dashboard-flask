@@ -26,9 +26,9 @@
   </nav>
   
   <section id="bio">    
-    <p>First name: {{user.first_name}}</p>
-    <p>Last name: {{user.last_name}}</p>
-    <p>Email: {{user.email}}</p>
+    <p>Account created on: {{user.created_on}}</p>
+    <p>Active: {{user.active}}</p>
+    <p>Roles: {{user.roles}}</p>
   </section>
   
   <section id="activity" class="hidden">
