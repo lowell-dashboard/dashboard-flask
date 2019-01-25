@@ -264,6 +264,8 @@ class Classes(Model):
     student_grade_levels = Column(String(32))
     block_number = Column(Integer)
     year = Column(Integer)
+    # int if 1 then fall semester if 2 spring if 3 other
+    # semester = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
     _students_ids = Column(String)
