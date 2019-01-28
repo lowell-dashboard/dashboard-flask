@@ -1,5 +1,5 @@
+# Working with datetime
 from datetime import datetime
-from json import loads
 
 class NewsWork:
     def __init__(self, list, number):
