@@ -14,21 +14,21 @@
 <div id="w">
 <div id="content" class="clearfix">
   <div id="userphoto"><img src="/static/img/avatar.png" alt="default avatar"></div>
-  <h1>Minimal User Profile Layout</h1>
+  <h1>{{user.username}}'s Profile</h1>
 
   <nav id="profiletabs">
     <ul class="clearfix">
-      <li><a href="#bio" class="sel">Bio</a></li>
-      <li><a href="#activity">Activity</a></li>
-      <li><a href="#friends">Friends</a></li>
+      <li><a href="#bio" class="sel">Overview</a></li>
+      <li><a href="#activity">Classes</a></li>
+      <li><a href="#friends">Discussions</a></li>
       <li><a href="#settings">Settings</a></li>
     </ul>
   </nav>
   
   <section id="bio">    
-    <p>Can't a guy call his mother pretty without it seeming strange? Amen. I think that's one of Mom's little fibs, you know, like I'll sacrifice anything for my children.</p>
-    
-    <p>She's always got to wedge herself in the middle of us so that she can control everything. Yeah. Mom's awesome. I run a pretty tight ship around here. With a pool table.</p>
+    <p>Account created on: {{user.created_on}}</p>
+    <p>Active: {{user.active}}</p>
+    <p>Roles: {{user.roles}}</p>
   </section>
   
   <section id="activity" class="hidden">
