@@ -34,16 +34,9 @@
   <section id="activity" class="hidden">
     <p>Most recent actions:</p>
     <p>Checking {{user.class_ids}}</p>
-    
-    <p class="activity">@10:15PM - Submitted a news article</p>
-    
-    <p class="activity">@9:50PM - Submitted a news article</p>
-    
-    <p class="activity">@8:15PM - Posted a comment</p>
-    
-    <p class="activity">@4:30PM - Added <strong>someusername</strong> as a friend</p>
-    
-    <p class="activity">@12:30PM - Submitted a news article</p>
+    {% for id in user.class_ids %}
+      <p class="activity">{{id}}</p>
+    {% endfor%}
   </section>
   
   <section id="friends" class="hidden">
