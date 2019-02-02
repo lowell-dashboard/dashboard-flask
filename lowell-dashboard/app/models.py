@@ -100,7 +100,7 @@ class CustomUser(Model):
     roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
     created_on = Column(DateTime, default=datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.now, nullable=True)
-    _class_ids = Column(String)
+    _class_ids = Column(String, default='')
 
     @declared_attr
     def created_by_fk(self):
@@ -163,7 +163,7 @@ class CustomUser(Model):
     '''
     @property
     def class_ids(self):
-        return [float(x) for x in self._class_ids.split(';')]
+        return [int(x) for x in self._class_ids.split(';') if x is not '']
 
     def add_column(db):
         # create a new column named 'col' and has the type String length 64 characters
@@ -198,6 +198,11 @@ class CustomUser(Model):
     '''
     @class_ids.setter
     def class_ids(self, value):
+        if type(value) is list:
+            for v in value:
+                print(self._class_ids)
+                self._class_ids += ';%s' % v
+            return
         self._class_ids += ';%s' % value
 # Custom Register User for changing possible user data
 class CustomRegisterUser(Model):
