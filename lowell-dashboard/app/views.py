@@ -40,8 +40,6 @@ class LowellResources(BaseView):
     @expose('/news/<input_number>')
     def newsview(self, input_number):
         number = int(input_number)
-        if number == None:
-            number = 1
         # Get data from db
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
         # Start news sort
@@ -67,15 +65,17 @@ class LowellResources(BaseView):
     that contains any added special schedules. Will contain main schedule and year long schedule
     as well as a schedule of the day and can only be seen by logged in users
     '''
-    @expose('/schedules')
-    def schedules(self):
+    @expose('/schedules/<type>')
+    def schedules(self, type):
         # uncomment if you need to update the schedule json
         # retrieve_schedule.update_schedule()
         codes = wkmonth.week_of_month()
         # print(codes)
         schedule_data = wkmonth.get_schedule_times(codes)
-        print(wkmonth.get_week_events())
-        return self.render_template('schedules.py', table=schedule_data)
+        # print(wkmonth.get_week_events())
+        if type == 'day':
+            
+        return self.render_template('schedules.py', schedule_data=schedule_data)
 
 # Create paths
 appbuilder.add_view_no_menu(LowellResources())
@@ -183,7 +183,7 @@ class UserInfo(BaseView):
 appbuilder.add_view_no_menu(UserInfo())
 
 # Views for SEO Site files
-class InitialNewsViews(BaseView):
+class NeededRedirects(BaseView):
 
     # Add route base as root "/"
     route_base = "/"
@@ -197,8 +197,14 @@ class InitialNewsViews(BaseView):
     def news_redirect(self):
         return redirect('/news/1')
 
+    @expose('/schedule')
+    @expose('/schedule/')
+    @expose('/schedule/days')
+    def schedule_redirect(self):
+        return redirect('/schedule/day')
+
 # Create paths
-appbuilder.add_view_no_menu(InitialNewsViews())
+appbuilder.add_view_no_menu(NeededRedirects())
 
 '''
 Form Views
