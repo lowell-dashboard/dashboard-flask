@@ -33,6 +33,7 @@
   
   <section id="activity" class="hidden">
     <p>Most recent actions:</p>
+    <p>Checking {{user.class_ids}}</p>
     
     <p class="activity">@10:15PM - Submitted a news article</p>
     
