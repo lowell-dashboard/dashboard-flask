@@ -74,7 +74,7 @@ class LowellResources(BaseView):
         schedule_data = wkmonth.get_schedule_times(codes)
         # print(wkmonth.get_week_events())
         if type == 'day':
-            
+            pass
         return self.render_template('schedules.py', schedule_data=schedule_data)
 
 # Create paths
