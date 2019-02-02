@@ -271,7 +271,7 @@ class Classes(Model):
     year = Column(Integer)
     course_type = Column(String(64))
     a_g_requirement = Column(String(64))
-    _students_ids = Column(String)
+    _students_ids = Column(String, default='')
 
     '''
     A getter function for the student id property
