@@ -8,7 +8,7 @@ from .forms import bugreportform, CreateNews
 from requests import post
 from app.tools import retrieve_schedule
 from app.tools import wkmonth
-from app.models import NewsPost, CustomUser
+from app.models import NewsPost, CustomUser, Classes
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
@@ -177,6 +177,15 @@ class UserInfo(BaseView):
         if user.is_anonymous:
             return self.render_template('profile.py', user=user)
         print(user.roles)
+        '''
+        Query the db to look for the Classes the user has,
+        searches by using the class id
+        '''
+        user_classes = []
+        for class_id in user.class_ids:
+            class_ = db.session.query(Classes).get(class_id)
+            user_classes.append(class_)
+        print(user_classes)
         return self.render_template('profile.py', user=user)
 
 # Create paths
