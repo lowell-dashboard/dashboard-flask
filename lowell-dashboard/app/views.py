@@ -143,7 +143,7 @@ class SEOfiles(BaseView):
     that contains project's robots.txt paths
     '''
     @expose('/robots.txt')
-    def disclaimer(self):
+    def robots(self):
         robots_txt = render_template('seo/robots.txt')
         return robots_txt
 
@@ -152,7 +152,7 @@ class SEOfiles(BaseView):
     that contains the project's sitemap for SEO
     '''
     @expose('/sitemap.xml')
-    def license(self):
+    def sitemap(self):
         sitemap_xml = render_template('seo/sitemap.xml')
         response = make_response(sitemap_xml)
         response.headers["Content-Type"] = "application/xml"
