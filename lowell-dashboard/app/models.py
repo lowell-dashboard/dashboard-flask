@@ -250,7 +250,6 @@ class CustomUser(Model):
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
     id = Column(Integer, Sequence('ab_register_user_id_seq'), primary_key=True)
-    # NOTE: Missing first_name, last_name properties
     first_name = Column(String(64))
     last_name = Column(String(64))
     username = Column(String(64), unique=True, nullable=False)
@@ -269,7 +268,7 @@ class NewsPost(Model):
     time_created = Column(DateTime, default=datetime.now, nullable=False)
     news = Column(String(1024))
     made_by_message = Column(String(64))
-    # tags = Column(String(128))
+    _tag_ids = Column(String, default='')
 
     def drop_table(self, db):
         try:
@@ -278,6 +277,32 @@ class NewsPost(Model):
         except Exception as e:
             print(e)
             return False
+
+    '''
+    A getter function for the student id property
+    Args:
+        None
+    Returns:
+        list: a list of the students ids that are in the class
+    Use case:
+    print(Classes.students_ids)
+    ['421', '319']
+    '''
+    @property
+    def tag_ids(self):
+        return [float(x) for x in self._tag_ids.split(';')]
+    '''
+    A setter for the student id property
+    Args:
+        str: user id
+    Returns:
+        void: nothing
+    Use case:
+    Classes.students_ids = 421
+    '''
+    @tag_ids.setter
+    def tag_ids(self, value):
+        self._tag_ids += ';%s' % value
 
     def add_column(self, db):
         # create a new column named 'test' and has the type String length 64
