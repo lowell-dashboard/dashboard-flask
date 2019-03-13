@@ -10,6 +10,7 @@ from flask_appbuilder.validators import Unique
 
 log = getLogger(__name__)
 
+
 def get_first_last_name(fullname):
     names = fullname.split()
     if len(names) > 1:
@@ -18,6 +19,8 @@ def get_first_last_name(fullname):
         return names[0], ''
 
 # Create Registration system
+
+
 class MyRegisterUserDBView(PublicFormView):
 
     # Email html file for registration with activation
@@ -33,7 +36,8 @@ class MyRegisterUserDBView(PublicFormView):
     form_title = _('Fill out the registration form for Lowell Help Forum')
 
     # Error message if form has a problem
-    error_message = _('Not possible to register you at the moment, try again later')
+    error_message = _(
+        'Not possible to register you at the moment, try again later')
 
     # Message for succesful form
     message = _('Registration sent to your email')
@@ -42,7 +46,10 @@ class MyRegisterUserDBView(PublicFormView):
         mail = Mail(self.appbuilder.get_app)
         msg = Message()
         msg.subject = self.email_subject
-        url = url_for('.activation', _external=True, activation_hash=register_user.registration_hash)
+        url = url_for(
+            '.activation',
+            _external=True,
+            activation_hash=register_user.registration_hash)
         msg.html = self.render_template(self.email_template,
                                         url=url,
                                         username=register_user.username,)
@@ -53,9 +60,17 @@ class MyRegisterUserDBView(PublicFormView):
             return False
         return True
 
-    def add_registration(self, username, first_name, last_name, email, password=''):
-        # MARK: either provide first_name and last_name or remove it from the function
-        register_user = self.appbuilder.sm.add_register_user(username, first_name, last_name, email, password)
+    def add_registration(
+            self,
+            username,
+            first_name,
+            last_name,
+            email,
+            password=''):
+        # MARK: either provide first_name and last_name or remove it from the
+        # function
+        register_user = self.appbuilder.sm.add_register_user(
+            username, first_name, last_name, email, password)
         if register_user:
             if self.send_email(register_user):
                 flash(as_unicode(self.message), 'info')
@@ -76,30 +91,34 @@ class MyRegisterUserDBView(PublicFormView):
         if not reg:
             flash(as_unicode(self.false_error_message), 'danger')
             return redirect(self.appbuilder.get_url_for_index)
-        if not self.appbuilder.sm.add_user(username=reg.username,
-                                           email=reg.email,
-                                           first_name=reg.first_name,
-                                           last_name=reg.last_name,
-                                           role=self.appbuilder.sm.find_role(
-                                                            self.appbuilder.sm.auth_user_registration_role),
-                                           hashed_password=reg.password):
+        if not self.appbuilder.sm.add_user(
+                username=reg.username,
+                email=reg.email,
+                first_name=reg.first_name,
+                last_name=reg.last_name,
+                role=self.appbuilder.sm.find_role(
+                    self.appbuilder.sm.auth_user_registration_role),
+                hashed_password=reg.password):
             flash(as_unicode(self.error_message), 'danger')
             return redirect(self.appbuilder.get_url_for_index)
         else:
             self.appbuilder.sm.del_register_user(reg)
             return self.render_template(self.activation_template,
-                               username=reg.username,
-                               appbuilder=self.appbuilder)
+                                        username=reg.username,
+                                        appbuilder=self.appbuilder)
 
     def add_form_unique_validations(self, form):
         datamodel_user = self.appbuilder.sm.get_user_datamodel
         datamodel_register_user = self.appbuilder.sm.get_register_user_datamodel
         if len(form.username.validators) == 1:
             form.username.validators.append(Unique(datamodel_user, 'username'))
-            form.username.validators.append(Unique(datamodel_register_user, 'username'))
+            form.username.validators.append(
+                Unique(datamodel_register_user, 'username'))
         if len(form.email.validators) == 2:
             form.email.validators.append(Unique(datamodel_user, 'email'))
-            form.email.validators.append(Unique(datamodel_register_user, 'email'))
+            form.email.validators.append(
+                Unique(datamodel_register_user, 'email'))
+
 
 class Register(MyRegisterUserDBView):
 

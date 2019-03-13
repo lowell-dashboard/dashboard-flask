@@ -1,6 +1,7 @@
 # Working with datetime
 from datetime import datetime
 
+
 class NewsWork:
     def __init__(self, list, number):
         # Create empty list
@@ -16,7 +17,7 @@ class NewsWork:
         for news_posts in reversed(list):
             # count loops
             count += 1
-            if self.check_ten(count) == True:
+            if self.check_ten(count):
                 self.count_of_tens += 1
             # append data in reverse order
             news_data.append(news_posts)
@@ -48,12 +49,13 @@ class NewsWork:
         # Code to display how long ago code was created
         for times in self.list:
             loop_count += 1
-            if self.check_ten(loop_count) == True:
+            if self.check_ten(loop_count):
                 count += 1
             if count == self.count_of_tens:
                 # Get time when post was created (datetime object)
                 then = times.time_created
-                # Calculate delta time (how much time between now and when post was created)
+                # Calculate delta time (how much time between now and when post
+                # was created)
                 delta = now - then
                 # Get delta days (days from post creation)
                 delta_days = delta.days
@@ -99,7 +101,8 @@ class NewsWork:
                     if delta_seconds >= 60:
                         # Check if post was created a hour or more ago
                         if delta_seconds >= 3600:
-                            # Set number shown as delta seconds divided by 3600(seconds in hour) and made into a integer
+                            # Set number shown as delta seconds divided by
+                            # 3600(seconds in hour) and made into a integer
                             temp_time = delta_seconds // 3600
                             time_ago = int(temp_time)
                             # If over 1 hour use 'hours' else just 'hour'
@@ -109,7 +112,8 @@ class NewsWork:
                                 time_measure = 'hours'
                                 # Post was created minutes ago less than a hour
                         else:
-                            # Set number shown as delta seconds divided by 60(seconds in minute) and made into a integer
+                            # Set number shown as delta seconds divided by
+                            # 60(seconds in minute) and made into a integer
                             temp_time = delta_seconds // 60
                             time_ago = int(temp_time)
                             # If over 1 minute use 'minutes' else just 'minute'
@@ -121,7 +125,8 @@ class NewsWork:
                     else:
                         # set number shown as delta seconds
                         time_ago = delta_seconds
-                        # set time unit as seconds since the likely hood of seeing a post after just 1 second is near impossible
+                        # set time unit as seconds since the likely hood of
+                        # seeing a post after just 1 second is near impossible
                         time_measure = 'seconds'
                 # Add data to list
                 how_long_ago.append(time_ago)
@@ -142,7 +147,7 @@ class NewsWork:
             # count loops
             loop_count += 1
             # loop looped multiple of 10
-            if self.check_ten(loop_count) == True:
+            if self.check_ten(loop_count):
                 # change data output to diffent page
                 count += 1
             if count == self.count_of_tens:

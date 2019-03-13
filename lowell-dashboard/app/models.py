@@ -20,6 +20,8 @@ _dont_audit = False
 _mt = MetaData()
 
 # Custom Permission db class for possible future permissions
+
+
 class CustomPermission(Model):
     __tablename__ = 'ab_permission'
     id = Column(Integer, Sequence('ab_permission_id_seq'), primary_key=True)
@@ -29,13 +31,19 @@ class CustomPermission(Model):
         return self.name
 
 # Custom View Menu for future customizations
+
+
 class CustomViewMenu(Model):
     __tablename__ = 'ab_view_menu'
     id = Column(Integer, Sequence('ab_view_menu_id_seq'), primary_key=True)
     name = Column(String(100), unique=True, nullable=False)
 
     def __eq__(self, other):
-        return (isinstance(other, self.__class__)) and (self.name == other.name)
+        return (
+            isinstance(
+                other,
+                self.__class__)) and (
+            self.name == other.name)
 
     def __neq__(self, other):
         return self.name != other.name
@@ -44,46 +52,59 @@ class CustomViewMenu(Model):
         return self.name
 
 # Custom Permission View for future customizations
+
+
 class CustomPermissionView(Model):
     __tablename__ = 'ab_permission_view'
     __table_args__ = (UniqueConstraint('permission_id', 'view_menu_id'),)
-    id = Column(Integer, Sequence('ab_permission_view_id_seq'), primary_key=True)
+    id = Column(
+        Integer,
+        Sequence('ab_permission_view_id_seq'),
+        primary_key=True)
     permission_id = Column(Integer, ForeignKey('ab_permission.id'))
     permission = relationship("CustomPermission")
     view_menu_id = Column(Integer, ForeignKey('ab_view_menu.id'))
     view_menu = relationship("CustomViewMenu")
 
     def __repr__(self):
-        return str(self.permission).replace('_', ' ') + ' on ' + str(self.view_menu)
+        return str(self.permission).replace(
+            '_', ' ') + ' on ' + str(self.view_menu)
 
 
-assoc_permissionview_role = Table('ab_permission_view_role', Model.metadata,
-                                  Column('id', Integer, Sequence('ab_permission_view_role_id_seq'), primary_key=True),
-                                  Column('permission_view_id', Integer, ForeignKey('ab_permission_view.id')),
-                                  Column('role_id', Integer, ForeignKey('ab_role.id')),
-                                  UniqueConstraint('permission_view_id', 'role_id')
-)
+assoc_permissionview_role = Table(
+    'ab_permission_view_role', Model.metadata, Column(
+        'id', Integer, Sequence('ab_permission_view_role_id_seq'), primary_key=True), Column(
+            'permission_view_id', Integer, ForeignKey('ab_permission_view.id')), Column(
+                'role_id', Integer, ForeignKey('ab_role.id')), UniqueConstraint(
+                    'permission_view_id', 'role_id'))
 
 # Custom Role model for future customizations
+
+
 class CustomRole(Model):
     __tablename__ = 'ab_role'
 
     id = Column(Integer, Sequence('ab_role_id_seq'), primary_key=True)
     name = Column(String(64), unique=True, nullable=False)
-    permissions = relationship('CustomPermissionView', secondary=assoc_permissionview_role, backref='role')
+    permissions = relationship(
+        'CustomPermissionView',
+        secondary=assoc_permissionview_role,
+        backref='role')
 
     def __repr__(self):
         return self.name
 
 
-assoc_user_role = Table('ab_user_role', Model.metadata,
-                                  Column('id', Integer, Sequence('ab_user_role_id_seq'), primary_key=True),
-                                  Column('user_id', Integer, ForeignKey('ab_user.id')),
-                                  Column('role_id', Integer, ForeignKey('ab_role.id')),
-                                  UniqueConstraint('user_id', 'role_id')
-)
+assoc_user_role = Table(
+    'ab_user_role', Model.metadata, Column(
+        'id', Integer, Sequence('ab_user_role_id_seq'), primary_key=True), Column(
+            'user_id', Integer, ForeignKey('ab_user.id')), Column(
+                'role_id', Integer, ForeignKey('ab_role.id')), UniqueConstraint(
+                    'user_id', 'role_id'))
 
 # Custom User for changing possible user data
+
+
 class CustomUser(Model):
     __tablename__ = 'ab_user'
     id = Column(Integer, Sequence('ab_user_id_seq'), primary_key=True)
@@ -97,7 +118,10 @@ class CustomUser(Model):
     last_login = Column(DateTime)
     login_count = Column(Integer)
     fail_login_count = Column(Integer)
-    roles = relationship('CustomRole', secondary=assoc_user_role, backref='user')
+    roles = relationship(
+        'CustomRole',
+        secondary=assoc_user_role,
+        backref='user')
     created_on = Column(DateTime, default=datetime.now, nullable=True)
     changed_on = Column(DateTime, default=datetime.now, nullable=True)
     _class_ids = Column(String, default='')
@@ -112,10 +136,22 @@ class CustomUser(Model):
         return Column(Integer, ForeignKey('ab_user.id'),
                       default=self.get_user_id, nullable=True)
 
-    created_by = relationship("CustomUser", backref=backref("created", uselist=True),
-                              remote_side=[id], primaryjoin='CustomUser.created_by_fk == CustomUser.id', uselist=False)
-    changed_by = relationship("CustomUser", backref=backref("changed", uselist=True),
-                              remote_side=[id], primaryjoin='CustomUser.changed_by_fk == CustomUser.id', uselist=False)
+    created_by = relationship(
+        "CustomUser",
+        backref=backref(
+            "created",
+            uselist=True),
+        remote_side=[id],
+        primaryjoin='CustomUser.created_by_fk == CustomUser.id',
+        uselist=False)
+    changed_by = relationship(
+        "CustomUser",
+        backref=backref(
+            "changed",
+            uselist=True),
+        remote_side=[id],
+        primaryjoin='CustomUser.changed_by_fk == CustomUser.id',
+        uselist=False)
 
     @classmethod
     def get_user_id(cls):
@@ -166,7 +202,8 @@ class CustomUser(Model):
         return [int(x) for x in self._class_ids.split(';') if x is not '']
 
     def add_column(db):
-        # create a new column named 'col' and has the type String length 64 characters
+        # create a new column named 'col' and has the type String length 64
+        # characters
         _class_ids = Column('_class_ids', String)
         # save the test column into a variable column
         column = _class_ids
@@ -180,8 +217,11 @@ class CustomUser(Model):
         column_type = column.type.compile(conn.dialect)
         try:
             # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
-            # Using the sql 'ALTER' command to add a new column to the model in the db
-            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            # Using the sql 'ALTER' command to add a new column to the model in
+            # the db
+            conn.execute(
+                'ALTER TABLE %s ADD COLUMN %s %s' %
+                (table_name, column_name, column_type))
             return True
             # log.info("Added Column {0} on {1}".format(column_name, table_name))
         except Exception as e:
@@ -198,13 +238,15 @@ class CustomUser(Model):
     '''
     @class_ids.setter
     def class_ids(self, value):
-        if type(value) is list:
+        if isinstance(value, list):
             for v in value:
                 print(self._class_ids)
                 self._class_ids += ';%s' % v
             return
         self._class_ids += ';%s' % value
 # Custom Register User for changing possible user data
+
+
 class CustomRegisterUser(Model):
     __tablename__ = 'ab_register_user'
     id = Column(Integer, Sequence('ab_register_user_id_seq'), primary_key=True)
@@ -216,6 +258,7 @@ class CustomRegisterUser(Model):
     email = Column(String(64), nullable=False)
     registration_date = Column(DateTime, default=datetime.now, nullable=True)
     registration_hash = Column(String(256))
+
 
 # News model for Saving news post data
 class NewsPost(Model):
@@ -237,7 +280,8 @@ class NewsPost(Model):
             return False
 
     def add_column(self, db):
-        # create a new column named 'test' and has the type String length 64 characters
+        # create a new column named 'test' and has the type String length 64
+        # characters
         test = Column('made_by_message', String(64))
         # save the test column into a variable column
         column = test
@@ -251,8 +295,11 @@ class NewsPost(Model):
         column_type = column.type.compile(conn.dialect)
         try:
             # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
-            # Using the sql 'ALTER' command to add a new column to the model in the db
-            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            # Using the sql 'ALTER' command to add a new column to the model in
+            # the db
+            conn.execute(
+                'ALTER TABLE %s ADD COLUMN %s %s' %
+                (table_name, column_name, column_type))
             return True
             # log.info("Added Column {0} on {1}".format(column_name, table_name))
         except Exception as e:
@@ -261,6 +308,8 @@ class NewsPost(Model):
             # log.error("Error adding Column {0} on {1}: {2}".format(column_name, table_name, str(e)))
 
 # Class model for Saving Classes data
+
+
 class Classes(Model):
     __tablename__ = 'all_classes'
     id = Column(Integer, primary_key=True)
@@ -302,7 +351,8 @@ class Classes(Model):
         self._students_ids += ';%s' % value
 
     def add_column(db):
-        # create a new column named 'col' and has the type String length 64 characters
+        # create a new column named 'col' and has the type String length 64
+        # characters
         _students_ids = Column('_students_ids', String)
         # save the test column into a variable column
         column = _students_ids
@@ -316,8 +366,11 @@ class Classes(Model):
         column_type = column.type.compile(conn.dialect)
         try:
             # log.info("Going to alter Column {0} on {1}".format(column_name, table_name))
-            # Using the sql 'ALTER' command to add a new column to the model in the db
-            conn.execute('ALTER TABLE %s ADD COLUMN %s %s' % (table_name, column_name, column_type))
+            # Using the sql 'ALTER' command to add a new column to the model in
+            # the db
+            conn.execute(
+                'ALTER TABLE %s ADD COLUMN %s %s' %
+                (table_name, column_name, column_type))
             return True
             # log.info("Added Column {0} on {1}".format(column_name, table_name))
         except Exception as e:
