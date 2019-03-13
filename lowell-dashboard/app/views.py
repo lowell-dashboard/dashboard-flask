@@ -16,7 +16,8 @@ from flask_appbuilder.models.sqla.interface import SQLAInterface
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.py', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
+    return render_template(
+        '404.py', base_template=appbuilder.base_template, appbuilder=appbuilder), 404
 
 # 500 error handeler to render 500.html html file
 @appbuilder.app.errorhandler(500)
@@ -24,6 +25,8 @@ def page_not_found(e):
     return render_template('500.py')
 
 # Views for Lowellresources
+
+
 class LowellResources(BaseView):
 
     # Top choice for drop down menu
@@ -44,11 +47,15 @@ class LowellResources(BaseView):
         news_db_data = db.session.query(NewsPost).order_by(NewsPost.id).all()
         # Start news sort
         news_work_instance = NewsWork(news_db_data, number)
-        if news_work_instance.check() == True:
+        if news_work_instance.check():
 
             news_list, timestamps, time_unit = news_work_instance.get_news()
 
-            return self.render_template('news.py', news=news_list, timestamps=timestamps, timeunit=time_unit)
+            return self.render_template(
+                'news.py',
+                news=news_list,
+                timestamps=timestamps,
+                timeunit=time_unit)
         return redirect('/back')
 
     '''
@@ -75,12 +82,16 @@ class LowellResources(BaseView):
         # print(wkmonth.get_week_events())
         if type == 'day':
             pass
-        return self.render_template('schedules.py', schedule_data=schedule_data)
+        return self.render_template(
+            'schedules.py', schedule_data=schedule_data)
+
 
 # Create paths
 appbuilder.add_view_no_menu(LowellResources())
 
 # Views for Site files
+
+
 class LowellFiles(BaseView):
 
     # Add route base as root "/files"
@@ -110,10 +121,13 @@ class LowellFiles(BaseView):
     def privacy(self):
         return self.render_template('privacy.py')
 
+
 # Create paths
 appbuilder.add_view_no_menu(LowellFiles())
 
 # Views for any home paths
+
+
 class HomeView(BaseView):
 
     # add route base for views as /home
@@ -129,10 +143,13 @@ class HomeView(BaseView):
     def general(self):
         return self.render_template('my_index.py')
 
+
 # Add paths
 appbuilder.add_view_no_menu(HomeView())
 
 # Views for SEO Site files
+
+
 class SEOfiles(BaseView):
 
     # Add route base as root "/"
@@ -158,10 +175,13 @@ class SEOfiles(BaseView):
         response.headers["Content-Type"] = "application/xml"
         return response
 
+
 # Create paths
 appbuilder.add_view_no_menu(SEOfiles())
 
 # Views for SEO Site files
+
+
 class UserInfo(BaseView):
 
     # Add route base as root "/"
@@ -188,10 +208,13 @@ class UserInfo(BaseView):
         print(user_classes)
         return self.render_template('profile.py', user=user)
 
+
 # Create paths
 appbuilder.add_view_no_menu(UserInfo())
 
 # Views for SEO Site files
+
+
 class NeededRedirects(BaseView):
 
     # Add route base as root "/"
@@ -212,6 +235,7 @@ class NeededRedirects(BaseView):
     def schedule_redirect(self):
         return redirect('/schedule/day')
 
+
 # Create paths
 appbuilder.add_view_no_menu(NeededRedirects())
 
@@ -220,6 +244,8 @@ Form Views
 '''
 
 # Bugreport view
+
+
 class BugReport(PublicFormView):
 
     # declare form
@@ -245,16 +271,16 @@ class BugReport(PublicFormView):
 
         # Create json for slack message
         slack_data = {
-            'text': 'Bug Report from: ' + str(name) + '\nUsername: ' + str(g.user) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
+            'text': 'Bug Report from: ' + str(name) + '\nUsername: ' + str(
+                g.user) + '\nUser\'s Email: ' + str(email) + '\nThe Report: ' + str(bug_text),
             'username': 'LHF Bug Reporter',
-            'icon_emoji': ':robot_face:'
-        }
+            'icon_emoji': ':robot_face:'}
 
         # Send post request and get status code
         response = post(SLACK,
                         data=dumps(slack_data),
                         headers={'Content-Type': 'application/json'}
-                       )
+                        )
 
         # If sent properly success message and error message if not sent
         if response.status_code != 200:
@@ -262,10 +288,13 @@ class BugReport(PublicFormView):
         else:
             flash(self.message_success, 'info')
 
+
 # Add form path
 appbuilder.add_view_no_menu(BugReport())
 
 # CreateNews view
+
+
 class News(SimpleFormView):
 
     # declare form
@@ -294,19 +323,21 @@ class News(SimpleFormView):
         model.made_by_message = 'Created by '
         # needed for saving tags as a list in db
         # model.tags = dumps([list])
-        # NOTE: for some reason this line must remain outside of the try or else the code won't work
+        # NOTE: for some reason this line must remain outside of the try or
+        # else the code won't work
         db.session.add(model)
         # Add the model to the database
         try:
             db.session.commit()
             flash(self.message_success, 'info')
-        except:
+        except BaseException:
             # flash error
             flash(self.message_fail, 'error')
         # NOTE: comment once deleted table
         # success = model.add_column(db)
         # flash(success, 'info')
         return redirect('/news')
+
 
 # Add form path
 appbuilder.add_view_no_menu(News())

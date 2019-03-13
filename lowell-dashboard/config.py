@@ -15,18 +15,18 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 # Flask-WTF flag for CSRF
 CSRF_ENABLED = True
 
-#------------------------------
+# ------------------------------
 # GLOBALS FOR APP Builder
-#------------------------------
+# ------------------------------
 # Uncomment to setup Your App name
-APP_NAME = 'Lowell Help Forum'
+APP_NAME = 'Lowell Dashboard'
 
 # Uncomment to setup Setup an App icon
 #APP_ICON = "static/img/logo.jpg"
 
-#----------------------------------------------------
+# ----------------------------------------------------
 # AUTHENTICATION CONFIG
-#----------------------------------------------------
+# ----------------------------------------------------
 # The authentication type
 # AUTH_OID : Is for OpenID
 # AUTH_DB : Is for database (username/password()
@@ -50,7 +50,7 @@ AUTH_USER_REGISTRATION_ROLE = 'Public'
 #AUTH_LDAP_SERVER = "ldap://ldapserver.new"
 
 # Uncomment to setup OpenID providers example for OpenID authentication
-#OPENID_PROVIDERS = [
+# OPENID_PROVIDERS = [
 #    { 'name': 'Yahoo', 'url': 'https://me.yahoo.com' },
 #    { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
 #    { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
@@ -76,9 +76,9 @@ LANGUAGES = {
 }
 '''
 
-#---------------------------------------------------
+# ---------------------------------------------------
 # Image and file configuration
-#---------------------------------------------------
+# ---------------------------------------------------
 # The file upload folder, when using models with files
 UPLOAD_FOLDER = basedir + '/app/static/uploads/'
 
@@ -93,7 +93,7 @@ IMG_UPLOAD_URL = '/static/uploads/'
 # Theme configuration
 # these are located on static/appbuilder/css/themes
 # you can create your own and easily use them placing them on the same dir structure to override
-#APP_THEME = "bootstrap-theme.css"  # default bootstrap
+# APP_THEME = "bootstrap-theme.css"  # default bootstrap
 #APP_THEME = "cerulean.css"
 #APP_THEME = "amelia.css"
 #APP_THEME = "cosmo.css"
