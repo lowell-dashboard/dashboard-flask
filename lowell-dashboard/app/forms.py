@@ -5,7 +5,7 @@ from flask_babel import lazy_gettext as _
 # Import Form validators for forms
 from wtforms.validators import DataRequired, EqualTo, Email, Length
 # Import wtform recaptcha for registration and protect against bot posting
-from flask_wtf.recaptcha import RecaptchaField
+#from flask_wtf.recaptcha import RecaptchaField
 # Import Flask App Builder Form helper class
 from flask_appbuilder.forms import DynamicForm
 # Import Flask app builder Widgets
@@ -69,7 +69,7 @@ class CustomRegistration(DynamicForm):
         widget=BS3PasswordFieldWidget())
 
     # Recaptcha for fighting bots, required
-    recaptcha = RecaptchaField()
+    #recaptcha = RecaptchaField()
 
 # Creating news for Site
 
@@ -107,4 +107,4 @@ class CreateNews(DynamicForm):
             DataRequired()])
 
     # Recaptcha for fighting bots, required
-    recaptcha = RecaptchaField()
+    #recaptcha = RecaptchaField()
