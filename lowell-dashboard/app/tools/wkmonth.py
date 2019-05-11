@@ -4,7 +4,7 @@ import os
 import json
 from calendar import monthrange
 
-class ScheduleService:
+class ScheduleService(object):
 
     def __init__(self):
         self.dt = datetime.datetime.now()
@@ -49,7 +49,8 @@ class ScheduleService:
         week_data = self.find_week()
         if len(week_data) == 0:
             return "00000"
-        # print(week_data['dates'])
+        print(week_data['codes'])
+        print(week_data['dates'])
         return week_data['codes']
 
     def get_schedule_times(self, codes):
