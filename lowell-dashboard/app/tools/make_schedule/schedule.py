@@ -37,7 +37,7 @@ def main():
     if not values:
         print('No data found.')
     else:
-        print('Name, Major:')
+        # print('Name, Major:')
         MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         MONTHS = [month.upper() for month in MONTHS]
         schedule = {}
@@ -54,18 +54,19 @@ def main():
             for d in range(5):
                 dates.append(row[d])
             events = row[5]
-            print(dates)
+            # print(dates)
             week = {}
             week['dates'] = dates
             week['codes'] = g_row
             week['events'] = events
-            print(week['dates'], week['codes'], week['events'])
+            # print(week['dates'], week['codes'], week['events'])
             schedule[current_month].append(week)
             # Print columns A and E, which correspond to indices 0 and 4.
             # print('%s' % (g_row,))
-        print(schedule)
+        # print(schedule)
         with open(f'{path}/../result.json', 'w') as f:
             json.dump(schedule, f, indent=4, sort_keys=True)
+        print('We have updated the schedule data')
 
 # if __name__ == '__main__':
 #     main()

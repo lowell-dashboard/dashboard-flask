@@ -9,7 +9,7 @@
                 "4",
                 "5"
             ],
-            "events": "6: Junior Prom (7p-11p Off-Site)"
+            "events": "5:Talent Show; 6: Junior Prom (7p-11p)"
         },
         {
             "codes": "NTTTN",
@@ -20,7 +20,7 @@
                 "11",
                 "12"
             ],
-            "events": "9-11: SBAC Testing; 12: Orchestra Concert (7p); 13: Senior Prom (7p-11p Off-Site)"
+            "events": "9-11: SBAC Testing; 9: College Readiness PTSA; 12: Orchestra Concert (7p); 13: Senior Prom (7p-11p)"
         },
         {
             "codes": "NTTTN",
@@ -31,7 +31,7 @@
                 "18",
                 "19"
             ],
-            "events": "16-18: SBAC Testing; 19-20: Dance Concerts (7:30p); 19-27: Passover; 19: End of Grading Cycle; \n20: Beautification Day (9a-3p)"
+            "events": "16-18: SBAC Testing; 19-20: Dance Concerts (7:30p); 19-27: Passover; 19: End of Grading Cycle; \n20: Beautification Day (8:30a-12:30p)"
         },
         {
             "codes": "MNNNN",
@@ -42,7 +42,7 @@
                 "25",
                 "26"
             ],
-            "events": "24:Secretary Appreciation Day; 24:Grades Due; 26:Band Concert (7p); 27-May 5:SFUSD Arts Fest"
+            "events": "24: Secretary Appreciation Day; 24: Grades Due; 26: Band Concert (7p); 27-May 5: SFUSD Arts Fest"
         }
     ],
     "AUGUST": [
@@ -169,7 +169,7 @@
                 "14",
                 "15"
             ],
-            "events": "14: Valentine's Day Rally (Block 6)"
+            "events": "14: Valentine's Day Rally (Block 6); 15: BSU Assembly (Blocks 3 & 5)"
         },
         {
             "codes": "HNNNN",
@@ -180,7 +180,7 @@
                 "21",
                 "22"
             ],
-            "events": "18: Presidents' Day Holiday (No School); 22: Spring Festival Co-Curricular (Blocks 3-7); 22: Junior Escape (6:30p-9p); 22:End of Grading Cycle"
+            "events": "18: Presidents' Day Holiday (No School); 22: Spring Festival Co-Curricular (Blocks 3-7); 22:End of Grading Cycle"
         },
         {
             "codes": "MNNNN",
@@ -191,7 +191,7 @@
                 "28",
                 "1"
             ],
-            "events": "27: Grades Due; "
+            "events": "27: Grades Due; 1: Junior Escape Jumphouse Carnival (4p-6p)"
         }
     ],
     "JANUARY": [
@@ -248,7 +248,7 @@
                 "31",
                 "1"
             ],
-            "events": "1-2: All-City Music Festival (Tentative)"
+            "events": "1-2: All-City Music Festival"
         }
     ],
     "JULY": [
@@ -299,7 +299,7 @@
     ],
     "JUNE": [
         {
-            "codes": "ME",
+            "codes": "TE",
             "dates": [
                 "3",
                 "4",
@@ -307,7 +307,7 @@
                 "6",
                 "7"
             ],
-            "events": "Graduation Rehearsal (TBD); 3: Make-Up Finals; 3: Graduation (TBD in December); 3: Rooftop K-8 Graduation (Aud); 4: End of Grading Cycle; 4: Last Day of School Year (Early Release Day)"
+            "events": "3: Graduation Rehearsal @ Bill Graham Civic Aud. (8a-11a); 4: Graduation @ Bill Graham Civic Aud. (5p-8p); 4: End of Grading Cycle; 4: Last Day of School Year (Early Release Day)"
         }
     ],
     "MARCH": [
@@ -320,7 +320,7 @@
                 "7",
                 "8"
             ],
-            "events": "4-8: Spirit Week (Class Colors); 8: Spring Rally"
+            "events": "4-8: Spirit Week (Class Colors); 4: Student for a Day; 8: Spring Rally"
         },
         {
             "codes": "MNNNN",
@@ -331,7 +331,7 @@
                 "14",
                 "15"
             ],
-            "events": "12: Special Olympics; Alumni of Color Panel (Peer Resources) 14-16: Spring Musical (7:30p); 17: Spring Musical (2p)"
+            "events": "12: Special Olympics; 13: Alumni of Color Panel (Peer Resources); 14-16: Spring Musical (7:30p); 17: Spring Musical (2p)"
         },
         {
             "codes": "MNNNN",
@@ -342,7 +342,7 @@
                 "21",
                 "22"
             ],
-            "events": "22-23: Ohlone Theatre Fest (Off-Site); 22: Talent Show; 22: GlobeFest"
+            "events": "22: GlobeFest"
         },
         {
             "codes": "HHHHH",
@@ -366,10 +366,10 @@
                 "2",
                 "3"
             ],
-            "events": "2:SFUSD Arts Fest Celebration (5p-8p); 3:Choir Concert (7p)"
+            "events": "2: SFUSD Arts Fest Celebration (5p-8p); 3: Choir Concert (7p)"
         },
         {
-            "codes": "NTTTN",
+            "codes": "NNNNN",
             "dates": [
                 "6",
                 "7",
@@ -377,10 +377,10 @@
                 "9",
                 "10"
             ],
-            "events": "6-10: AP Exams; Teacher Appreciation Week; 9:Special Olympics"
+            "events": "6-10: AP Exams; Teacher Appreciation Week; 9: Special Olympics"
         },
         {
-            "codes": "NTTTN",
+            "codes": "NNNNN",
             "dates": [
                 "13",
                 "14",
@@ -399,10 +399,10 @@
                 "23",
                 "24"
             ],
-            "events": "20-24: AP Make Up Exams; 24: Multicultural Night (Tentative)"
+            "events": "20-24: AP Make Up Exams; 22: Senior Grades Due to Jennie 12 PM; 24: Multicultural Night"
         },
         {
-            "codes": "HTTTT",
+            "codes": "HNTTT",
             "dates": [
                 "27",
                 "28",
@@ -410,7 +410,7 @@
                 "30",
                 "31"
             ],
-            "events": "27: Memorial Day (No School); 28-31: Finals; Senior Picnic (TBD); Graduation Rehearsal (TBD)"
+            "events": "27: Memorial Day (No School); 29-June 3:Finals; 30:Senior Awares (6pm); 31: Graduation Rehearsal @ Lowell HS. (10:15a-1p)"
         }
     ],
     "NOVEMBER": [
@@ -445,7 +445,7 @@
                 "15",
                 "16"
             ],
-            "events": "12: Veterans' Day Holiday (No School); 15: Grades Due; 16: Fall Festival Co-Curricular (Blocks 3-7)Cancelled. Will be rescheduled for later in the semester.16: Band Concert (7p)"
+            "events": "12: Veterans' Day Holiday (No School); 15: Grades Due;.16: Band Concert (7p)"
         },
         {
             "codes": "HHHHH",

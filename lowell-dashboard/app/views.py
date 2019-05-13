@@ -7,11 +7,12 @@ from secret import SLACK
 from .forms import bugreportform, CreateNews
 from requests import post
 from app.tools import retrieve_schedule
-from app.tools import wkmonth
+from app.tools.wkmonth import ScheduleService
 from app.models import NewsPost, CustomUser, Classes
 from flask_babel import lazy_gettext as _
 from flask_appbuilder import ModelView, AppBuilder, BaseView, expose, has_access, SimpleFormView, PublicFormView
 from flask_appbuilder.models.sqla.interface import SQLAInterface
+from threading import Thread
 
 # 404 error handeler to render 404.html jijna2 template
 @appbuilder.app.errorhandler(404)
@@ -76,10 +77,19 @@ class LowellResources(BaseView):
     def schedules(self, type):
         # uncomment if you need to update the schedule json
         # retrieve_schedule.update_schedule()
-        codes = wkmonth.week_of_month()
+
+        schedule_service = ScheduleService()
+
+        # threading code
+        thread = Thread(target=retrieve_schedule.update_schedule, args=())
+        thread.daemon = True # Daemonize thread
+        thread.start() # Start the execution
+
+        # retrieve the schedule codes from the json file
+        codes = schedule_service.week_of_month()
         # print(codes)
-        schedule_data = wkmonth.get_schedule_times(codes)
-        # print(wkmonth.get_week_events())
+        schedule_data = schedule_service.get_schedule_times(codes)
+        print(schedule_service.get_week_events())
         if type == 'day':
             pass
         return self.render_template(
